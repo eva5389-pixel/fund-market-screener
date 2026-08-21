@@ -1,0 +1,50 @@
+{
+  "risk_free_rate": 0.015,
+  "data_sources": {
+    "fund_catalog_and_performance": "https://www.fundrich.com.tw/fundCenter/fundOverview/fundComparison",
+    "fundrich_provider": "Morningstar",
+    "market_prices": "Twelve Data with Apify/Yahoo Finance fallback",
+    "policy": "FundRich public pages are used for candidate verification and published performance only; automated historical calculations require a licensed/API source."
+  },
+  "categories": [
+    {"id": "taiwan", "name": "台灣", "benchmark_symbol": "EWT"},
+    {"id": "japan", "name": "日本", "benchmark_symbol": "EWJ"},
+    {"id": "korea", "name": "韓國", "benchmark_symbol": "EWY"},
+    {"id": "hong_kong", "name": "香港", "benchmark_symbol": "EWH"},
+    {"id": "china", "name": "中國", "benchmark_symbol": "MCHI"},
+    {"id": "usa", "name": "美國", "benchmark_symbol": "SPY"},
+    {"id": "semiconductor", "name": "半導體", "benchmark_symbol": "SOXX"},
+    {"id": "optical", "name": "光通訊", "benchmark_symbol": "IYZ"},
+    {"id": "quantum", "name": "量子電腦", "benchmark_symbol": "QTUM"},
+    {"id": "robotics", "name": "機器人", "benchmark_symbol": "BOTZ"},
+    {"id": "finance", "name": "金融", "benchmark_symbol": "XLF"},
+    {"id": "healthcare", "name": "醫療", "benchmark_symbol": "XLV"}
+  ],
+  "funds": [
+    {"category": "japan", "moneydj_id": "IOFA8-2824", "name": "瀚亞投資-日本動力股票基金", "twelve_data_symbol": "", "seed_return_1y": 0.6358},
+    {"category": "japan", "moneydj_id": "ANZH4-1327", "name": "安本日本永續股票基金", "twelve_data_symbol": "", "seed_return_1y": 0.5101},
+    {"category": "japan", "moneydj_id": "FLFE9-4448", "name": "法巴日本小型股票基金", "twelve_data_symbol": "", "seed_return_1y": 0.4956},
+    {"category": "japan", "moneydj_id": "PAZ11-4402", "name": "法巴日本股票基金", "twelve_data_symbol": "", "seed_return_1y": 0.4555},
+    {"category": "japan", "moneydj_id": "PYZL2-15D4", "name": "施羅德日本優勢基金", "twelve_data_symbol": "", "seed_return_1y": 0.4374},
+    {"category": "japan", "moneydj_id": "CTZR2-0178", "name": "景順日本股票優勢基金", "twelve_data_symbol": "", "seed_return_1y": 0.4138},
+    {"category": "japan", "moneydj_id": "LIC39-4708", "name": "利安日本增長基金", "twelve_data_symbol": "", "seed_return_1y": 0.4051},
+    {"category": "japan", "moneydj_id": "ANZH3-1326", "name": "安本日本小型公司永續股票基金", "twelve_data_symbol": "", "seed_return_1y": 0.3958},
+    {"category": "japan", "moneydj_id": "FTZA66-05G5", "name": "富達日本價值基金", "twelve_data_symbol": "", "seed_return_1y": 0.3831},
+    {"category": "japan", "moneydj_id": "MMG07-2907", "name": "M&G日本基金", "twelve_data_symbol": "", "seed_return_1y": 0.3589}
+    ,{"category": "taiwan", "moneydj_id": "ACCB01-9610", "name": "合庫台灣基金-A不配息(台幣)", "twelve_data_symbol": ""}
+    ,{"category": "taiwan", "moneydj_id": "AC0001", "name": "野村鴻運基金", "twelve_data_symbol": ""}
+    ,{"category": "china", "moneydj_id": "ACJF132-8434", "name": "摩根中國雙息平衡基金-月配型(台幣)", "twelve_data_symbol": ""}
+    ,{"category": "healthcare", "moneydj_id": "ACFT73-9209", "name": "富蘭克林華美全球醫療保健基金(台幣)", "twelve_data_symbol": ""}
+    ,{"category": "quantum", "moneydj_id": "ACDD04-8602", "name": "安聯台灣科技基金", "distribution": "否", "twelve_data_symbol": ""}
+    ,{"category": "quantum", "moneydj_id": "ACTR37", "name": "國泰臺韓科技基金", "distribution": "是（半年配）", "twelve_data_symbol": ""}
+    ,{"category": "quantum", "moneydj_id": "AC0052", "name": "富邦台灣科技指數基金(本基金之配息來源可能為收益平準金)", "distribution": "是", "twelve_data_symbol": ""}
+    ,{"category": "quantum", "moneydj_id": "AC0053", "name": "元大台灣電子科技基金", "distribution": "否", "twelve_data_symbol": ""}
+    ,{"category": "optical", "moneydj_id": "ACCH03-9002", "name": "街口中小型基金", "distribution": "否", "twelve_data_symbol": ""}
+    ,{"category": "optical", "moneydj_id": "AC0017-6206", "name": "元大二○○一基金", "distribution": "否", "twelve_data_symbol": ""}
+    ,{"category": "optical", "moneydj_id": "ACNC16-7905", "name": "第一金電子基金", "distribution": "否", "twelve_data_symbol": ""}
+    ,{"category": "optical", "moneydj_id": "ACCT01-5905", "name": "富邦台灣心基金", "distribution": "否", "twelve_data_symbol": ""}
+    ,{"category": "robotics", "moneydj_id": "ACTT63", "name": "台新SG全球AI機器人精選ETF基金", "distribution": "否", "twelve_data_symbol": ""}
+    ,{"category": "robotics", "moneydj_id": "ACTR36", "name": "國泰納斯達克全球人工智慧及機器人基金", "distribution": "否", "twelve_data_symbol": ""}
+    ,{"category": "robotics", "moneydj_id": "ACNC89", "name": "第一金全球AI機器人及自動化產業基金N類型(美元)", "distribution": "否", "twelve_data_symbol": ""}
+  ]
+}

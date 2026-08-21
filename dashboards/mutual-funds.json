@@ -1,0 +1,1691 @@
+{
+  "annotations": {
+    "list": []
+  },
+  "editable": true,
+  "fiscalYearStartMonth": 0,
+  "graphTooltip": 1,
+  "links": [],
+  "panels": [
+    {
+      "id": 1,
+      "type": "text",
+      "title": "全球共同基金策略平台",
+      "gridPos": {
+        "x": 0,
+        "y": 0,
+        "w": 24,
+        "h": 5
+      },
+      "options": {
+        "mode": "markdown",
+        "content": "# 全球共同基金策略平台\n每日 20:00 更新資料；月底 20:00 固定排名快照。\n\n評分依據：一年報酬、Benchmark 超額報酬、六個月動能、夏普指數、最大回撤。訊號僅供研究參考，不構成投資建議。"
+      }
+    },
+    {
+      "id": 2,
+      "title": "台灣｜基金 Top 10",
+      "type": "table",
+      "gridPos": {
+        "x": 0,
+        "y": 5,
+        "w": 12,
+        "h": 9
+      },
+      "datasource": {
+        "type": "yesoreyeram-infinity-datasource",
+        "uid": "${datasource}"
+      },
+      "targets": [
+        {
+          "refId": "A",
+          "type": "csv",
+          "source": "inline",
+          "data": "rank,category_name,name,moneydj_id,twelve_data_symbol,benchmark,return_1y,benchmark_return_1y,excess_return_1y,momentum_6m,sharpe,max_drawdown,recovery_days,score,signal,status\n1,台灣,合庫台灣基金-A不配息(台幣),ACCB01-9610,,EWT,,,,,,,,,待資料,待填Morningstar或市場代碼\n2,台灣,野村鴻運基金,AC0001,,EWT,,,,,,,,,待資料,待填Morningstar或市場代碼\n",
+          "format": "table",
+          "parser": "backend"
+        }
+      ],
+      "transformations": [
+        {
+          "id": "organize",
+          "options": {
+            "indexByName": {
+              "rank": 0,
+              "name": 1,
+              "return_1y": 2,
+              "benchmark": 3,
+              "excess_return_1y": 4,
+              "momentum_6m": 5,
+              "sharpe": 6,
+              "max_drawdown": 7,
+              "recovery_days": 8,
+              "score": 9,
+              "signal": 10,
+              "status": 11
+            },
+            "excludeByName": {
+              "category_name": true,
+              "moneydj_id": true,
+              "twelve_data_symbol": true,
+              "benchmark_return_1y": true
+            },
+            "renameByName": {
+              "rank": "排名",
+              "name": "基金",
+              "return_1y": "一年報酬%",
+              "benchmark": "Benchmark",
+              "excess_return_1y": "超額報酬%",
+              "momentum_6m": "六個月動能%",
+              "sharpe": "夏普",
+              "max_drawdown": "最大回撤%",
+              "recovery_days": "恢復天數",
+              "score": "綜合評分",
+              "signal": "訊號",
+              "status": "資料狀態"
+            }
+          }
+        }
+      ],
+      "fieldConfig": {
+        "defaults": {
+          "custom": {
+            "align": "auto",
+            "cellOptions": {
+              "type": "auto"
+            }
+          }
+        },
+        "overrides": [
+          {
+            "matcher": {
+              "id": "byName",
+              "options": "signal"
+            },
+            "properties": [
+              {
+                "id": "custom.cellOptions",
+                "value": {
+                  "type": "color-text"
+                }
+              },
+              {
+                "id": "mappings",
+                "value": [
+                  {
+                    "type": "value",
+                    "options": {
+                      "買進": {
+                        "color": "green",
+                        "text": "買進"
+                      },
+                      "觀察": {
+                        "color": "yellow",
+                        "text": "觀察"
+                      },
+                      "賣出": {
+                        "color": "red",
+                        "text": "賣出"
+                      },
+                      "待資料": {
+                        "color": "gray",
+                        "text": "待資料"
+                      }
+                    }
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "matcher": {
+              "id": "byName",
+              "options": "status"
+            },
+            "properties": [
+              {
+                "id": "custom.width",
+                "value": 150
+              }
+            ]
+          },
+          {
+            "matcher": {
+              "id": "byName",
+              "options": "name"
+            },
+            "properties": [
+              {
+                "id": "custom.width",
+                "value": 260
+              }
+            ]
+          }
+        ]
+      },
+      "options": {
+        "showHeader": true,
+        "cellHeight": "sm",
+        "footer": {
+          "show": false
+        }
+      }
+    },
+    {
+      "id": 3,
+      "title": "日本｜基金 Top 10",
+      "type": "table",
+      "gridPos": {
+        "x": 12,
+        "y": 5,
+        "w": 12,
+        "h": 9
+      },
+      "datasource": {
+        "type": "yesoreyeram-infinity-datasource",
+        "uid": "${datasource}"
+      },
+      "targets": [
+        {
+          "refId": "A",
+          "type": "csv",
+          "source": "inline",
+          "data": "rank,category_name,name,moneydj_id,twelve_data_symbol,benchmark,return_1y,benchmark_return_1y,excess_return_1y,momentum_6m,sharpe,max_drawdown,recovery_days,score,signal,status\n1,日本,瀚亞投資-日本動力股票基金,IOFA8-2824,,EWJ,63.58,,,,,,,,待資料,MoneyDJ報酬；其餘待API\n2,日本,安本日本永續股票基金,ANZH4-1327,,EWJ,51.01,,,,,,,,待資料,MoneyDJ報酬；其餘待API\n3,日本,法巴日本小型股票基金,FLFE9-4448,,EWJ,49.56,,,,,,,,待資料,MoneyDJ報酬；其餘待API\n4,日本,法巴日本股票基金,PAZ11-4402,,EWJ,45.55,,,,,,,,待資料,MoneyDJ報酬；其餘待API\n5,日本,施羅德日本優勢基金,PYZL2-15D4,,EWJ,43.74,,,,,,,,待資料,MoneyDJ報酬；其餘待API\n6,日本,景順日本股票優勢基金,CTZR2-0178,,EWJ,41.38,,,,,,,,待資料,MoneyDJ報酬；其餘待API\n7,日本,利安日本增長基金,LIC39-4708,,EWJ,40.51,,,,,,,,待資料,MoneyDJ報酬；其餘待API\n8,日本,安本日本小型公司永續股票基金,ANZH3-1326,,EWJ,39.58,,,,,,,,待資料,MoneyDJ報酬；其餘待API\n9,日本,富達日本價值基金,FTZA66-05G5,,EWJ,38.31,,,,,,,,待資料,MoneyDJ報酬；其餘待API\n10,日本,M&G日本基金,MMG07-2907,,EWJ,35.89,,,,,,,,待資料,MoneyDJ報酬；其餘待API\n",
+          "format": "table",
+          "parser": "backend"
+        }
+      ],
+      "transformations": [
+        {
+          "id": "organize",
+          "options": {
+            "indexByName": {
+              "rank": 0,
+              "name": 1,
+              "return_1y": 2,
+              "benchmark": 3,
+              "excess_return_1y": 4,
+              "momentum_6m": 5,
+              "sharpe": 6,
+              "max_drawdown": 7,
+              "recovery_days": 8,
+              "score": 9,
+              "signal": 10,
+              "status": 11
+            },
+            "excludeByName": {
+              "category_name": true,
+              "moneydj_id": true,
+              "twelve_data_symbol": true,
+              "benchmark_return_1y": true
+            },
+            "renameByName": {
+              "rank": "排名",
+              "name": "基金",
+              "return_1y": "一年報酬%",
+              "benchmark": "Benchmark",
+              "excess_return_1y": "超額報酬%",
+              "momentum_6m": "六個月動能%",
+              "sharpe": "夏普",
+              "max_drawdown": "最大回撤%",
+              "recovery_days": "恢復天數",
+              "score": "綜合評分",
+              "signal": "訊號",
+              "status": "資料狀態"
+            }
+          }
+        }
+      ],
+      "fieldConfig": {
+        "defaults": {
+          "custom": {
+            "align": "auto",
+            "cellOptions": {
+              "type": "auto"
+            }
+          }
+        },
+        "overrides": [
+          {
+            "matcher": {
+              "id": "byName",
+              "options": "signal"
+            },
+            "properties": [
+              {
+                "id": "custom.cellOptions",
+                "value": {
+                  "type": "color-text"
+                }
+              },
+              {
+                "id": "mappings",
+                "value": [
+                  {
+                    "type": "value",
+                    "options": {
+                      "買進": {
+                        "color": "green",
+                        "text": "買進"
+                      },
+                      "觀察": {
+                        "color": "yellow",
+                        "text": "觀察"
+                      },
+                      "賣出": {
+                        "color": "red",
+                        "text": "賣出"
+                      },
+                      "待資料": {
+                        "color": "gray",
+                        "text": "待資料"
+                      }
+                    }
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "matcher": {
+              "id": "byName",
+              "options": "status"
+            },
+            "properties": [
+              {
+                "id": "custom.width",
+                "value": 150
+              }
+            ]
+          },
+          {
+            "matcher": {
+              "id": "byName",
+              "options": "name"
+            },
+            "properties": [
+              {
+                "id": "custom.width",
+                "value": 260
+              }
+            ]
+          }
+        ]
+      },
+      "options": {
+        "showHeader": true,
+        "cellHeight": "sm",
+        "footer": {
+          "show": false
+        }
+      }
+    },
+    {
+      "id": 4,
+      "title": "韓國｜基金 Top 10",
+      "type": "table",
+      "gridPos": {
+        "x": 0,
+        "y": 14,
+        "w": 12,
+        "h": 9
+      },
+      "datasource": {
+        "type": "yesoreyeram-infinity-datasource",
+        "uid": "${datasource}"
+      },
+      "targets": [
+        {
+          "refId": "A",
+          "type": "csv",
+          "source": "inline",
+          "data": "rank,category_name,name,moneydj_id,twelve_data_symbol,benchmark,return_1y,benchmark_return_1y,excess_return_1y,momentum_6m,sharpe,max_drawdown,recovery_days,score,signal,status\n1,韓國,基金清單建置中,,,EWY,,,,,,,,,待資料,待建立基金清單\n",
+          "format": "table",
+          "parser": "backend"
+        }
+      ],
+      "transformations": [
+        {
+          "id": "organize",
+          "options": {
+            "indexByName": {
+              "rank": 0,
+              "name": 1,
+              "return_1y": 2,
+              "benchmark": 3,
+              "excess_return_1y": 4,
+              "momentum_6m": 5,
+              "sharpe": 6,
+              "max_drawdown": 7,
+              "recovery_days": 8,
+              "score": 9,
+              "signal": 10,
+              "status": 11
+            },
+            "excludeByName": {
+              "category_name": true,
+              "moneydj_id": true,
+              "twelve_data_symbol": true,
+              "benchmark_return_1y": true
+            },
+            "renameByName": {
+              "rank": "排名",
+              "name": "基金",
+              "return_1y": "一年報酬%",
+              "benchmark": "Benchmark",
+              "excess_return_1y": "超額報酬%",
+              "momentum_6m": "六個月動能%",
+              "sharpe": "夏普",
+              "max_drawdown": "最大回撤%",
+              "recovery_days": "恢復天數",
+              "score": "綜合評分",
+              "signal": "訊號",
+              "status": "資料狀態"
+            }
+          }
+        }
+      ],
+      "fieldConfig": {
+        "defaults": {
+          "custom": {
+            "align": "auto",
+            "cellOptions": {
+              "type": "auto"
+            }
+          }
+        },
+        "overrides": [
+          {
+            "matcher": {
+              "id": "byName",
+              "options": "signal"
+            },
+            "properties": [
+              {
+                "id": "custom.cellOptions",
+                "value": {
+                  "type": "color-text"
+                }
+              },
+              {
+                "id": "mappings",
+                "value": [
+                  {
+                    "type": "value",
+                    "options": {
+                      "買進": {
+                        "color": "green",
+                        "text": "買進"
+                      },
+                      "觀察": {
+                        "color": "yellow",
+                        "text": "觀察"
+                      },
+                      "賣出": {
+                        "color": "red",
+                        "text": "賣出"
+                      },
+                      "待資料": {
+                        "color": "gray",
+                        "text": "待資料"
+                      }
+                    }
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "matcher": {
+              "id": "byName",
+              "options": "status"
+            },
+            "properties": [
+              {
+                "id": "custom.width",
+                "value": 150
+              }
+            ]
+          },
+          {
+            "matcher": {
+              "id": "byName",
+              "options": "name"
+            },
+            "properties": [
+              {
+                "id": "custom.width",
+                "value": 260
+              }
+            ]
+          }
+        ]
+      },
+      "options": {
+        "showHeader": true,
+        "cellHeight": "sm",
+        "footer": {
+          "show": false
+        }
+      }
+    },
+    {
+      "id": 5,
+      "title": "香港｜基金 Top 10",
+      "type": "table",
+      "gridPos": {
+        "x": 12,
+        "y": 14,
+        "w": 12,
+        "h": 9
+      },
+      "datasource": {
+        "type": "yesoreyeram-infinity-datasource",
+        "uid": "${datasource}"
+      },
+      "targets": [
+        {
+          "refId": "A",
+          "type": "csv",
+          "source": "inline",
+          "data": "rank,category_name,name,moneydj_id,twelve_data_symbol,benchmark,return_1y,benchmark_return_1y,excess_return_1y,momentum_6m,sharpe,max_drawdown,recovery_days,score,signal,status\n1,香港,基金清單建置中,,,EWH,,,,,,,,,待資料,待建立基金清單\n",
+          "format": "table",
+          "parser": "backend"
+        }
+      ],
+      "transformations": [
+        {
+          "id": "organize",
+          "options": {
+            "indexByName": {
+              "rank": 0,
+              "name": 1,
+              "return_1y": 2,
+              "benchmark": 3,
+              "excess_return_1y": 4,
+              "momentum_6m": 5,
+              "sharpe": 6,
+              "max_drawdown": 7,
+              "recovery_days": 8,
+              "score": 9,
+              "signal": 10,
+              "status": 11
+            },
+            "excludeByName": {
+              "category_name": true,
+              "moneydj_id": true,
+              "twelve_data_symbol": true,
+              "benchmark_return_1y": true
+            },
+            "renameByName": {
+              "rank": "排名",
+              "name": "基金",
+              "return_1y": "一年報酬%",
+              "benchmark": "Benchmark",
+              "excess_return_1y": "超額報酬%",
+              "momentum_6m": "六個月動能%",
+              "sharpe": "夏普",
+              "max_drawdown": "最大回撤%",
+              "recovery_days": "恢復天數",
+              "score": "綜合評分",
+              "signal": "訊號",
+              "status": "資料狀態"
+            }
+          }
+        }
+      ],
+      "fieldConfig": {
+        "defaults": {
+          "custom": {
+            "align": "auto",
+            "cellOptions": {
+              "type": "auto"
+            }
+          }
+        },
+        "overrides": [
+          {
+            "matcher": {
+              "id": "byName",
+              "options": "signal"
+            },
+            "properties": [
+              {
+                "id": "custom.cellOptions",
+                "value": {
+                  "type": "color-text"
+                }
+              },
+              {
+                "id": "mappings",
+                "value": [
+                  {
+                    "type": "value",
+                    "options": {
+                      "買進": {
+                        "color": "green",
+                        "text": "買進"
+                      },
+                      "觀察": {
+                        "color": "yellow",
+                        "text": "觀察"
+                      },
+                      "賣出": {
+                        "color": "red",
+                        "text": "賣出"
+                      },
+                      "待資料": {
+                        "color": "gray",
+                        "text": "待資料"
+                      }
+                    }
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "matcher": {
+              "id": "byName",
+              "options": "status"
+            },
+            "properties": [
+              {
+                "id": "custom.width",
+                "value": 150
+              }
+            ]
+          },
+          {
+            "matcher": {
+              "id": "byName",
+              "options": "name"
+            },
+            "properties": [
+              {
+                "id": "custom.width",
+                "value": 260
+              }
+            ]
+          }
+        ]
+      },
+      "options": {
+        "showHeader": true,
+        "cellHeight": "sm",
+        "footer": {
+          "show": false
+        }
+      }
+    },
+    {
+      "id": 6,
+      "title": "中國｜基金 Top 10",
+      "type": "table",
+      "gridPos": {
+        "x": 0,
+        "y": 23,
+        "w": 12,
+        "h": 9
+      },
+      "datasource": {
+        "type": "yesoreyeram-infinity-datasource",
+        "uid": "${datasource}"
+      },
+      "targets": [
+        {
+          "refId": "A",
+          "type": "csv",
+          "source": "inline",
+          "data": "rank,category_name,name,moneydj_id,twelve_data_symbol,benchmark,return_1y,benchmark_return_1y,excess_return_1y,momentum_6m,sharpe,max_drawdown,recovery_days,score,signal,status\n1,中國,摩根中國雙息平衡基金-月配型(台幣),ACJF132-8434,,MCHI,,,,,,,,,待資料,待填Morningstar或市場代碼\n",
+          "format": "table",
+          "parser": "backend"
+        }
+      ],
+      "transformations": [
+        {
+          "id": "organize",
+          "options": {
+            "indexByName": {
+              "rank": 0,
+              "name": 1,
+              "return_1y": 2,
+              "benchmark": 3,
+              "excess_return_1y": 4,
+              "momentum_6m": 5,
+              "sharpe": 6,
+              "max_drawdown": 7,
+              "recovery_days": 8,
+              "score": 9,
+              "signal": 10,
+              "status": 11
+            },
+            "excludeByName": {
+              "category_name": true,
+              "moneydj_id": true,
+              "twelve_data_symbol": true,
+              "benchmark_return_1y": true
+            },
+            "renameByName": {
+              "rank": "排名",
+              "name": "基金",
+              "return_1y": "一年報酬%",
+              "benchmark": "Benchmark",
+              "excess_return_1y": "超額報酬%",
+              "momentum_6m": "六個月動能%",
+              "sharpe": "夏普",
+              "max_drawdown": "最大回撤%",
+              "recovery_days": "恢復天數",
+              "score": "綜合評分",
+              "signal": "訊號",
+              "status": "資料狀態"
+            }
+          }
+        }
+      ],
+      "fieldConfig": {
+        "defaults": {
+          "custom": {
+            "align": "auto",
+            "cellOptions": {
+              "type": "auto"
+            }
+          }
+        },
+        "overrides": [
+          {
+            "matcher": {
+              "id": "byName",
+              "options": "signal"
+            },
+            "properties": [
+              {
+                "id": "custom.cellOptions",
+                "value": {
+                  "type": "color-text"
+                }
+              },
+              {
+                "id": "mappings",
+                "value": [
+                  {
+                    "type": "value",
+                    "options": {
+                      "買進": {
+                        "color": "green",
+                        "text": "買進"
+                      },
+                      "觀察": {
+                        "color": "yellow",
+                        "text": "觀察"
+                      },
+                      "賣出": {
+                        "color": "red",
+                        "text": "賣出"
+                      },
+                      "待資料": {
+                        "color": "gray",
+                        "text": "待資料"
+                      }
+                    }
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "matcher": {
+              "id": "byName",
+              "options": "status"
+            },
+            "properties": [
+              {
+                "id": "custom.width",
+                "value": 150
+              }
+            ]
+          },
+          {
+            "matcher": {
+              "id": "byName",
+              "options": "name"
+            },
+            "properties": [
+              {
+                "id": "custom.width",
+                "value": 260
+              }
+            ]
+          }
+        ]
+      },
+      "options": {
+        "showHeader": true,
+        "cellHeight": "sm",
+        "footer": {
+          "show": false
+        }
+      }
+    },
+    {
+      "id": 7,
+      "title": "美國｜基金 Top 10",
+      "type": "table",
+      "gridPos": {
+        "x": 12,
+        "y": 23,
+        "w": 12,
+        "h": 9
+      },
+      "datasource": {
+        "type": "yesoreyeram-infinity-datasource",
+        "uid": "${datasource}"
+      },
+      "targets": [
+        {
+          "refId": "A",
+          "type": "csv",
+          "source": "inline",
+          "data": "rank,category_name,name,moneydj_id,twelve_data_symbol,benchmark,return_1y,benchmark_return_1y,excess_return_1y,momentum_6m,sharpe,max_drawdown,recovery_days,score,signal,status\n1,美國,基金清單建置中,,,SPY,,,,,,,,,待資料,待建立基金清單\n",
+          "format": "table",
+          "parser": "backend"
+        }
+      ],
+      "transformations": [
+        {
+          "id": "organize",
+          "options": {
+            "indexByName": {
+              "rank": 0,
+              "name": 1,
+              "return_1y": 2,
+              "benchmark": 3,
+              "excess_return_1y": 4,
+              "momentum_6m": 5,
+              "sharpe": 6,
+              "max_drawdown": 7,
+              "recovery_days": 8,
+              "score": 9,
+              "signal": 10,
+              "status": 11
+            },
+            "excludeByName": {
+              "category_name": true,
+              "moneydj_id": true,
+              "twelve_data_symbol": true,
+              "benchmark_return_1y": true
+            },
+            "renameByName": {
+              "rank": "排名",
+              "name": "基金",
+              "return_1y": "一年報酬%",
+              "benchmark": "Benchmark",
+              "excess_return_1y": "超額報酬%",
+              "momentum_6m": "六個月動能%",
+              "sharpe": "夏普",
+              "max_drawdown": "最大回撤%",
+              "recovery_days": "恢復天數",
+              "score": "綜合評分",
+              "signal": "訊號",
+              "status": "資料狀態"
+            }
+          }
+        }
+      ],
+      "fieldConfig": {
+        "defaults": {
+          "custom": {
+            "align": "auto",
+            "cellOptions": {
+              "type": "auto"
+            }
+          }
+        },
+        "overrides": [
+          {
+            "matcher": {
+              "id": "byName",
+              "options": "signal"
+            },
+            "properties": [
+              {
+                "id": "custom.cellOptions",
+                "value": {
+                  "type": "color-text"
+                }
+              },
+              {
+                "id": "mappings",
+                "value": [
+                  {
+                    "type": "value",
+                    "options": {
+                      "買進": {
+                        "color": "green",
+                        "text": "買進"
+                      },
+                      "觀察": {
+                        "color": "yellow",
+                        "text": "觀察"
+                      },
+                      "賣出": {
+                        "color": "red",
+                        "text": "賣出"
+                      },
+                      "待資料": {
+                        "color": "gray",
+                        "text": "待資料"
+                      }
+                    }
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "matcher": {
+              "id": "byName",
+              "options": "status"
+            },
+            "properties": [
+              {
+                "id": "custom.width",
+                "value": 150
+              }
+            ]
+          },
+          {
+            "matcher": {
+              "id": "byName",
+              "options": "name"
+            },
+            "properties": [
+              {
+                "id": "custom.width",
+                "value": 260
+              }
+            ]
+          }
+        ]
+      },
+      "options": {
+        "showHeader": true,
+        "cellHeight": "sm",
+        "footer": {
+          "show": false
+        }
+      }
+    },
+    {
+      "id": 8,
+      "title": "半導體｜基金 Top 10",
+      "type": "table",
+      "gridPos": {
+        "x": 0,
+        "y": 32,
+        "w": 12,
+        "h": 9
+      },
+      "datasource": {
+        "type": "yesoreyeram-infinity-datasource",
+        "uid": "${datasource}"
+      },
+      "targets": [
+        {
+          "refId": "A",
+          "type": "csv",
+          "source": "inline",
+          "data": "rank,category_name,name,moneydj_id,twelve_data_symbol,benchmark,return_1y,benchmark_return_1y,excess_return_1y,momentum_6m,sharpe,max_drawdown,recovery_days,score,signal,status\n1,半導體,基金清單建置中,,,SOXX,,,,,,,,,待資料,待建立基金清單\n",
+          "format": "table",
+          "parser": "backend"
+        }
+      ],
+      "transformations": [
+        {
+          "id": "organize",
+          "options": {
+            "indexByName": {
+              "rank": 0,
+              "name": 1,
+              "return_1y": 2,
+              "benchmark": 3,
+              "excess_return_1y": 4,
+              "momentum_6m": 5,
+              "sharpe": 6,
+              "max_drawdown": 7,
+              "recovery_days": 8,
+              "score": 9,
+              "signal": 10,
+              "status": 11
+            },
+            "excludeByName": {
+              "category_name": true,
+              "moneydj_id": true,
+              "twelve_data_symbol": true,
+              "benchmark_return_1y": true
+            },
+            "renameByName": {
+              "rank": "排名",
+              "name": "基金",
+              "return_1y": "一年報酬%",
+              "benchmark": "Benchmark",
+              "excess_return_1y": "超額報酬%",
+              "momentum_6m": "六個月動能%",
+              "sharpe": "夏普",
+              "max_drawdown": "最大回撤%",
+              "recovery_days": "恢復天數",
+              "score": "綜合評分",
+              "signal": "訊號",
+              "status": "資料狀態"
+            }
+          }
+        }
+      ],
+      "fieldConfig": {
+        "defaults": {
+          "custom": {
+            "align": "auto",
+            "cellOptions": {
+              "type": "auto"
+            }
+          }
+        },
+        "overrides": [
+          {
+            "matcher": {
+              "id": "byName",
+              "options": "signal"
+            },
+            "properties": [
+              {
+                "id": "custom.cellOptions",
+                "value": {
+                  "type": "color-text"
+                }
+              },
+              {
+                "id": "mappings",
+                "value": [
+                  {
+                    "type": "value",
+                    "options": {
+                      "買進": {
+                        "color": "green",
+                        "text": "買進"
+                      },
+                      "觀察": {
+                        "color": "yellow",
+                        "text": "觀察"
+                      },
+                      "賣出": {
+                        "color": "red",
+                        "text": "賣出"
+                      },
+                      "待資料": {
+                        "color": "gray",
+                        "text": "待資料"
+                      }
+                    }
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "matcher": {
+              "id": "byName",
+              "options": "status"
+            },
+            "properties": [
+              {
+                "id": "custom.width",
+                "value": 150
+              }
+            ]
+          },
+          {
+            "matcher": {
+              "id": "byName",
+              "options": "name"
+            },
+            "properties": [
+              {
+                "id": "custom.width",
+                "value": 260
+              }
+            ]
+          }
+        ]
+      },
+      "options": {
+        "showHeader": true,
+        "cellHeight": "sm",
+        "footer": {
+          "show": false
+        }
+      }
+    },
+    {
+      "id": 9,
+      "title": "光通訊｜基金 Top 10",
+      "type": "table",
+      "gridPos": {
+        "x": 12,
+        "y": 32,
+        "w": 12,
+        "h": 9
+      },
+      "datasource": {
+        "type": "yesoreyeram-infinity-datasource",
+        "uid": "${datasource}"
+      },
+      "targets": [
+        {
+          "refId": "A",
+          "type": "csv",
+          "source": "inline",
+          "data": "rank,category_name,name,moneydj_id,twelve_data_symbol,benchmark,return_1y,benchmark_return_1y,excess_return_1y,momentum_6m,sharpe,max_drawdown,recovery_days,score,signal,status\n1,光通訊,基金清單建置中,,,IYZ,,,,,,,,,待資料,待建立基金清單\n",
+          "format": "table",
+          "parser": "backend"
+        }
+      ],
+      "transformations": [
+        {
+          "id": "organize",
+          "options": {
+            "indexByName": {
+              "rank": 0,
+              "name": 1,
+              "return_1y": 2,
+              "benchmark": 3,
+              "excess_return_1y": 4,
+              "momentum_6m": 5,
+              "sharpe": 6,
+              "max_drawdown": 7,
+              "recovery_days": 8,
+              "score": 9,
+              "signal": 10,
+              "status": 11
+            },
+            "excludeByName": {
+              "category_name": true,
+              "moneydj_id": true,
+              "twelve_data_symbol": true,
+              "benchmark_return_1y": true
+            },
+            "renameByName": {
+              "rank": "排名",
+              "name": "基金",
+              "return_1y": "一年報酬%",
+              "benchmark": "Benchmark",
+              "excess_return_1y": "超額報酬%",
+              "momentum_6m": "六個月動能%",
+              "sharpe": "夏普",
+              "max_drawdown": "最大回撤%",
+              "recovery_days": "恢復天數",
+              "score": "綜合評分",
+              "signal": "訊號",
+              "status": "資料狀態"
+            }
+          }
+        }
+      ],
+      "fieldConfig": {
+        "defaults": {
+          "custom": {
+            "align": "auto",
+            "cellOptions": {
+              "type": "auto"
+            }
+          }
+        },
+        "overrides": [
+          {
+            "matcher": {
+              "id": "byName",
+              "options": "signal"
+            },
+            "properties": [
+              {
+                "id": "custom.cellOptions",
+                "value": {
+                  "type": "color-text"
+                }
+              },
+              {
+                "id": "mappings",
+                "value": [
+                  {
+                    "type": "value",
+                    "options": {
+                      "買進": {
+                        "color": "green",
+                        "text": "買進"
+                      },
+                      "觀察": {
+                        "color": "yellow",
+                        "text": "觀察"
+                      },
+                      "賣出": {
+                        "color": "red",
+                        "text": "賣出"
+                      },
+                      "待資料": {
+                        "color": "gray",
+                        "text": "待資料"
+                      }
+                    }
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "matcher": {
+              "id": "byName",
+              "options": "status"
+            },
+            "properties": [
+              {
+                "id": "custom.width",
+                "value": 150
+              }
+            ]
+          },
+          {
+            "matcher": {
+              "id": "byName",
+              "options": "name"
+            },
+            "properties": [
+              {
+                "id": "custom.width",
+                "value": 260
+              }
+            ]
+          }
+        ]
+      },
+      "options": {
+        "showHeader": true,
+        "cellHeight": "sm",
+        "footer": {
+          "show": false
+        }
+      }
+    },
+    {
+      "id": 10,
+      "title": "量子電腦｜基金 Top 10",
+      "type": "table",
+      "gridPos": {
+        "x": 0,
+        "y": 41,
+        "w": 12,
+        "h": 9
+      },
+      "datasource": {
+        "type": "yesoreyeram-infinity-datasource",
+        "uid": "${datasource}"
+      },
+      "targets": [
+        {
+          "refId": "A",
+          "type": "csv",
+          "source": "inline",
+          "data": "rank,category_name,name,moneydj_id,twelve_data_symbol,benchmark,return_1y,benchmark_return_1y,excess_return_1y,momentum_6m,sharpe,max_drawdown,recovery_days,score,signal,status\n1,量子電腦,基金清單建置中,,,QTUM,,,,,,,,,待資料,待建立基金清單\n",
+          "format": "table",
+          "parser": "backend"
+        }
+      ],
+      "transformations": [
+        {
+          "id": "organize",
+          "options": {
+            "indexByName": {
+              "rank": 0,
+              "name": 1,
+              "return_1y": 2,
+              "benchmark": 3,
+              "excess_return_1y": 4,
+              "momentum_6m": 5,
+              "sharpe": 6,
+              "max_drawdown": 7,
+              "recovery_days": 8,
+              "score": 9,
+              "signal": 10,
+              "status": 11
+            },
+            "excludeByName": {
+              "category_name": true,
+              "moneydj_id": true,
+              "twelve_data_symbol": true,
+              "benchmark_return_1y": true
+            },
+            "renameByName": {
+              "rank": "排名",
+              "name": "基金",
+              "return_1y": "一年報酬%",
+              "benchmark": "Benchmark",
+              "excess_return_1y": "超額報酬%",
+              "momentum_6m": "六個月動能%",
+              "sharpe": "夏普",
+              "max_drawdown": "最大回撤%",
+              "recovery_days": "恢復天數",
+              "score": "綜合評分",
+              "signal": "訊號",
+              "status": "資料狀態"
+            }
+          }
+        }
+      ],
+      "fieldConfig": {
+        "defaults": {
+          "custom": {
+            "align": "auto",
+            "cellOptions": {
+              "type": "auto"
+            }
+          }
+        },
+        "overrides": [
+          {
+            "matcher": {
+              "id": "byName",
+              "options": "signal"
+            },
+            "properties": [
+              {
+                "id": "custom.cellOptions",
+                "value": {
+                  "type": "color-text"
+                }
+              },
+              {
+                "id": "mappings",
+                "value": [
+                  {
+                    "type": "value",
+                    "options": {
+                      "買進": {
+                        "color": "green",
+                        "text": "買進"
+                      },
+                      "觀察": {
+                        "color": "yellow",
+                        "text": "觀察"
+                      },
+                      "賣出": {
+                        "color": "red",
+                        "text": "賣出"
+                      },
+                      "待資料": {
+                        "color": "gray",
+                        "text": "待資料"
+                      }
+                    }
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "matcher": {
+              "id": "byName",
+              "options": "status"
+            },
+            "properties": [
+              {
+                "id": "custom.width",
+                "value": 150
+              }
+            ]
+          },
+          {
+            "matcher": {
+              "id": "byName",
+              "options": "name"
+            },
+            "properties": [
+              {
+                "id": "custom.width",
+                "value": 260
+              }
+            ]
+          }
+        ]
+      },
+      "options": {
+        "showHeader": true,
+        "cellHeight": "sm",
+        "footer": {
+          "show": false
+        }
+      }
+    },
+    {
+      "id": 11,
+      "title": "金融｜基金 Top 10",
+      "type": "table",
+      "gridPos": {
+        "x": 12,
+        "y": 41,
+        "w": 12,
+        "h": 9
+      },
+      "datasource": {
+        "type": "yesoreyeram-infinity-datasource",
+        "uid": "${datasource}"
+      },
+      "targets": [
+        {
+          "refId": "A",
+          "type": "csv",
+          "source": "inline",
+          "data": "rank,category_name,name,moneydj_id,twelve_data_symbol,benchmark,return_1y,benchmark_return_1y,excess_return_1y,momentum_6m,sharpe,max_drawdown,recovery_days,score,signal,status\n1,金融,基金清單建置中,,,XLF,,,,,,,,,待資料,待建立基金清單\n",
+          "format": "table",
+          "parser": "backend"
+        }
+      ],
+      "transformations": [
+        {
+          "id": "organize",
+          "options": {
+            "indexByName": {
+              "rank": 0,
+              "name": 1,
+              "return_1y": 2,
+              "benchmark": 3,
+              "excess_return_1y": 4,
+              "momentum_6m": 5,
+              "sharpe": 6,
+              "max_drawdown": 7,
+              "recovery_days": 8,
+              "score": 9,
+              "signal": 10,
+              "status": 11
+            },
+            "excludeByName": {
+              "category_name": true,
+              "moneydj_id": true,
+              "twelve_data_symbol": true,
+              "benchmark_return_1y": true
+            },
+            "renameByName": {
+              "rank": "排名",
+              "name": "基金",
+              "return_1y": "一年報酬%",
+              "benchmark": "Benchmark",
+              "excess_return_1y": "超額報酬%",
+              "momentum_6m": "六個月動能%",
+              "sharpe": "夏普",
+              "max_drawdown": "最大回撤%",
+              "recovery_days": "恢復天數",
+              "score": "綜合評分",
+              "signal": "訊號",
+              "status": "資料狀態"
+            }
+          }
+        }
+      ],
+      "fieldConfig": {
+        "defaults": {
+          "custom": {
+            "align": "auto",
+            "cellOptions": {
+              "type": "auto"
+            }
+          }
+        },
+        "overrides": [
+          {
+            "matcher": {
+              "id": "byName",
+              "options": "signal"
+            },
+            "properties": [
+              {
+                "id": "custom.cellOptions",
+                "value": {
+                  "type": "color-text"
+                }
+              },
+              {
+                "id": "mappings",
+                "value": [
+                  {
+                    "type": "value",
+                    "options": {
+                      "買進": {
+                        "color": "green",
+                        "text": "買進"
+                      },
+                      "觀察": {
+                        "color": "yellow",
+                        "text": "觀察"
+                      },
+                      "賣出": {
+                        "color": "red",
+                        "text": "賣出"
+                      },
+                      "待資料": {
+                        "color": "gray",
+                        "text": "待資料"
+                      }
+                    }
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "matcher": {
+              "id": "byName",
+              "options": "status"
+            },
+            "properties": [
+              {
+                "id": "custom.width",
+                "value": 150
+              }
+            ]
+          },
+          {
+            "matcher": {
+              "id": "byName",
+              "options": "name"
+            },
+            "properties": [
+              {
+                "id": "custom.width",
+                "value": 260
+              }
+            ]
+          }
+        ]
+      },
+      "options": {
+        "showHeader": true,
+        "cellHeight": "sm",
+        "footer": {
+          "show": false
+        }
+      }
+    },
+    {
+      "id": 12,
+      "title": "醫療｜基金 Top 10",
+      "type": "table",
+      "gridPos": {
+        "x": 0,
+        "y": 50,
+        "w": 12,
+        "h": 9
+      },
+      "datasource": {
+        "type": "yesoreyeram-infinity-datasource",
+        "uid": "${datasource}"
+      },
+      "targets": [
+        {
+          "refId": "A",
+          "type": "csv",
+          "source": "inline",
+          "data": "rank,category_name,name,moneydj_id,twelve_data_symbol,benchmark,return_1y,benchmark_return_1y,excess_return_1y,momentum_6m,sharpe,max_drawdown,recovery_days,score,signal,status\n1,醫療,富蘭克林華美全球醫療保健基金(台幣),ACFT73-9209,,XLV,,,,,,,,,待資料,待填Morningstar或市場代碼\n",
+          "format": "table",
+          "parser": "backend"
+        }
+      ],
+      "transformations": [
+        {
+          "id": "organize",
+          "options": {
+            "indexByName": {
+              "rank": 0,
+              "name": 1,
+              "return_1y": 2,
+              "benchmark": 3,
+              "excess_return_1y": 4,
+              "momentum_6m": 5,
+              "sharpe": 6,
+              "max_drawdown": 7,
+              "recovery_days": 8,
+              "score": 9,
+              "signal": 10,
+              "status": 11
+            },
+            "excludeByName": {
+              "category_name": true,
+              "moneydj_id": true,
+              "twelve_data_symbol": true,
+              "benchmark_return_1y": true
+            },
+            "renameByName": {
+              "rank": "排名",
+              "name": "基金",
+              "return_1y": "一年報酬%",
+              "benchmark": "Benchmark",
+              "excess_return_1y": "超額報酬%",
+              "momentum_6m": "六個月動能%",
+              "sharpe": "夏普",
+              "max_drawdown": "最大回撤%",
+              "recovery_days": "恢復天數",
+              "score": "綜合評分",
+              "signal": "訊號",
+              "status": "資料狀態"
+            }
+          }
+        }
+      ],
+      "fieldConfig": {
+        "defaults": {
+          "custom": {
+            "align": "auto",
+            "cellOptions": {
+              "type": "auto"
+            }
+          }
+        },
+        "overrides": [
+          {
+            "matcher": {
+              "id": "byName",
+              "options": "signal"
+            },
+            "properties": [
+              {
+                "id": "custom.cellOptions",
+                "value": {
+                  "type": "color-text"
+                }
+              },
+              {
+                "id": "mappings",
+                "value": [
+                  {
+                    "type": "value",
+                    "options": {
+                      "買進": {
+                        "color": "green",
+                        "text": "買進"
+                      },
+                      "觀察": {
+                        "color": "yellow",
+                        "text": "觀察"
+                      },
+                      "賣出": {
+                        "color": "red",
+                        "text": "賣出"
+                      },
+                      "待資料": {
+                        "color": "gray",
+                        "text": "待資料"
+                      }
+                    }
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "matcher": {
+              "id": "byName",
+              "options": "status"
+            },
+            "properties": [
+              {
+                "id": "custom.width",
+                "value": 150
+              }
+            ]
+          },
+          {
+            "matcher": {
+              "id": "byName",
+              "options": "name"
+            },
+            "properties": [
+              {
+                "id": "custom.width",
+                "value": 260
+              }
+            ]
+          }
+        ]
+      },
+      "options": {
+        "showHeader": true,
+        "cellHeight": "sm",
+        "footer": {
+          "show": false
+        }
+      }
+    }
+  ],
+  "refresh": "1d",
+  "schemaVersion": 40,
+  "tags": [
+    "funds",
+    "twelve-data",
+    "benchmark"
+  ],
+  "templating": {
+    "list": [
+      {
+        "name": "datasource",
+        "label": "Infinity 資料源",
+        "type": "datasource",
+        "query": "yesoreyeram-infinity-datasource",
+        "current": {}
+      }
+    ]
+  },
+  "time": {
+    "from": "now-1y",
+    "to": "now"
+  },
+  "timezone": "browser",
+  "title": "全球共同基金策略平台",
+  "uid": "global-mutual-fund-ranking",
+  "version": 1
+}

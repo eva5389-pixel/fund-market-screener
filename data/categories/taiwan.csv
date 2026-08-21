@@ -1,0 +1,3 @@
+﻿rank,category_name,name,moneydj_id,twelve_data_symbol,benchmark,distribution,return_1m,return_3m,return_1y,benchmark_return_1y,excess_return_1y,momentum_6m,sharpe,max_drawdown,recovery_days,score,signal,status,data_source,data_date
+1,台灣,野村鴻運基金,AC0001,,EWT,,13.86,6.64,203.60,90.22,113.38,75.56,2.912,-27.67,11,4.369,買進,已更新（合庫 MoneyDJ 網頁爬蟲）,合庫 MoneyDJ 公開網頁（爬蟲）,2026-08-21
+2,台灣,合庫台灣基金-A不配息(台幣),ACCB01-9610,,EWT,,2.63,-3.82,130.98,55.52,75.46,48.98,2.374,-27.84,,2.890,買進,已更新（合庫 MoneyDJ 網頁爬蟲）,合庫 MoneyDJ 公開網頁（爬蟲）,2026-08-21

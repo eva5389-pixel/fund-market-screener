@@ -1,0 +1,62 @@
+name: Update fund dashboard data
+
+on:
+  workflow_dispatch:
+    inputs:
+      yahoo_fund_id:
+        description: "Optional Yahoo Taiwan fund id to probe (for example F0GBR04AMX:FO)"
+        required: false
+        default: ""
+  schedule:
+    # 12:00 UTC = 20:00 Asia/Taipei.
+    - cron: "0 12 * * *"
+
+permissions:
+  contents: write
+
+concurrency:
+  group: update-fund-dashboard
+  cancel-in-progress: false
+
+jobs:
+  update:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - name: Install fund analytics adapters
+        run: pip install -r requirements-optional.txt
+      - name: Validate calculations
+        run: python -m unittest discover -s tests -v
+      - name: Probe Yahoo fund history
+        if: ${{ github.event_name == 'workflow_dispatch' && inputs.yahoo_fund_id != '' }}
+        env:
+          APIFY_API_TOKEN: ${{ secrets.APIFY_API_TOKEN }}
+          YAHOO_FUND_ID: ${{ inputs.yahoo_fund_id }}
+        run: python src/probe_yahoo_fund.py
+      - name: Update daily fund data
+        env:
+          TWELVE_DATA_API_KEY: ${{ secrets.TWELVE_DATA_API_KEY }}
+          APIFY_API_TOKEN: ${{ secrets.APIFY_API_TOKEN }}
+          ENABLE_MSTARPY: "1"
+        run: python src/update_dashboard.py
+      - name: Generate Grafana dashboard
+        run: python src/generate_dashboard.py
+      - name: Save month-end snapshot
+        env:
+          TWELVE_DATA_API_KEY: ${{ secrets.TWELVE_DATA_API_KEY }}
+          APIFY_API_TOKEN: ${{ secrets.APIFY_API_TOKEN }}
+          ENABLE_MSTARPY: "1"
+        run: |
+          if [ "$(date -u -d tomorrow +%d)" = "01" ]; then
+            MONTH_END=1 python src/update_dashboard.py
+          fi
+      - name: Commit generated files
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add data dashboards/mutual-funds.json
+          git diff --cached --quiet || git commit -m "Update fund dashboard data"
+          git push

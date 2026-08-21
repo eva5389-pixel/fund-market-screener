@@ -1,0 +1,21 @@
+﻿kind,name,weight,data_date
+industry,電機,27.02,2026/06/30
+industry,銀行,21.4,2026/06/30
+industry,營建,11.43,2026/06/30
+industry,其他產業,9.43,2026/06/30
+industry,批發,7.32,2026/06/30
+industry,非鐵金屬,5.38,2026/06/30
+industry,房地產,4.27,2026/06/30
+industry,精密儀器,4.06,2026/06/30
+industry,運輸設備,2.67,2026/06/30
+industry,機械,2.03,2026/06/30
+holding,"MURATA MFG CO LTD,電機",4.89,2026/06/30
+holding,"MITSUBISHI ELECTRIC CORP,電機",4.73,2026/06/30
+holding,"MIZUHO FINL GROUP INC,銀行",4.69,2026/06/30
+holding,"KIOXIA HOLDINGS CORPORATION,電機",4.62,2026/06/30
+holding,"CITIZEN WATCH CO LTD,精密儀器",4.06,2026/06/30
+holding,"YOKOHAMA FINANCIAL GROUP INC,銀行",3.94,2026/06/30
+holding,"JAPAN POST BANK CO LTD,銀行",3.57,2026/06/30
+holding,"ROHM CO LTD,電機",3.56,2026/06/30
+holding,"KINDEN CORP,營建",3.49,2026/06/30
+holding,"SUMITOMO MITSUI FINL GRP INC,銀行",3.3,2026/06/30

@@ -1,0 +1,5 @@
+﻿rank,category_name,name,moneydj_id,twelve_data_symbol,benchmark,distribution,return_1m,return_3m,return_1y,benchmark_return_1y,excess_return_1y,momentum_6m,sharpe,max_drawdown,recovery_days,score,signal,status,data_source,data_date
+1,量子電腦,安聯台灣科技基金,ACDD04-8602,,QTUM,否,0.37,-1.97,196.56,78.03,118.53,59.76,2.824,-32.10,,4.153,買進,已更新（合庫 MoneyDJ 網頁爬蟲）,合庫 MoneyDJ 公開網頁（爬蟲）,2026-08-21
+2,量子電腦,國泰臺韓科技基金,ACTR37,,QTUM,是（半年配）,3.38,6.77,190.87,80.46,110.41,63.84,2.536,-31.35,,4.002,買進,已更新（合庫 MoneyDJ 網頁爬蟲）,合庫 MoneyDJ 公開網頁（爬蟲）,2026-08-21
+3,量子電腦,富邦台灣科技指數基金(本基金之配息來源可能為收益平準金),AC0052,,QTUM,是,0.36,6.19,115.72,50.44,65.28,36.75,2.533,-17.13,,2.598,買進,已更新（合庫 MoneyDJ 網頁爬蟲）,合庫 MoneyDJ 公開網頁（爬蟲）,2026-08-21
+4,量子電腦,元大台灣電子科技基金,AC0053,,QTUM,否,0.61,4.53,115.01,50.43,64.58,39.49,2.502,-18.95,,2.597,買進,已更新（合庫 MoneyDJ 網頁爬蟲）,合庫 MoneyDJ 公開網頁（爬蟲）,2026-08-21
