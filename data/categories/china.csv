@@ -1,2 +1,2 @@
 ﻿rank,category_name,name,moneydj_id,twelve_data_symbol,benchmark,distribution,return_1m,return_3m,return_1y,benchmark_return_1y,excess_return_1y,momentum_6m,sharpe,max_drawdown,recovery_days,score,signal,status,data_source,data_date
-1,中國,摩根中國雙息平衡基金-月配型(台幣),ACJF132-8434,,MCHI,,-0.61,-2.58,10.49,1.54,8.95,-2.49,0.436,-8.20,,0.216,觀察,已更新（合庫 MoneyDJ 網頁爬蟲）,合庫 MoneyDJ 公開網頁（爬蟲）,2026-08-20
+1,中國,摩根中國雙息平衡基金-月配型(台幣),ACJF132-8434,,MCHI,,0.26,-1.41,10.49,1.54,8.95,-2.49,0.360,-8.20,,0.201,觀察,沿用上次資料（2026-08-20）,合庫 MoneyDJ 公開網頁（爬蟲）,2026-08-20
