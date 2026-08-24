@@ -739,9 +739,11 @@ with tab_portfolio:
     portfolio_category = st.selectbox("市場／主題分類", configured_categories, key="portfolio_category")
     country_categories = {"台灣", "日本", "韓國", "香港", "中國", "美國", "印度", "東協", "歐洲", "巴西"}
     template_fund_names = grafana_templates.get(portfolio_category, [])
-    category_funds = rankings[rankings["category_name"].eq(portfolio_category)]
+    # 與首頁排名表共用左側的市場、訊號、報酬、動能、夏普、回撤及資料完整度規則。
+    # filtered 已依使用者選定的排序方式排列，這裡不再從未篩選 rankings 補回基金。
+    category_funds = filtered[filtered["category_name"].eq(portfolio_category)]
     if template_fund_names:
-        template_matches = rankings[rankings["name"].isin(template_fund_names)]
+        template_matches = filtered[filtered["name"].isin(template_fund_names)]
         category_funds = pd.concat([category_funds, template_matches]).drop_duplicates("name")
     if portfolio_category in country_categories and not category_funds.empty:
         st.markdown(f"**{portfolio_category}｜境內／境外基金績效比較**")
@@ -781,11 +783,7 @@ with tab_portfolio:
             },
         )
     elif category_funds.empty:
-        st.markdown(f"**Grafana 基金名單（{len(template_fund_names)} 檔）**")
-        if template_fund_names:
-            st.dataframe(pd.DataFrame({"基金": template_fund_names, "資料狀態": "正在配對 MoneyDJ ID"}), use_container_width=True, hide_index=True)
-        else:
-            st.warning(f"{portfolio_category} 模板目前沒有基金資料列。")
+        st.info(f"{portfolio_category}目前沒有通過左側篩選規則的基金，請放寬訊號或數值門檻。")
     elif portfolio_data.empty:
         st.info("尚未建立持股資料，請按左側「立即更新資料」執行爬蟲。")
     else:
