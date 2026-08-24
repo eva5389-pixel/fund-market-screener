@@ -737,12 +737,50 @@ with tab_cards:
 with tab_portfolio:
     portfolio_data = load_portfolio_details(rankings)
     portfolio_category = st.selectbox("市場／主題分類", configured_categories, key="portfolio_category")
+    country_categories = {"台灣", "日本", "韓國", "香港", "中國", "美國", "印度", "東協", "歐洲", "巴西"}
     template_fund_names = grafana_templates.get(portfolio_category, [])
     category_funds = rankings[rankings["category_name"].eq(portfolio_category)]
     if template_fund_names:
         template_matches = rankings[rankings["name"].isin(template_fund_names)]
         category_funds = pd.concat([category_funds, template_matches]).drop_duplicates("name")
-    if category_funds.empty:
+    if portfolio_category in country_categories and not category_funds.empty:
+        st.markdown(f"**{portfolio_category}｜境內／境外基金績效比較**")
+        st.caption("國家與區域分類以基金績效、Benchmark及風險指標比較，不顯示個股持股；報酬率均為原幣計算。")
+        country_performance = category_funds.copy()
+        country_performance["基金身分"] = country_performance["moneydj_id"].map(fund_registration_type)
+        country_performance = country_performance.rename(columns={
+            "name": "基金",
+            "return_1m": "一個月報酬%",
+            "return_3m": "三個月報酬%",
+            "return_1y": "一年報酬%",
+            "benchmark_return_1y": "Benchmark一年報酬%",
+            "excess_return_1y": "超額報酬%",
+            "momentum_6m": "六個月動能%",
+            "sharpe": "夏普",
+            "max_drawdown": "最大回撤%",
+            "signal": "訊號",
+            "tcb_url": "績效連結",
+            "data_date": "資料日期",
+        })
+        country_columns = [
+            "基金", "基金身分", "一個月報酬%", "三個月報酬%", "一年報酬%",
+            "Benchmark一年報酬%", "超額報酬%", "六個月動能%", "夏普",
+            "最大回撤%", "訊號", "績效連結", "資料日期",
+        ]
+        st.dataframe(
+            country_performance[country_columns],
+            use_container_width=True,
+            hide_index=True,
+            column_config={
+                **{column: st.column_config.NumberColumn(format="%.2f") for column in [
+                    "一個月報酬%", "三個月報酬%", "一年報酬%", "Benchmark一年報酬%",
+                    "超額報酬%", "六個月動能%", "最大回撤%",
+                ]},
+                "夏普": st.column_config.NumberColumn(format="%.3f"),
+                "績效連結": st.column_config.LinkColumn("績效連結", display_text="查看績效 ↗"),
+            },
+        )
+    elif category_funds.empty:
         st.markdown(f"**Grafana 基金名單（{len(template_fund_names)} 檔）**")
         if template_fund_names:
             st.dataframe(pd.DataFrame({"基金": template_fund_names, "資料狀態": "正在配對 MoneyDJ ID"}), use_container_width=True, hide_index=True)
