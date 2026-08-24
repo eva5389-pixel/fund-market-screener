@@ -1,4 +1,4 @@
 ﻿rank,category_name,name,moneydj_id,twelve_data_symbol,benchmark,distribution,return_1m,return_3m,return_1y,benchmark_return_1y,excess_return_1y,momentum_6m,sharpe,max_drawdown,recovery_days,score,signal,status,data_source,data_date
-1,半導體,iShares Semiconductor ETF,,SOXX,SOXX,是,-5.66,-0.84,114.36,114.36,-0.00,44.85,1.901,-41.36,112,1.765,觀察,已更新（Yahoo Finance）,Yahoo Finance,2026-08-24
-2,半導體,VanEck Semiconductor ETF,,SMH,SOXX,是,-3.40,-1.31,94.55,114.36,-19.81,35.03,1.884,-35.74,58,1.296,觀察,已更新（Yahoo Finance）,Yahoo Finance,2026-08-24
-3,半導體,SPDR S&P Semiconductor ETF,,XSD,SOXX,是,-4.80,-13.55,82.28,114.36,-32.08,39.70,1.495,-41.25,86,0.992,觀察,已更新（Yahoo Finance）,Yahoo Finance,2026-08-24
+1,半導體,第一金電子基金,ACNC16,,SOXX,否,6.17,-9.55,139.71,57.27,82.44,45.31,2.329,-28.32,,2.999,買進,已更新（合庫 MoneyDJ 網頁爬蟲）,合庫 MoneyDJ 公開網頁（爬蟲）,2026-08-24
+2,半導體,台新美日台半導體基金-A不配息(台幣),ACTT209,,SOXX,否,-4.84,-3.04,81.43,31.53,49.90,25.99,1.908,-31.66,,1.797,買進,已更新（合庫 MoneyDJ 網頁爬蟲）,合庫 MoneyDJ 公開網頁（爬蟲）,2026-08-21
+3,半導體,貝萊德世界科技基金A2美元,SHZ71,,SOXX,否,0.58,-2.41,41.42,32.43,8.99,28.20,1.175,-20.71,,0.918,買進,已更新（合庫 MoneyDJ 網頁爬蟲）,合庫 MoneyDJ 公開網頁（爬蟲）,2026-08-21

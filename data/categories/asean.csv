@@ -1,4 +1,4 @@
 ﻿rank,category_name,name,moneydj_id,twelve_data_symbol,benchmark,distribution,return_1m,return_3m,return_1y,benchmark_return_1y,excess_return_1y,momentum_6m,sharpe,max_drawdown,recovery_days,score,signal,status,data_source,data_date
-1,東協,Global X FTSE Southeast Asia ETF,,ASEA,ASEA,是,4.13,10.54,30.13,30.13,0.00,7.58,1.831,-22.20,86,0.632,觀察,已更新（Yahoo Finance）,Yahoo Finance,2026-08-24
-2,東協,VanEck Vietnam ETF,,VNM,ASEA,是,7.26,-5.85,1.23,30.13,-28.90,-7.36,0.142,-21.11,28,-0.428,賣出,已更新（Yahoo Finance）,Yahoo Finance,2026-08-24
-3,東協,iShares MSCI Indonesia ETF,,EIDO,ASEA,是,2.98,-0.53,-29.37,30.13,-59.51,-27.96,-1.213,-51.76,,-1.670,賣出,已更新（Yahoo Finance）,Yahoo Finance,2026-08-24
+1,東協,統一大東協高股息基金(台幣)(本基金並無保證收益及配息),ACPS53,,ASEA,是,-2.58,-3.65,59.66,24.65,35.01,17.94,1.967,-19.51,,1.422,買進,已更新（合庫 MoneyDJ 網頁爬蟲）,合庫 MoneyDJ 公開網頁（爬蟲）,2026-08-21
+2,東協,野村泰國基金,ACKH12,,ASEA,否,1.12,7.84,39.95,19.96,19.99,11.23,1.958,-9.53,64,1.056,買進,已更新（合庫 MoneyDJ 網頁爬蟲）,合庫 MoneyDJ 公開網頁（爬蟲）,2026-08-21
+3,東協,復華東協世紀基金,ACFH32,,ASEA,否,-2.19,5.47,33.62,17.19,16.43,13.39,1.827,-9.83,,0.951,買進,已更新（合庫 MoneyDJ 網頁爬蟲）,合庫 MoneyDJ 公開網頁（爬蟲）,2026-08-21

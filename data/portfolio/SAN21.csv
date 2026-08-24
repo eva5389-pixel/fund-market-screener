@@ -1,0 +1,22 @@
+﻿kind,name,weight,data_date
+industry,資訊科技,28.14,2026/06/30
+industry,金融,14.38,2026/06/30
+industry,工業,10.11,2026/06/30
+industry,通訊服務,8.53,2026/06/30
+industry,醫療保健,7.63,2026/06/30
+industry,非必須消費,6.77,2026/06/30
+industry,原物料,5.19,2026/06/30
+industry,能源,4.54,2026/06/30
+industry,必須消費,4.17,2026/06/30
+industry,公用事業,2.25,2026/06/30
+industry,房地產,1.43,2026/06/30
+holding,"NVIDIA CORP,資訊科技,美國",4.43,2026/06/30
+holding,"APPLE INC,資訊科技,美國",4.02,2026/06/30
+holding,"ALPHABET INC-CL C,通訊服務,美國",3.98,2026/06/30
+holding,"CDIR 08/07/26 2.07% EUR,-,義大利",2.7,2026/06/30
+holding,"MICROSOFT CORP.,資訊科技,美國",2.54,2026/06/30
+holding,"AMND SMT OVRNGT RTR ETF U,-,義大利",2.09,2026/06/30
+holding,"AMAZON INC.,非必須消費,美國",1.81,2026/06/30
+holding,"BOTS 0 10/14/26,-,義大利",1.68,2026/06/30
+holding,"BROADCOM INC,資訊科技,美國",1.62,2026/06/30
+holding,"FUT NASDAQ 100 E-MINI Sep26,-,美國",1.39,2026/06/30

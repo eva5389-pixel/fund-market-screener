@@ -1,0 +1,22 @@
+﻿kind,name,weight,data_date
+industry,資訊科技,21.1,2026/06/30
+industry,金融,18.4,2026/06/30
+industry,健康護理,14.1,2026/06/30
+industry,工商服務,9.7,2026/06/30
+industry,非必需消費,8.7,2026/06/30
+industry,必需性消費,7.3,2026/06/30
+industry,能源,7.0,2026/06/30
+industry,公用事業,4.3,2026/06/30
+industry,原物料,4.1,2026/06/30
+industry,房地產,2.4,2026/06/30
+industry,通訊服務,2.4,2026/06/30
+holding,"Amazon.com,?般零售",6.4,2026/06/30
+holding,"Apple,硬體與電腦週邊設備",5.3,2026/06/30
+holding,"Microsoft,軟體",4.1,2026/06/30
+holding,"Procter & Gamble,家庭用品",3.4,2026/06/30
+holding,"Bank of America,銀行",2.6,2026/06/30
+holding,"CSX,地面運輸",2.6,2026/06/30
+holding,"Chubb,保險",2.4,2026/06/30
+holding,"ConocoPhillips,石油、天然氣與消費性燃料",2.4,2026/06/30
+holding,"Charles Schwab,資本市場",2.3,2026/06/30
+holding,"U.S. Bancorp,銀行",2.2,2026/06/30

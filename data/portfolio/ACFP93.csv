@@ -1,0 +1,23 @@
+﻿kind,name,weight,data_date
+industry,金融,25.24,2026/07/31
+industry,工業,18.36,2026/07/31
+industry,醫療保健,12.02,2026/07/31
+industry,資訊技術,8.6,2026/07/31
+industry,核心消費,8.3,2026/07/31
+industry,非核心消費,6.47,2026/07/31
+industry,原材料,5.36,2026/07/31
+industry,能源,4.9,2026/07/31
+industry,公用事業,4.61,2026/07/31
+industry,通訊服務,2.69,2026/07/31
+industry,其他資產,2.67,2026/07/31
+industry,房地產,0.78,2026/07/31
+holding,ASML HOLDING NV,4.33,2026/07/31
+holding,HSBC HOLDINGS PLC,2.46,2026/07/31
+holding,Roche Holding AG,2.09,2026/07/31
+holding,Novartis AG,1.98,2026/07/31
+holding,NESTLE SA,1.75,2026/07/31
+holding,Astrazeneca Plc,1.73,2026/07/31
+holding,SHELL PLC,1.73,2026/07/31
+holding,Siemens AG,1.62,2026/07/31
+holding,BANCO SANTANDER SA,1.39,2026/07/31
+holding,ALLIANZ SE,1.29,2026/07/31

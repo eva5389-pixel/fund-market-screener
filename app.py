@@ -146,6 +146,14 @@ def yahoo_performance_url(symbol: object) -> str:
     return f"https://finance.yahoo.com/quote/{quote(value, safe='')}/chart/" if value else ""
 
 
+def fund_registration_type(identifier: object) -> str:
+    """MoneyDJ 的 AC 系列為台灣境內基金，其餘基金代碼列為境外基金。"""
+    value = str(identifier or "").strip().upper()
+    if not value:
+        return "待確認"
+    return "境內基金" if value.startswith("AC") else "境外基金"
+
+
 ENERGY_EXPOSURE_RULES = {
     "油氣開採／生產公司": ["exxon", "chevron", "conocophillips", "eog resources", "occidental", "petrobras", "petrochina", "cnooc", "suncor", "canadian natural", "devon energy", "marathon oil", "diamondback", "inpex", "台塑石化"],
     "綜合油氣公司": ["shell", "bp plc", "totalenergies", "eni spa", "equinor", "repsol", "sinopec", "中國石油化工", "中國石油天然氣"],
@@ -754,6 +762,7 @@ with tab_portfolio:
             names = fund_holdings["name"].dropna().astype(str).tolist()
             summary_rows.append({
                 "基金": fund_row["name"],
+                "基金身分": fund_registration_type(fund_row.get("moneydj_id")),
                 "是否配息": fund_row.get("distribution") or "待確認",
                 "績效走勢": yahoo_performance_url(fund_row.get("twelve_data_symbol")),
                 "供應鏈家數": len(fund_holdings),

@@ -1,0 +1,21 @@
+﻿kind,name,weight,data_date
+industry,金融,34.25,2026/07/31
+industry,能源,14.4,2026/07/31
+industry,現金,13.86,2026/07/31
+industry,原材料,12.06,2026/07/31
+industry,公用事業,10.23,2026/07/31
+industry,工業,6.54,2026/07/31
+industry,日常消費品,4.34,2026/07/31
+industry,非日常生活消費品,2.15,2026/07/31
+industry,通訊服務,1.35,2026/07/31
+industry,醫療保健,0.82,2026/07/31
+holding,VALE SA,9.25,2026/07/31
+holding,NU HOLDINGS LTD/CAYMAN ISL-A,9.03,2026/07/31
+holding,ITAU UNIBANCO HOLDING S-PREF,7.9,2026/07/31
+holding,PETROBRAS - PETROLEO BRAS-PR,6.44,2026/07/31
+holding,PETROBRAS - PETROLEO BRAS,6.23,2026/07/31
+holding,BANCO BRADESCO SA-PREF,3.32,2026/07/31
+holding,ITAUSA SA,2.77,2026/07/31
+holding,B3 SA-BRASIL BOLSA BALCAO,2.71,2026/07/31
+holding,AMBEV SA,2.37,2026/07/31
+holding,WEG SA,2.36,2026/07/31

@@ -1,4 +1,4 @@
 ﻿rank,category_name,name,moneydj_id,twelve_data_symbol,benchmark,distribution,return_1m,return_3m,return_1y,benchmark_return_1y,excess_return_1y,momentum_6m,sharpe,max_drawdown,recovery_days,score,signal,status,data_source,data_date
-1,磷化銦,iShares Semiconductor ETF（磷化銦供應鏈代理）,,SOXX,SOXX,是,-5.66,-0.84,114.36,114.36,-0.00,44.85,1.901,-41.36,112,1.765,觀察,已更新（Yahoo Finance）,Yahoo Finance,2026-08-24
-2,磷化銦,VanEck Semiconductor ETF（磷化銦供應鏈代理）,,SMH,SOXX,是,-3.40,-1.31,94.55,114.36,-19.81,35.03,1.884,-35.74,58,1.296,觀察,已更新（Yahoo Finance）,Yahoo Finance,2026-08-24
-3,磷化銦,SPDR S&P Semiconductor ETF（磷化銦供應鏈代理）,,XSD,SOXX,是,-4.80,-13.55,82.28,114.36,-32.08,39.70,1.495,-41.25,86,0.992,觀察,已更新（Yahoo Finance）,Yahoo Finance,2026-08-24
+1,磷化銦,路博邁台灣5G股票基金N月配型（磷化銦供應鏈）,ACNB46,,SOXX,是,-0.65,-16.68,145.91,52.84,93.07,38.85,2.120,-36.07,,3.022,買進,已更新（合庫 MoneyDJ 網頁爬蟲）,合庫 MoneyDJ 公開網頁（爬蟲）,2026-08-24
+2,磷化銦,富邦台灣心基金（磷化銦供應鏈）,ACCT01,,SOXX,否,8.61,-13.70,101.39,45.29,56.10,38.24,1.822,-34.58,,2.149,買進,已更新（合庫 MoneyDJ 網頁爬蟲）,合庫 MoneyDJ 公開網頁（爬蟲）,2026-08-24
+3,磷化銦,群益店頭市場基金（磷化銦供應鏈）,AC0028,,SOXX,否,6.82,-14.22,90.78,38.32,52.46,31.15,1.639,-34.81,,1.898,買進,已更新（合庫 MoneyDJ 網頁爬蟲）,合庫 MoneyDJ 公開網頁（爬蟲）,2026-08-24
