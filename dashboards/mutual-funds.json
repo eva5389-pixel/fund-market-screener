@@ -41,7 +41,7 @@
           "refId": "A",
           "type": "csv",
           "source": "inline",
-          "data": "rank,category_name,name,moneydj_id,twelve_data_symbol,benchmark,distribution,return_1m,return_3m,return_1y,benchmark_return_1y,excess_return_1y,momentum_6m,sharpe,max_drawdown,recovery_days,score,signal,status,data_source,data_date\n1,台灣,野村鴻運基金,AC0001,,EWT,,19.23,10.47,203.60,90.22,113.38,75.56,0.980,-27.67,11.0,3.983,買進,沿用上次資料（2026-08-21）,合庫 MoneyDJ 公開網頁（爬蟲）,2026-08-21\n2,台灣,合庫台灣基金-A不配息(台幣),ACCB01-9610,,EWT,,6.07,0.49,130.98,55.52,75.46,48.98,0.900,-27.84,,2.595,買進,沿用上次資料（2026-08-21）,合庫 MoneyDJ 公開網頁（爬蟲）,2026-08-21\n",
+          "data": "rank,category_name,name,moneydj_id,twelve_data_symbol,benchmark,distribution,return_1m,return_3m,return_1y,benchmark_return_1y,excess_return_1y,momentum_6m,sharpe,max_drawdown,recovery_days,score,signal,status,data_source,data_date\n1,台灣,施羅德台灣樂活中小基金-A類型,ACES10,,EWT,否,11.96,7.30,210.20,99.92,110.28,90.59,0.890,-24.15,9.0,4.168,買進,沿用上次資料（2026-08-21）,合庫 MoneyDJ 公開網頁（爬蟲）,2026-08-21\n2,台灣,野村鴻運基金,AC0001,,EWT,,18.94,5.32,202.13,86.21,115.92,67.02,0.830,-27.67,11.0,3.878,買進,沿用上次資料（2026-08-24）,合庫 MoneyDJ 公開網頁（爬蟲）,2026-08-24\n3,台灣,合庫台灣基金-A不配息(台幣),ACCB01-9610,,EWT,,7.40,-4.51,130.43,52.92,77.51,41.59,0.730,-27.84,,2.502,買進,沿用上次資料（2026-08-21）,合庫 MoneyDJ 公開網頁（爬蟲）,2026-08-21\n",
           "format": "table",
           "parser": "backend"
         }
@@ -190,7 +190,7 @@
           "refId": "A",
           "type": "csv",
           "source": "inline",
-          "data": "rank,category_name,name,moneydj_id,twelve_data_symbol,benchmark,distribution,return_1m,return_3m,return_1y,benchmark_return_1y,excess_return_1y,momentum_6m,sharpe,max_drawdown,recovery_days,score,signal,status,data_source,data_date\n1,日本,瀚亞投資-日本動力股票基金,IOFA8-2824,,EWJ,,1.14,8.92,58.49,55.47,3.02,18.42,0.830,-10.85,26.0,0.911,買進,沿用上次資料（2026-08-20）,合庫 MoneyDJ 公開網頁（爬蟲）,2026-08-20\n2,日本,安本日本永續股票基金,ANZH4-1327,,EWJ,,0.65,6.35,46.70,55.47,-8.77,12.71,0.730,-13.16,21.0,0.587,觀察,沿用上次資料（2026-08-20）,合庫 MoneyDJ 公開網頁（爬蟲）,2026-08-20\n3,日本,法巴日本小型股票基金,FLFE9-4448,,EWJ,,3.51,4.99,47.04,55.16,-8.12,8.32,0.560,-11.00,21.0,0.529,觀察,沿用上次資料（2026-08-20）,合庫 MoneyDJ 公開網頁（爬蟲）,2026-08-20\n4,日本,法巴日本股票基金,PAZ11-4402,,EWJ,,3.17,6.64,40.45,55.16,-14.71,10.20,0.540,-8.68,5.0,0.424,觀察,沿用上次資料（2026-08-20）,合庫 MoneyDJ 公開網頁（爬蟲）,2026-08-20\n5,日本,景順日本股票優勢基金,CTZR2-0178,,EWJ,,0.43,7.60,36.55,55.47,-18.92,11.58,0.760,-10.87,23.0,0.390,觀察,沿用上次資料（2026-08-20）,合庫 MoneyDJ 公開網頁（爬蟲）,2026-08-20\n6,日本,施羅德日本優勢基金,PYZL2-15D4,,EWJ,,2.12,4.89,39.01,55.16,-16.15,7.41,0.570,-10.84,26.0,0.363,觀察,沿用上次資料（2026-08-20）,合庫 MoneyDJ 公開網頁（爬蟲）,2026-08-20\n7,日本,安本日本小型公司永續股票基金,ANZH3-1326,,EWJ,,-1.24,3.49,36.81,55.47,-18.66,7.81,0.590,-11.51,29.0,0.320,觀察,沿用上次資料（2026-08-20）,合庫 MoneyDJ 公開網頁（爬蟲）,2026-08-20\n8,日本,利安日本增長基金,LIC39-4708,,EWJ,,3.40,7.27,35.25,55.16,-19.91,8.79,0.670,-11.30,30.0,0.319,觀察,沿用上次資料（2026-08-20）,合庫 MoneyDJ 公開網頁（爬蟲）,2026-08-20\n9,日本,富達日本價值基金,FTZA66-05G5,,EWJ,,-2.52,0.19,35.56,55.47,-19.91,2.02,0.450,-14.40,,0.195,觀察,沿用上次資料（2026-08-20）,合庫 MoneyDJ 公開網頁（爬蟲）,2026-08-20\n10,日本,M&G日本基金,MMG07-2907,,EWJ,,0.11,4.99,29.26,55.16,-25.90,8.92,0.520,-10.30,22.0,0.175,觀察,沿用上次資料（2026-08-20）,合庫 MoneyDJ 公開網頁（爬蟲）,2026-08-20\n",
+          "data": "rank,category_name,name,moneydj_id,twelve_data_symbol,benchmark,distribution,return_1m,return_3m,return_1y,benchmark_return_1y,excess_return_1y,momentum_6m,sharpe,max_drawdown,recovery_days,score,signal,status,data_source,data_date\n1,日本,瀚亞投資-日本動力股票基金,IOFA8-2824,,EWJ,,1.14,8.92,58.49,55.47,3.02,18.42,0.830,-10.85,26.0,0.911,買進,沿用上次資料（2026-08-21）,合庫 MoneyDJ 公開網頁（爬蟲）,2026-08-21\n2,日本,安本日本永續股票基金,ANZH4-1327,,EWJ,,0.65,6.35,46.70,55.47,-8.77,12.71,0.730,-13.16,21.0,0.587,觀察,沿用上次資料（2026-08-21）,合庫 MoneyDJ 公開網頁（爬蟲）,2026-08-21\n3,日本,法巴日本小型股票基金,FLFE9-4448,,EWJ,,1.31,4.43,46.56,55.47,-8.91,8.66,0.590,-11.00,21.0,0.526,觀察,沿用上次資料（2026-08-21）,合庫 MoneyDJ 公開網頁（爬蟲）,2026-08-21\n4,日本,法巴日本股票基金,PAZ11-4402,,EWJ,,0.71,6.02,41.39,55.47,-14.08,11.01,0.630,-8.68,5.0,0.466,觀察,沿用上次資料（2026-08-21）,合庫 MoneyDJ 公開網頁（爬蟲）,2026-08-21\n5,日本,施羅德日本優勢基金,PYZL2-15D4,,EWJ,,0.54,5.57,40.83,55.47,-14.64,8.40,0.630,-10.84,26.0,0.418,觀察,沿用上次資料（2026-08-21）,合庫 MoneyDJ 公開網頁（爬蟲）,2026-08-21\n6,日本,景順日本股票優勢基金,CTZR2-0178,,EWJ,,0.43,7.60,36.55,55.47,-18.92,11.58,0.760,-10.87,23.0,0.390,觀察,沿用上次資料（2026-08-21）,合庫 MoneyDJ 公開網頁（爬蟲）,2026-08-21\n7,日本,利安日本增長基金,LIC39-4708,,EWJ,,1.03,5.59,35.98,55.47,-19.49,8.85,0.780,-11.30,30.0,0.353,觀察,沿用上次資料（2026-08-21）,合庫 MoneyDJ 公開網頁（爬蟲）,2026-08-21\n8,日本,安本日本小型公司永續股票基金,ANZH3-1326,,EWJ,,-1.24,3.49,36.81,55.47,-18.66,7.81,0.590,-11.51,29.0,0.320,觀察,沿用上次資料（2026-08-21）,合庫 MoneyDJ 公開網頁（爬蟲）,2026-08-21\n9,日本,M&G日本基金,MMG07-2907,,EWJ,,0.12,4.93,31.49,55.47,-23.98,9.54,0.560,-10.30,22.0,0.231,觀察,沿用上次資料（2026-08-21）,合庫 MoneyDJ 公開網頁（爬蟲）,2026-08-21\n10,日本,富達日本價值基金,FTZA66-05G5,,EWJ,,-2.52,0.19,35.56,55.47,-19.91,2.02,0.450,-14.40,,0.195,觀察,沿用上次資料（2026-08-21）,合庫 MoneyDJ 公開網頁（爬蟲）,2026-08-21\n",
           "format": "table",
           "parser": "backend"
         }
@@ -339,7 +339,7 @@
           "refId": "A",
           "type": "csv",
           "source": "inline",
-          "data": "rank,category_name,name,moneydj_id,twelve_data_symbol,benchmark,distribution,return_1m,return_3m,return_1y,benchmark_return_1y,excess_return_1y,momentum_6m,sharpe,max_drawdown,recovery_days,score,signal,status,data_source,data_date\n1,韓國,基金清單建置中,,,EWY,,,,,,,,,,,,待資料,待建立基金清單,尚無可用來源,2026-08-22\n",
+          "data": "rank,category_name,name,moneydj_id,twelve_data_symbol,benchmark,distribution,return_1m,return_3m,return_1y,benchmark_return_1y,excess_return_1y,momentum_6m,sharpe,max_drawdown,recovery_days,score,signal,status,data_source,data_date\n1,韓國,利安資金韓國基金(美元),LIC04,,EWY,否,8.25,2.82,176.27,158.30,17.97,45.40,0.680,-37.01,,2.347,買進,沿用上次資料（2026-08-21）,合庫 MoneyDJ 公開網頁（爬蟲）,2026-08-21\n2,韓國,霸菱韓國基金-A類美元累積型,PLZ19,,EWY,否,2.96,-5.52,128.65,158.30,-29.65,23.31,0.610,-36.97,,1.160,觀察,沿用上次資料（2026-08-21）,合庫 MoneyDJ 公開網頁（爬蟲）,2026-08-21\n3,韓國,摩根南韓基金數位級別(美元)(累計),JFZP9,,EWY,否,6.56,-3.00,112.68,158.30,-45.62,19.29,0.610,-32.76,,0.822,觀察,沿用上次資料（2026-08-21）,合庫 MoneyDJ 公開網頁（爬蟲）,2026-08-21\n",
           "format": "table",
           "parser": "backend"
         }
@@ -488,7 +488,7 @@
           "refId": "A",
           "type": "csv",
           "source": "inline",
-          "data": "rank,category_name,name,moneydj_id,twelve_data_symbol,benchmark,distribution,return_1m,return_3m,return_1y,benchmark_return_1y,excess_return_1y,momentum_6m,sharpe,max_drawdown,recovery_days,score,signal,status,data_source,data_date\n1,香港,基金清單建置中,,,EWH,,,,,,,,,,,,待資料,待建立基金清單,尚無可用來源,2026-08-22\n",
+          "data": "rank,category_name,name,moneydj_id,twelve_data_symbol,benchmark,distribution,return_1m,return_3m,return_1y,benchmark_return_1y,excess_return_1y,momentum_6m,sharpe,max_drawdown,recovery_days,score,signal,status,data_source,data_date\n1,香港,安聯香港股票基金-A配息類股(美元)(基金之配息來源可能為本金),TLZ20,,EWH,是,3.58,1.66,6.41,3.60,2.81,-1.94,0.110,-17.90,,0.005,觀察,沿用上次資料（2026-08-21）,合庫 MoneyDJ 公開網頁（爬蟲）,2026-08-21\n2,香港,施羅德環球基金系列-香港股票(港元)C-累積,PYZO7,,EWH,否,4.98,1.17,6.07,3.60,2.47,-3.86,0.100,-15.91,,-0.013,觀察,沿用上次資料（2026-08-21）,合庫 MoneyDJ 公開網頁（爬蟲）,2026-08-21\n3,香港,宏利環球基金-巨龍增長基金AA股(美元),MAM26,,EWH,否,2.61,-3.82,2.49,3.60,-1.11,-7.45,0.040,-16.73,,-0.136,賣出,沿用上次資料（2026-08-21）,合庫 MoneyDJ 公開網頁（爬蟲）,2026-08-21\n",
           "format": "table",
           "parser": "backend"
         }
@@ -637,7 +637,7 @@
           "refId": "A",
           "type": "csv",
           "source": "inline",
-          "data": "rank,category_name,name,moneydj_id,twelve_data_symbol,benchmark,distribution,return_1m,return_3m,return_1y,benchmark_return_1y,excess_return_1y,momentum_6m,sharpe,max_drawdown,recovery_days,score,signal,status,data_source,data_date\n1,中國,摩根中國雙息平衡基金-月配型(台幣),ACJF132-8434,,MCHI,,0.26,-1.41,10.49,1.54,8.95,-2.49,0.360,-8.20,,0.201,觀察,沿用上次資料（2026-08-20）,合庫 MoneyDJ 公開網頁（爬蟲）,2026-08-20\n",
+          "data": "rank,category_name,name,moneydj_id,twelve_data_symbol,benchmark,distribution,return_1m,return_3m,return_1y,benchmark_return_1y,excess_return_1y,momentum_6m,sharpe,max_drawdown,recovery_days,score,signal,status,data_source,data_date\n1,中國,利安資金中國增長基金(美元),LIC33,,MCHI,否,3.78,0.21,33.87,7.72,26.15,7.65,0.390,-16.60,,0.672,買進,沿用上次資料（2026-08-21）,合庫 MoneyDJ 公開網頁（爬蟲）,2026-08-21\n2,中國,景順大中華基金C股美元,CTH03,,MCHI,否,4.44,3.23,31.72,7.72,24.00,8.94,0.400,-13.94,19.0,0.657,買進,沿用上次資料（2026-08-21）,合庫 MoneyDJ 公開網頁（爬蟲）,2026-08-21\n3,中國,摩根中國雙息平衡基金-月配型(台幣),ACJF132-8434,,MCHI,,-0.22,-0.28,10.12,1.71,8.41,-2.26,0.330,-8.20,,0.188,觀察,沿用上次資料（2026-08-21）,合庫 MoneyDJ 公開網頁（爬蟲）,2026-08-21\n",
           "format": "table",
           "parser": "backend"
         }
@@ -786,7 +786,7 @@
           "refId": "A",
           "type": "csv",
           "source": "inline",
-          "data": "rank,category_name,name,moneydj_id,twelve_data_symbol,benchmark,distribution,return_1m,return_3m,return_1y,benchmark_return_1y,excess_return_1y,momentum_6m,sharpe,max_drawdown,recovery_days,score,signal,status,data_source,data_date\n1,美國,基金清單建置中,,,SPY,,,,,,,,,,,,待資料,待建立基金清單,尚無可用來源,2026-08-22\n",
+          "data": "rank,category_name,name,moneydj_id,twelve_data_symbol,benchmark,distribution,return_1m,return_3m,return_1y,benchmark_return_1y,excess_return_1y,momentum_6m,sharpe,max_drawdown,recovery_days,score,signal,status,data_source,data_date\n1,美國,普徠仕美國大型價值股票基金Q級別(美元),MAR37,,SPY,否,2.83,8.03,29.42,20.48,8.94,15.20,0.610,-6.73,13.0,0.624,買進,沿用上次資料（2026-08-21）,合庫 MoneyDJ 公開網頁（爬蟲）,2026-08-21\n2,美國,美盛銳思美國小型公司機會基金優類股美元累積型,BAT20,,SPY,否,-1.58,4.14,39.10,32.71,6.39,11.86,0.410,-11.95,13.0,0.596,買進,沿用上次資料（2026-08-21）,合庫 MoneyDJ 公開網頁（爬蟲）,2026-08-21\n3,美國,施羅德環球基金系列-美國中小型股票(歐元)A-累積,PYZA02,,SPY,否,-0.41,5.95,32.47,32.71,-0.24,10.28,0.600,-7.65,28.0,0.507,觀察,沿用上次資料（2026-08-21）,合庫 MoneyDJ 公開網頁（爬蟲）,2026-08-21\n",
           "format": "table",
           "parser": "backend"
         }
@@ -918,7 +918,7 @@
     },
     {
       "id": 8,
-      "title": "半導體｜基金 Top 10",
+      "title": "印度｜基金 Top 10",
       "type": "table",
       "gridPos": {
         "x": 0,
@@ -935,7 +935,7 @@
           "refId": "A",
           "type": "csv",
           "source": "inline",
-          "data": "rank,category_name,name,moneydj_id,twelve_data_symbol,benchmark,distribution,return_1m,return_3m,return_1y,benchmark_return_1y,excess_return_1y,momentum_6m,sharpe,max_drawdown,recovery_days,score,signal,status,data_source,data_date\n1,半導體,基金清單建置中,,,SOXX,,,,,,,,,,,,待資料,待建立基金清單,尚無可用來源,2026-08-22\n",
+          "data": "rank,category_name,name,moneydj_id,twelve_data_symbol,benchmark,distribution,return_1m,return_3m,return_1y,benchmark_return_1y,excess_return_1y,momentum_6m,sharpe,max_drawdown,recovery_days,score,signal,status,data_source,data_date\n1,印度,台新印度基金,ACTT13,,INDA,否,1.33,4.00,18.45,13.98,4.47,15.77,0.240,-13.19,13.0,0.369,買進,沿用上次資料（2026-08-21）,合庫 MoneyDJ 公開網頁（爬蟲）,2026-08-21\n2,印度,瀚亞印度基金S配息(台幣)(本基金配息來源可能為本金),ACCP221,,INDA,是,4.23,15.65,9.27,9.09,0.18,9.27,0.200,-8.82,26.0,0.183,買進,沿用上次資料（2026-08-21）,合庫 MoneyDJ 公開網頁（爬蟲）,2026-08-21\n3,印度,群益大印度基金N類型(台幣),ACCA162,,INDA,否,1.27,4.33,3.71,3.76,-0.05,2.80,0.070,-16.81,51.0,-0.005,觀察,沿用上次資料（2026-08-21）,合庫 MoneyDJ 公開網頁（爬蟲）,2026-08-21\n",
           "format": "table",
           "parser": "backend"
         }
@@ -1067,7 +1067,7 @@
     },
     {
       "id": 9,
-      "title": "光通訊｜基金 Top 10",
+      "title": "東協｜基金 Top 10",
       "type": "table",
       "gridPos": {
         "x": 12,
@@ -1084,7 +1084,7 @@
           "refId": "A",
           "type": "csv",
           "source": "inline",
-          "data": "rank,category_name,name,moneydj_id,twelve_data_symbol,benchmark,distribution,return_1m,return_3m,return_1y,benchmark_return_1y,excess_return_1y,momentum_6m,sharpe,max_drawdown,recovery_days,score,signal,status,data_source,data_date\n1,光通訊,街口中小型基金,ACCH03-9002,,IYZ,否,9.02,3.01,188.92,72.54,116.38,51.29,0.870,-35.29,,3.563,買進,沿用上次資料（2026-08-21）,合庫 MoneyDJ 公開網頁（爬蟲）,2026-08-21\n2,光通訊,元大二○○一基金,AC0017-6206,,IYZ,否,5.56,-3.60,166.77,66.97,99.80,50.78,0.880,-28.79,,3.206,買進,沿用上次資料（2026-08-21）,合庫 MoneyDJ 公開網頁（爬蟲）,2026-08-21\n3,光通訊,第一金電子基金,ACNC16-7905,,IYZ,否,5.64,-0.63,140.28,59.89,80.39,50.57,0.830,-28.32,,2.737,買進,沿用上次資料（2026-08-21）,合庫 MoneyDJ 公開網頁（爬蟲）,2026-08-21\n4,光通訊,富邦台灣心基金,ACCT01-5905,,IYZ,否,12.64,-4.90,101.57,48.24,53.33,47.28,0.570,-34.58,,1.963,買進,沿用上次資料（2026-08-21）,合庫 MoneyDJ 公開網頁（爬蟲）,2026-08-21\n",
+          "data": "rank,category_name,name,moneydj_id,twelve_data_symbol,benchmark,distribution,return_1m,return_3m,return_1y,benchmark_return_1y,excess_return_1y,momentum_6m,sharpe,max_drawdown,recovery_days,score,signal,status,data_source,data_date\n1,東協,統一大東協高股息基金(台幣)(本基金並無保證收益及配息),ACPS53,,ASEA,是,-1.04,-2.19,59.66,24.65,35.01,17.94,0.710,-19.51,,1.171,買進,沿用上次資料（2026-08-21）,合庫 MoneyDJ 公開網頁（爬蟲）,2026-08-21\n2,東協,野村泰國基金,ACKH12,,ASEA,否,0.68,7.06,39.95,19.96,19.99,11.23,0.990,-9.53,64.0,0.862,買進,沿用上次資料（2026-08-21）,合庫 MoneyDJ 公開網頁（爬蟲）,2026-08-21\n3,東協,復華東協世紀基金,ACFH32,,ASEA,否,-1.15,3.83,33.62,17.19,16.43,13.39,0.650,-9.83,,0.715,買進,沿用上次資料（2026-08-21）,合庫 MoneyDJ 公開網頁（爬蟲）,2026-08-21\n",
           "format": "table",
           "parser": "backend"
         }
@@ -1216,7 +1216,7 @@
     },
     {
       "id": 10,
-      "title": "量子電腦｜基金 Top 10",
+      "title": "歐洲｜基金 Top 10",
       "type": "table",
       "gridPos": {
         "x": 0,
@@ -1233,7 +1233,7 @@
           "refId": "A",
           "type": "csv",
           "source": "inline",
-          "data": "rank,category_name,name,moneydj_id,twelve_data_symbol,benchmark,distribution,return_1m,return_3m,return_1y,benchmark_return_1y,excess_return_1y,momentum_6m,sharpe,max_drawdown,recovery_days,score,signal,status,data_source,data_date\n1,量子電腦,安聯台灣科技基金,ACDD04-8602,,QTUM,否,4.61,1.25,196.56,78.03,118.53,59.76,0.960,-32.10,,3.780,買進,沿用上次資料（2026-08-21）,合庫 MoneyDJ 公開網頁（爬蟲）,2026-08-21\n2,量子電腦,國泰臺韓科技基金,ACTR37,,QTUM,是（半年配）,4.95,6.31,190.87,80.46,110.41,63.84,0.890,-31.35,,3.672,買進,沿用上次資料（2026-08-21）,合庫 MoneyDJ 公開網頁（爬蟲）,2026-08-21\n3,量子電腦,元大台灣電子科技基金,AC0053,,QTUM,否,2.35,7.21,115.01,50.43,64.58,39.49,0.880,-18.95,,2.272,買進,沿用上次資料（2026-08-21）,合庫 MoneyDJ 公開網頁（爬蟲）,2026-08-21\n4,量子電腦,富邦台灣科技指數基金(本基金之配息來源可能為收益平準金),AC0052,,QTUM,是,1.73,8.72,115.72,50.44,65.28,36.75,0.870,-17.13,,2.266,買進,沿用上次資料（2026-08-21）,合庫 MoneyDJ 公開網頁（爬蟲）,2026-08-21\n",
+          "data": "rank,category_name,name,moneydj_id,twelve_data_symbol,benchmark,distribution,return_1m,return_3m,return_1y,benchmark_return_1y,excess_return_1y,momentum_6m,sharpe,max_drawdown,recovery_days,score,signal,status,data_source,data_date\n1,歐洲,富邦富時歐洲ETF基金,ACFP93,,VGK,否,2.33,7.44,24.89,13.58,11.31,6.15,0.440,-9.54,55.0,0.464,買進,沿用上次資料（2026-08-21）,合庫 MoneyDJ 公開網頁（爬蟲）,2026-08-21\n2,歐洲,摩根大歐洲基金-數位型,ACJF153,,VGK,否,1.20,6.59,22.17,11.81,10.36,5.39,0.430,-9.40,55.0,0.418,買進,沿用上次資料（2026-08-21）,合庫 MoneyDJ 公開網頁（爬蟲）,2026-08-21\n3,歐洲,元大歐洲50基金,ACYT89,,VGK,否,2.87,8.50,19.77,12.33,7.44,7.94,0.330,-11.01,43.0,0.362,買進,沿用上次資料（2026-08-21）,合庫 MoneyDJ 公開網頁（爬蟲）,2026-08-21\n",
           "format": "table",
           "parser": "backend"
         }
@@ -1365,7 +1365,7 @@
     },
     {
       "id": 11,
-      "title": "機器人｜基金 Top 10",
+      "title": "巴西｜基金 Top 10",
       "type": "table",
       "gridPos": {
         "x": 12,
@@ -1382,7 +1382,7 @@
           "refId": "A",
           "type": "csv",
           "source": "inline",
-          "data": "rank,category_name,name,moneydj_id,twelve_data_symbol,benchmark,distribution,return_1m,return_3m,return_1y,benchmark_return_1y,excess_return_1y,momentum_6m,sharpe,max_drawdown,recovery_days,score,signal,status,data_source,data_date\n1,機器人,台新SG全球AI機器人精選ETF基金,ACTT63,,BOTZ,否,1.96,5.46,45.98,20.96,25.02,24.48,0.520,-15.41,,0.982,買進,沿用上次資料（2026-08-20）,合庫 MoneyDJ 公開網頁（爬蟲）,2026-08-20\n2,機器人,國泰納斯達克全球人工智慧及機器人基金,ACTR36,,BOTZ,否,8.42,9.37,24.66,15.07,9.59,16.89,0.330,-18.40,36.0,0.485,買進,沿用上次資料（2026-08-20）,合庫 MoneyDJ 公開網頁（爬蟲）,2026-08-20\n3,機器人,第一金全球AI機器人及自動化產業基金N類型(美元),ACNC89,,BOTZ,否,3.22,-4.02,22.98,8.83,14.15,2.46,0.270,-16.40,,0.368,買進,沿用上次資料（2026-08-20）,合庫 MoneyDJ 公開網頁（爬蟲）,2026-08-20\n",
+          "data": "rank,category_name,name,moneydj_id,twelve_data_symbol,benchmark,distribution,return_1m,return_3m,return_1y,benchmark_return_1y,excess_return_1y,momentum_6m,sharpe,max_drawdown,recovery_days,score,signal,status,data_source,data_date\n1,巴西,元大巴西指數基金,ACKY35,,EWZ,否,-3.43,-4.07,35.02,6.96,28.06,-9.26,0.310,-19.44,,0.503,觀察,沿用上次資料（2026-08-21）,合庫 MoneyDJ 公開網頁（爬蟲）,2026-08-21\n2,巴西,野村巴西基金,ACIC29,,EWZ,否,-5.38,-6.93,32.91,4.78,28.13,-11.39,0.280,-21.10,,0.447,觀察,沿用上次資料（2026-08-21）,合庫 MoneyDJ 公開網頁（爬蟲）,2026-08-21\n3,巴西,瀚亞巴西基金,ACCP32,,EWZ,否,-4.38,-7.13,28.46,2.61,25.85,-13.21,0.260,-20.78,,0.359,觀察,沿用上次資料（2026-08-21）,合庫 MoneyDJ 公開網頁（爬蟲）,2026-08-21\n",
           "format": "table",
           "parser": "backend"
         }
@@ -1514,7 +1514,7 @@
     },
     {
       "id": 12,
-      "title": "金融｜基金 Top 10",
+      "title": "債券型｜基金 Top 10",
       "type": "table",
       "gridPos": {
         "x": 0,
@@ -1531,7 +1531,7 @@
           "refId": "A",
           "type": "csv",
           "source": "inline",
-          "data": "rank,category_name,name,moneydj_id,twelve_data_symbol,benchmark,distribution,return_1m,return_3m,return_1y,benchmark_return_1y,excess_return_1y,momentum_6m,sharpe,max_drawdown,recovery_days,score,signal,status,data_source,data_date\n1,金融,基金清單建置中,,,XLF,,,,,,,,,,,,待資料,待建立基金清單,尚無可用來源,2026-08-22\n",
+          "data": "rank,category_name,name,moneydj_id,twelve_data_symbol,benchmark,distribution,return_1m,return_3m,return_1y,benchmark_return_1y,excess_return_1y,momentum_6m,sharpe,max_drawdown,recovery_days,score,signal,status,data_source,data_date\n1,債券型,施羅德環球基金系列-亞洲可轉換債券(美元)A-累積,PYZA03,,BND,否,4.25,3.64,30.53,1.98,28.55,8.91,0.550,-10.81,14.0,0.736,買進,沿用上次資料（2026-08-21）,合庫 MoneyDJ 公開網頁（爬蟲）,2026-08-21\n2,債券型,合庫新興多重收益基金-A不配息(南非幣),ACCB12,,BND,否,1.16,2.97,29.25,10.33,18.92,1.85,0.590,-8.66,41.0,0.575,買進,沿用上次資料（2026-08-20）,合庫 MoneyDJ 公開網頁（爬蟲）,2026-08-20\n3,債券型,富蘭克林華美目標2027組合基金-R類型(台幣),ACFT123,,BND,否,-0.34,1.81,22.99,11.64,11.35,11.31,0.660,-6.20,,0.557,買進,沿用上次資料（2026-08-21）,合庫 MoneyDJ 公開網頁（爬蟲）,2026-08-21\n",
           "format": "table",
           "parser": "backend"
         }
@@ -1663,7 +1663,7 @@
     },
     {
       "id": 13,
-      "title": "醫療｜基金 Top 10",
+      "title": "黃金｜基金 Top 10",
       "type": "table",
       "gridPos": {
         "x": 12,
@@ -1680,7 +1680,1497 @@
           "refId": "A",
           "type": "csv",
           "source": "inline",
-          "data": "rank,category_name,name,moneydj_id,twelve_data_symbol,benchmark,distribution,return_1m,return_3m,return_1y,benchmark_return_1y,excess_return_1y,momentum_6m,sharpe,max_drawdown,recovery_days,score,signal,status,data_source,data_date\n1,醫療,富蘭克林華美全球醫療保健基金(台幣),ACFT73-9209,,XLV,,4.17,12.39,37.58,17.64,19.94,15.56,0.540,-9.85,58.0,0.790,買進,沿用上次資料（2026-08-20）,合庫 MoneyDJ 公開網頁（爬蟲）,2026-08-20\n",
+          "data": "rank,category_name,name,moneydj_id,twelve_data_symbol,benchmark,distribution,return_1m,return_3m,return_1y,benchmark_return_1y,excess_return_1y,momentum_6m,sharpe,max_drawdown,recovery_days,score,signal,status,data_source,data_date\n1,黃金,貝萊德世界黃金基金A2美元,SHZ18,,GLD,否,38.61,18.56,80.85,73.65,7.20,-1.05,0.360,-36.68,,0.759,觀察,沿用上次資料（2026-08-21）,合庫 MoneyDJ 公開網頁（爬蟲）,2026-08-21\n2,黃金,元大黃金期貨基金,ACKY38,,GLD,否,12.03,-1.65,46.73,11.68,35.05,-10.29,0.400,-24.34,,0.673,觀察,沿用上次資料（2026-08-21）,合庫 MoneyDJ 公開網頁（爬蟲）,2026-08-21\n3,黃金,元大標普高盛黃金ER指數期貨基金,ACYT63,,GLD,否,12.93,0.67,31.73,5.92,25.81,-11.12,0.320,-26.76,,0.394,觀察,沿用上次資料（2026-08-21）,合庫 MoneyDJ 公開網頁（爬蟲）,2026-08-21\n",
+          "format": "table",
+          "parser": "backend"
+        }
+      ],
+      "transformations": [
+        {
+          "id": "organize",
+          "options": {
+            "indexByName": {
+              "rank": 0,
+              "name": 1,
+              "return_1y": 2,
+              "benchmark": 3,
+              "excess_return_1y": 4,
+              "momentum_6m": 5,
+              "sharpe": 6,
+              "max_drawdown": 7,
+              "recovery_days": 8,
+              "score": 9,
+              "signal": 10,
+              "status": 11
+            },
+            "excludeByName": {
+              "category_name": true,
+              "moneydj_id": true,
+              "twelve_data_symbol": true,
+              "benchmark_return_1y": true
+            },
+            "renameByName": {
+              "rank": "排名",
+              "name": "基金",
+              "return_1y": "一年報酬%",
+              "benchmark": "Benchmark",
+              "excess_return_1y": "超額報酬%",
+              "momentum_6m": "六個月動能%",
+              "sharpe": "夏普",
+              "max_drawdown": "最大回撤%",
+              "recovery_days": "恢復天數",
+              "score": "綜合評分",
+              "signal": "訊號",
+              "status": "資料狀態"
+            }
+          }
+        }
+      ],
+      "fieldConfig": {
+        "defaults": {
+          "custom": {
+            "align": "auto",
+            "cellOptions": {
+              "type": "auto"
+            }
+          }
+        },
+        "overrides": [
+          {
+            "matcher": {
+              "id": "byName",
+              "options": "signal"
+            },
+            "properties": [
+              {
+                "id": "custom.cellOptions",
+                "value": {
+                  "type": "color-text"
+                }
+              },
+              {
+                "id": "mappings",
+                "value": [
+                  {
+                    "type": "value",
+                    "options": {
+                      "買進": {
+                        "color": "green",
+                        "text": "買進"
+                      },
+                      "觀察": {
+                        "color": "yellow",
+                        "text": "觀察"
+                      },
+                      "賣出": {
+                        "color": "red",
+                        "text": "賣出"
+                      },
+                      "待資料": {
+                        "color": "gray",
+                        "text": "待資料"
+                      }
+                    }
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "matcher": {
+              "id": "byName",
+              "options": "status"
+            },
+            "properties": [
+              {
+                "id": "custom.width",
+                "value": 150
+              }
+            ]
+          },
+          {
+            "matcher": {
+              "id": "byName",
+              "options": "name"
+            },
+            "properties": [
+              {
+                "id": "custom.width",
+                "value": 260
+              }
+            ]
+          }
+        ]
+      },
+      "options": {
+        "showHeader": true,
+        "cellHeight": "sm",
+        "footer": {
+          "show": false
+        }
+      }
+    },
+    {
+      "id": 14,
+      "title": "礦業｜基金 Top 10",
+      "type": "table",
+      "gridPos": {
+        "x": 0,
+        "y": 59,
+        "w": 12,
+        "h": 9
+      },
+      "datasource": {
+        "type": "yesoreyeram-infinity-datasource",
+        "uid": "${datasource}"
+      },
+      "targets": [
+        {
+          "refId": "A",
+          "type": "csv",
+          "source": "inline",
+          "data": "rank,category_name,name,moneydj_id,twelve_data_symbol,benchmark,distribution,return_1m,return_3m,return_1y,benchmark_return_1y,excess_return_1y,momentum_6m,sharpe,max_drawdown,recovery_days,score,signal,status,data_source,data_date\n1,礦業,富蘭克林華美天然資源組合基金,ACFT10,,PICK,否,9.23,-0.98,48.19,13.90,34.29,-0.18,0.420,-18.77,,0.813,觀察,沿用上次資料（2026-08-21）,合庫 MoneyDJ 公開網頁（爬蟲）,2026-08-21\n2,礦業,晉達環球策略基金-環球天然資源基金A累積股份,GSFF7,,PICK,否,12.29,5.89,53.34,47.06,6.28,5.08,0.600,-15.77,37.0,0.688,買進,沿用上次資料（2026-08-21）,合庫 MoneyDJ 公開網頁（爬蟲）,2026-08-21\n3,礦業,復華全球原物料基金,ACFH26,,PICK,否,-1.28,-16.69,39.54,7.01,32.53,-1.87,0.270,-39.59,,0.558,觀察,沿用上次資料（2026-08-21）,合庫 MoneyDJ 公開網頁（爬蟲）,2026-08-21\n",
+          "format": "table",
+          "parser": "backend"
+        }
+      ],
+      "transformations": [
+        {
+          "id": "organize",
+          "options": {
+            "indexByName": {
+              "rank": 0,
+              "name": 1,
+              "return_1y": 2,
+              "benchmark": 3,
+              "excess_return_1y": 4,
+              "momentum_6m": 5,
+              "sharpe": 6,
+              "max_drawdown": 7,
+              "recovery_days": 8,
+              "score": 9,
+              "signal": 10,
+              "status": 11
+            },
+            "excludeByName": {
+              "category_name": true,
+              "moneydj_id": true,
+              "twelve_data_symbol": true,
+              "benchmark_return_1y": true
+            },
+            "renameByName": {
+              "rank": "排名",
+              "name": "基金",
+              "return_1y": "一年報酬%",
+              "benchmark": "Benchmark",
+              "excess_return_1y": "超額報酬%",
+              "momentum_6m": "六個月動能%",
+              "sharpe": "夏普",
+              "max_drawdown": "最大回撤%",
+              "recovery_days": "恢復天數",
+              "score": "綜合評分",
+              "signal": "訊號",
+              "status": "資料狀態"
+            }
+          }
+        }
+      ],
+      "fieldConfig": {
+        "defaults": {
+          "custom": {
+            "align": "auto",
+            "cellOptions": {
+              "type": "auto"
+            }
+          }
+        },
+        "overrides": [
+          {
+            "matcher": {
+              "id": "byName",
+              "options": "signal"
+            },
+            "properties": [
+              {
+                "id": "custom.cellOptions",
+                "value": {
+                  "type": "color-text"
+                }
+              },
+              {
+                "id": "mappings",
+                "value": [
+                  {
+                    "type": "value",
+                    "options": {
+                      "買進": {
+                        "color": "green",
+                        "text": "買進"
+                      },
+                      "觀察": {
+                        "color": "yellow",
+                        "text": "觀察"
+                      },
+                      "賣出": {
+                        "color": "red",
+                        "text": "賣出"
+                      },
+                      "待資料": {
+                        "color": "gray",
+                        "text": "待資料"
+                      }
+                    }
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "matcher": {
+              "id": "byName",
+              "options": "status"
+            },
+            "properties": [
+              {
+                "id": "custom.width",
+                "value": 150
+              }
+            ]
+          },
+          {
+            "matcher": {
+              "id": "byName",
+              "options": "name"
+            },
+            "properties": [
+              {
+                "id": "custom.width",
+                "value": 260
+              }
+            ]
+          }
+        ]
+      },
+      "options": {
+        "showHeader": true,
+        "cellHeight": "sm",
+        "footer": {
+          "show": false
+        }
+      }
+    },
+    {
+      "id": 15,
+      "title": "半導體｜基金 Top 10",
+      "type": "table",
+      "gridPos": {
+        "x": 12,
+        "y": 59,
+        "w": 12,
+        "h": 9
+      },
+      "datasource": {
+        "type": "yesoreyeram-infinity-datasource",
+        "uid": "${datasource}"
+      },
+      "targets": [
+        {
+          "refId": "A",
+          "type": "csv",
+          "source": "inline",
+          "data": "rank,category_name,name,moneydj_id,twelve_data_symbol,benchmark,distribution,return_1m,return_3m,return_1y,benchmark_return_1y,excess_return_1y,momentum_6m,sharpe,max_drawdown,recovery_days,score,signal,status,data_source,data_date\n1,半導體,第一金電子基金,ACNC16,,SOXX,否,6.17,-5.17,139.71,57.27,82.44,45.31,0.680,-28.32,,2.669,買進,沿用上次資料（2026-08-24）,合庫 MoneyDJ 公開網頁（爬蟲）,2026-08-24\n2,半導體,台新美日台半導體基金-A不配息(台幣),ACTT209,,SOXX,否,-4.20,-6.01,81.43,31.53,49.90,25.99,0.590,-31.66,,1.533,買進,沿用上次資料（2026-08-21）,合庫 MoneyDJ 公開網頁（爬蟲）,2026-08-21\n3,半導體,貝萊德世界科技基金A2美元,SHZ71,,SOXX,否,0.93,-1.33,41.42,32.43,8.99,28.20,0.360,-20.71,,0.755,買進,沿用上次資料（2026-08-21）,合庫 MoneyDJ 公開網頁（爬蟲）,2026-08-21\n",
+          "format": "table",
+          "parser": "backend"
+        }
+      ],
+      "transformations": [
+        {
+          "id": "organize",
+          "options": {
+            "indexByName": {
+              "rank": 0,
+              "name": 1,
+              "return_1y": 2,
+              "benchmark": 3,
+              "excess_return_1y": 4,
+              "momentum_6m": 5,
+              "sharpe": 6,
+              "max_drawdown": 7,
+              "recovery_days": 8,
+              "score": 9,
+              "signal": 10,
+              "status": 11
+            },
+            "excludeByName": {
+              "category_name": true,
+              "moneydj_id": true,
+              "twelve_data_symbol": true,
+              "benchmark_return_1y": true
+            },
+            "renameByName": {
+              "rank": "排名",
+              "name": "基金",
+              "return_1y": "一年報酬%",
+              "benchmark": "Benchmark",
+              "excess_return_1y": "超額報酬%",
+              "momentum_6m": "六個月動能%",
+              "sharpe": "夏普",
+              "max_drawdown": "最大回撤%",
+              "recovery_days": "恢復天數",
+              "score": "綜合評分",
+              "signal": "訊號",
+              "status": "資料狀態"
+            }
+          }
+        }
+      ],
+      "fieldConfig": {
+        "defaults": {
+          "custom": {
+            "align": "auto",
+            "cellOptions": {
+              "type": "auto"
+            }
+          }
+        },
+        "overrides": [
+          {
+            "matcher": {
+              "id": "byName",
+              "options": "signal"
+            },
+            "properties": [
+              {
+                "id": "custom.cellOptions",
+                "value": {
+                  "type": "color-text"
+                }
+              },
+              {
+                "id": "mappings",
+                "value": [
+                  {
+                    "type": "value",
+                    "options": {
+                      "買進": {
+                        "color": "green",
+                        "text": "買進"
+                      },
+                      "觀察": {
+                        "color": "yellow",
+                        "text": "觀察"
+                      },
+                      "賣出": {
+                        "color": "red",
+                        "text": "賣出"
+                      },
+                      "待資料": {
+                        "color": "gray",
+                        "text": "待資料"
+                      }
+                    }
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "matcher": {
+              "id": "byName",
+              "options": "status"
+            },
+            "properties": [
+              {
+                "id": "custom.width",
+                "value": 150
+              }
+            ]
+          },
+          {
+            "matcher": {
+              "id": "byName",
+              "options": "name"
+            },
+            "properties": [
+              {
+                "id": "custom.width",
+                "value": 260
+              }
+            ]
+          }
+        ]
+      },
+      "options": {
+        "showHeader": true,
+        "cellHeight": "sm",
+        "footer": {
+          "show": false
+        }
+      }
+    },
+    {
+      "id": 16,
+      "title": "記憶體｜基金 Top 10",
+      "type": "table",
+      "gridPos": {
+        "x": 0,
+        "y": 68,
+        "w": 12,
+        "h": 9
+      },
+      "datasource": {
+        "type": "yesoreyeram-infinity-datasource",
+        "uid": "${datasource}"
+      },
+      "targets": [
+        {
+          "refId": "A",
+          "type": "csv",
+          "source": "inline",
+          "data": "rank,category_name,name,moneydj_id,twelve_data_symbol,benchmark,distribution,return_1m,return_3m,return_1y,benchmark_return_1y,excess_return_1y,momentum_6m,sharpe,max_drawdown,recovery_days,score,signal,status,data_source,data_date\n1,記憶體,街口中小型基金（記憶體供應鏈）,ACCH03,,SOXX,否,10.30,-2.36,189.62,69.39,120.23,44.77,0.790,-35.29,,3.528,買進,沿用上次資料（2026-08-24）,合庫 MoneyDJ 公開網頁（爬蟲）,2026-08-24\n2,記憶體,國泰臺韓科技基金（記憶體供應鏈）,ACTR37,,SOXX,是（半年配）,4.07,2.61,184.10,74.12,109.98,45.91,0.810,-31.35,,3.405,買進,沿用上次資料（2026-08-21）,合庫 MoneyDJ 公開網頁（爬蟲）,2026-08-21\n3,記憶體,街口台灣基金（記憶體供應鏈）,ACCH01,,SOXX,否,8.98,-4.05,179.81,64.91,114.90,40.74,0.770,-37.12,,3.323,買進,沿用上次資料（2026-08-24）,合庫 MoneyDJ 公開網頁（爬蟲）,2026-08-24\n",
+          "format": "table",
+          "parser": "backend"
+        }
+      ],
+      "transformations": [
+        {
+          "id": "organize",
+          "options": {
+            "indexByName": {
+              "rank": 0,
+              "name": 1,
+              "return_1y": 2,
+              "benchmark": 3,
+              "excess_return_1y": 4,
+              "momentum_6m": 5,
+              "sharpe": 6,
+              "max_drawdown": 7,
+              "recovery_days": 8,
+              "score": 9,
+              "signal": 10,
+              "status": 11
+            },
+            "excludeByName": {
+              "category_name": true,
+              "moneydj_id": true,
+              "twelve_data_symbol": true,
+              "benchmark_return_1y": true
+            },
+            "renameByName": {
+              "rank": "排名",
+              "name": "基金",
+              "return_1y": "一年報酬%",
+              "benchmark": "Benchmark",
+              "excess_return_1y": "超額報酬%",
+              "momentum_6m": "六個月動能%",
+              "sharpe": "夏普",
+              "max_drawdown": "最大回撤%",
+              "recovery_days": "恢復天數",
+              "score": "綜合評分",
+              "signal": "訊號",
+              "status": "資料狀態"
+            }
+          }
+        }
+      ],
+      "fieldConfig": {
+        "defaults": {
+          "custom": {
+            "align": "auto",
+            "cellOptions": {
+              "type": "auto"
+            }
+          }
+        },
+        "overrides": [
+          {
+            "matcher": {
+              "id": "byName",
+              "options": "signal"
+            },
+            "properties": [
+              {
+                "id": "custom.cellOptions",
+                "value": {
+                  "type": "color-text"
+                }
+              },
+              {
+                "id": "mappings",
+                "value": [
+                  {
+                    "type": "value",
+                    "options": {
+                      "買進": {
+                        "color": "green",
+                        "text": "買進"
+                      },
+                      "觀察": {
+                        "color": "yellow",
+                        "text": "觀察"
+                      },
+                      "賣出": {
+                        "color": "red",
+                        "text": "賣出"
+                      },
+                      "待資料": {
+                        "color": "gray",
+                        "text": "待資料"
+                      }
+                    }
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "matcher": {
+              "id": "byName",
+              "options": "status"
+            },
+            "properties": [
+              {
+                "id": "custom.width",
+                "value": 150
+              }
+            ]
+          },
+          {
+            "matcher": {
+              "id": "byName",
+              "options": "name"
+            },
+            "properties": [
+              {
+                "id": "custom.width",
+                "value": 260
+              }
+            ]
+          }
+        ]
+      },
+      "options": {
+        "showHeader": true,
+        "cellHeight": "sm",
+        "footer": {
+          "show": false
+        }
+      }
+    },
+    {
+      "id": 17,
+      "title": "光通訊｜基金 Top 10",
+      "type": "table",
+      "gridPos": {
+        "x": 12,
+        "y": 68,
+        "w": 12,
+        "h": 9
+      },
+      "datasource": {
+        "type": "yesoreyeram-infinity-datasource",
+        "uid": "${datasource}"
+      },
+      "targets": [
+        {
+          "refId": "A",
+          "type": "csv",
+          "source": "inline",
+          "data": "rank,category_name,name,moneydj_id,twelve_data_symbol,benchmark,distribution,return_1m,return_3m,return_1y,benchmark_return_1y,excess_return_1y,momentum_6m,sharpe,max_drawdown,recovery_days,score,signal,status,data_source,data_date\n1,光通訊,街口中小型基金,ACCH03-9002,,IYZ,否,10.30,-2.36,189.62,69.39,120.23,44.77,0.790,-35.29,,3.528,買進,沿用上次資料（2026-08-24）,合庫 MoneyDJ 公開網頁（爬蟲）,2026-08-24\n2,光通訊,元大二○○一基金,AC0017-6206,,IYZ,否,5.87,-7.87,166.15,64.45,101.70,40.88,0.760,-28.79,,3.095,買進,沿用上次資料（2026-08-24）,合庫 MoneyDJ 公開網頁（爬蟲）,2026-08-24\n3,光通訊,第一金電子基金,ACNC16-7905,,IYZ,否,6.17,-5.17,139.71,57.27,82.44,45.31,0.680,-28.32,,2.669,買進,沿用上次資料（2026-08-24）,合庫 MoneyDJ 公開網頁（爬蟲）,2026-08-24\n4,光通訊,富邦台灣心基金,ACCT01-5905,,IYZ,否,8.61,-10.32,101.39,45.29,56.10,38.24,0.530,-34.58,,1.890,買進,沿用上次資料（2026-08-24）,合庫 MoneyDJ 公開網頁（爬蟲）,2026-08-24\n",
+          "format": "table",
+          "parser": "backend"
+        }
+      ],
+      "transformations": [
+        {
+          "id": "organize",
+          "options": {
+            "indexByName": {
+              "rank": 0,
+              "name": 1,
+              "return_1y": 2,
+              "benchmark": 3,
+              "excess_return_1y": 4,
+              "momentum_6m": 5,
+              "sharpe": 6,
+              "max_drawdown": 7,
+              "recovery_days": 8,
+              "score": 9,
+              "signal": 10,
+              "status": 11
+            },
+            "excludeByName": {
+              "category_name": true,
+              "moneydj_id": true,
+              "twelve_data_symbol": true,
+              "benchmark_return_1y": true
+            },
+            "renameByName": {
+              "rank": "排名",
+              "name": "基金",
+              "return_1y": "一年報酬%",
+              "benchmark": "Benchmark",
+              "excess_return_1y": "超額報酬%",
+              "momentum_6m": "六個月動能%",
+              "sharpe": "夏普",
+              "max_drawdown": "最大回撤%",
+              "recovery_days": "恢復天數",
+              "score": "綜合評分",
+              "signal": "訊號",
+              "status": "資料狀態"
+            }
+          }
+        }
+      ],
+      "fieldConfig": {
+        "defaults": {
+          "custom": {
+            "align": "auto",
+            "cellOptions": {
+              "type": "auto"
+            }
+          }
+        },
+        "overrides": [
+          {
+            "matcher": {
+              "id": "byName",
+              "options": "signal"
+            },
+            "properties": [
+              {
+                "id": "custom.cellOptions",
+                "value": {
+                  "type": "color-text"
+                }
+              },
+              {
+                "id": "mappings",
+                "value": [
+                  {
+                    "type": "value",
+                    "options": {
+                      "買進": {
+                        "color": "green",
+                        "text": "買進"
+                      },
+                      "觀察": {
+                        "color": "yellow",
+                        "text": "觀察"
+                      },
+                      "賣出": {
+                        "color": "red",
+                        "text": "賣出"
+                      },
+                      "待資料": {
+                        "color": "gray",
+                        "text": "待資料"
+                      }
+                    }
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "matcher": {
+              "id": "byName",
+              "options": "status"
+            },
+            "properties": [
+              {
+                "id": "custom.width",
+                "value": 150
+              }
+            ]
+          },
+          {
+            "matcher": {
+              "id": "byName",
+              "options": "name"
+            },
+            "properties": [
+              {
+                "id": "custom.width",
+                "value": 260
+              }
+            ]
+          }
+        ]
+      },
+      "options": {
+        "showHeader": true,
+        "cellHeight": "sm",
+        "footer": {
+          "show": false
+        }
+      }
+    },
+    {
+      "id": 18,
+      "title": "量子電腦｜基金 Top 10",
+      "type": "table",
+      "gridPos": {
+        "x": 0,
+        "y": 77,
+        "w": 12,
+        "h": 9
+      },
+      "datasource": {
+        "type": "yesoreyeram-infinity-datasource",
+        "uid": "${datasource}"
+      },
+      "targets": [
+        {
+          "refId": "A",
+          "type": "csv",
+          "source": "inline",
+          "data": "rank,category_name,name,moneydj_id,twelve_data_symbol,benchmark,distribution,return_1m,return_3m,return_1y,benchmark_return_1y,excess_return_1y,momentum_6m,sharpe,max_drawdown,recovery_days,score,signal,status,data_source,data_date\n1,量子電腦,安聯台灣科技基金,ACDD04-8602,,QTUM,否,4.25,-3.34,194.38,73.82,120.56,52.84,0.860,-32.10,,3.689,買進,沿用上次資料（2026-08-21）,合庫 MoneyDJ 公開網頁（爬蟲）,2026-08-21\n2,量子電腦,國泰臺韓科技基金,ACTR37,,QTUM,是（半年配）,4.07,2.61,184.10,74.12,109.98,45.91,0.810,-31.35,,3.405,買進,沿用上次資料（2026-08-21）,合庫 MoneyDJ 公開網頁（爬蟲）,2026-08-21\n3,量子電腦,富邦台灣科技指數基金(本基金之配息來源可能為收益平準金),AC0052,,QTUM,是,2.13,5.01,115.71,47.23,68.48,31.50,0.740,-17.13,,2.219,買進,沿用上次資料（2026-08-24）,合庫 MoneyDJ 公開網頁（爬蟲）,2026-08-24\n4,量子電腦,元大台灣電子科技基金,AC0053,,QTUM,否,2.86,3.57,114.85,47.57,67.28,33.64,0.730,-18.95,,2.209,買進,沿用上次資料（2026-08-24）,合庫 MoneyDJ 公開網頁（爬蟲）,2026-08-24\n",
+          "format": "table",
+          "parser": "backend"
+        }
+      ],
+      "transformations": [
+        {
+          "id": "organize",
+          "options": {
+            "indexByName": {
+              "rank": 0,
+              "name": 1,
+              "return_1y": 2,
+              "benchmark": 3,
+              "excess_return_1y": 4,
+              "momentum_6m": 5,
+              "sharpe": 6,
+              "max_drawdown": 7,
+              "recovery_days": 8,
+              "score": 9,
+              "signal": 10,
+              "status": 11
+            },
+            "excludeByName": {
+              "category_name": true,
+              "moneydj_id": true,
+              "twelve_data_symbol": true,
+              "benchmark_return_1y": true
+            },
+            "renameByName": {
+              "rank": "排名",
+              "name": "基金",
+              "return_1y": "一年報酬%",
+              "benchmark": "Benchmark",
+              "excess_return_1y": "超額報酬%",
+              "momentum_6m": "六個月動能%",
+              "sharpe": "夏普",
+              "max_drawdown": "最大回撤%",
+              "recovery_days": "恢復天數",
+              "score": "綜合評分",
+              "signal": "訊號",
+              "status": "資料狀態"
+            }
+          }
+        }
+      ],
+      "fieldConfig": {
+        "defaults": {
+          "custom": {
+            "align": "auto",
+            "cellOptions": {
+              "type": "auto"
+            }
+          }
+        },
+        "overrides": [
+          {
+            "matcher": {
+              "id": "byName",
+              "options": "signal"
+            },
+            "properties": [
+              {
+                "id": "custom.cellOptions",
+                "value": {
+                  "type": "color-text"
+                }
+              },
+              {
+                "id": "mappings",
+                "value": [
+                  {
+                    "type": "value",
+                    "options": {
+                      "買進": {
+                        "color": "green",
+                        "text": "買進"
+                      },
+                      "觀察": {
+                        "color": "yellow",
+                        "text": "觀察"
+                      },
+                      "賣出": {
+                        "color": "red",
+                        "text": "賣出"
+                      },
+                      "待資料": {
+                        "color": "gray",
+                        "text": "待資料"
+                      }
+                    }
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "matcher": {
+              "id": "byName",
+              "options": "status"
+            },
+            "properties": [
+              {
+                "id": "custom.width",
+                "value": 150
+              }
+            ]
+          },
+          {
+            "matcher": {
+              "id": "byName",
+              "options": "name"
+            },
+            "properties": [
+              {
+                "id": "custom.width",
+                "value": 260
+              }
+            ]
+          }
+        ]
+      },
+      "options": {
+        "showHeader": true,
+        "cellHeight": "sm",
+        "footer": {
+          "show": false
+        }
+      }
+    },
+    {
+      "id": 19,
+      "title": "機器人｜基金 Top 10",
+      "type": "table",
+      "gridPos": {
+        "x": 12,
+        "y": 77,
+        "w": 12,
+        "h": 9
+      },
+      "datasource": {
+        "type": "yesoreyeram-infinity-datasource",
+        "uid": "${datasource}"
+      },
+      "targets": [
+        {
+          "refId": "A",
+          "type": "csv",
+          "source": "inline",
+          "data": "rank,category_name,name,moneydj_id,twelve_data_symbol,benchmark,distribution,return_1m,return_3m,return_1y,benchmark_return_1y,excess_return_1y,momentum_6m,sharpe,max_drawdown,recovery_days,score,signal,status,data_source,data_date\n1,機器人,台新SG全球AI機器人精選ETF基金,ACTT63,,BOTZ,否,-1.39,3.48,45.68,20.47,25.21,24.61,0.540,-15.41,,0.986,買進,沿用上次資料（2026-08-21）,合庫 MoneyDJ 公開網頁（爬蟲）,2026-08-21\n2,機器人,國泰納斯達克全球人工智慧及機器人基金,ACTR36,,BOTZ,否,7.52,8.89,24.92,15.41,9.51,17.80,0.340,-18.40,36.0,0.498,買進,沿用上次資料（2026-08-21）,合庫 MoneyDJ 公開網頁（爬蟲）,2026-08-21\n3,機器人,第一金全球AI機器人及自動化產業基金N類型(美元),ACNC89,,BOTZ,否,0.78,-5.64,23.51,8.44,15.07,2.55,0.280,-16.40,,0.385,買進,沿用上次資料（2026-08-21）,合庫 MoneyDJ 公開網頁（爬蟲）,2026-08-21\n",
+          "format": "table",
+          "parser": "backend"
+        }
+      ],
+      "transformations": [
+        {
+          "id": "organize",
+          "options": {
+            "indexByName": {
+              "rank": 0,
+              "name": 1,
+              "return_1y": 2,
+              "benchmark": 3,
+              "excess_return_1y": 4,
+              "momentum_6m": 5,
+              "sharpe": 6,
+              "max_drawdown": 7,
+              "recovery_days": 8,
+              "score": 9,
+              "signal": 10,
+              "status": 11
+            },
+            "excludeByName": {
+              "category_name": true,
+              "moneydj_id": true,
+              "twelve_data_symbol": true,
+              "benchmark_return_1y": true
+            },
+            "renameByName": {
+              "rank": "排名",
+              "name": "基金",
+              "return_1y": "一年報酬%",
+              "benchmark": "Benchmark",
+              "excess_return_1y": "超額報酬%",
+              "momentum_6m": "六個月動能%",
+              "sharpe": "夏普",
+              "max_drawdown": "最大回撤%",
+              "recovery_days": "恢復天數",
+              "score": "綜合評分",
+              "signal": "訊號",
+              "status": "資料狀態"
+            }
+          }
+        }
+      ],
+      "fieldConfig": {
+        "defaults": {
+          "custom": {
+            "align": "auto",
+            "cellOptions": {
+              "type": "auto"
+            }
+          }
+        },
+        "overrides": [
+          {
+            "matcher": {
+              "id": "byName",
+              "options": "signal"
+            },
+            "properties": [
+              {
+                "id": "custom.cellOptions",
+                "value": {
+                  "type": "color-text"
+                }
+              },
+              {
+                "id": "mappings",
+                "value": [
+                  {
+                    "type": "value",
+                    "options": {
+                      "買進": {
+                        "color": "green",
+                        "text": "買進"
+                      },
+                      "觀察": {
+                        "color": "yellow",
+                        "text": "觀察"
+                      },
+                      "賣出": {
+                        "color": "red",
+                        "text": "賣出"
+                      },
+                      "待資料": {
+                        "color": "gray",
+                        "text": "待資料"
+                      }
+                    }
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "matcher": {
+              "id": "byName",
+              "options": "status"
+            },
+            "properties": [
+              {
+                "id": "custom.width",
+                "value": 150
+              }
+            ]
+          },
+          {
+            "matcher": {
+              "id": "byName",
+              "options": "name"
+            },
+            "properties": [
+              {
+                "id": "custom.width",
+                "value": 260
+              }
+            ]
+          }
+        ]
+      },
+      "options": {
+        "showHeader": true,
+        "cellHeight": "sm",
+        "footer": {
+          "show": false
+        }
+      }
+    },
+    {
+      "id": 20,
+      "title": "金融｜基金 Top 10",
+      "type": "table",
+      "gridPos": {
+        "x": 0,
+        "y": 86,
+        "w": 12,
+        "h": 9
+      },
+      "datasource": {
+        "type": "yesoreyeram-infinity-datasource",
+        "uid": "${datasource}"
+      },
+      "targets": [
+        {
+          "refId": "A",
+          "type": "csv",
+          "source": "inline",
+          "data": "rank,category_name,name,moneydj_id,twelve_data_symbol,benchmark,distribution,return_1m,return_3m,return_1y,benchmark_return_1y,excess_return_1y,momentum_6m,sharpe,max_drawdown,recovery_days,score,signal,status,data_source,data_date\n1,金融,貝萊德世界金融基金A2歐元,SHZA9,,XLF,否,0.06,11.53,19.17,14.98,4.19,10.47,0.240,-15.30,50.0,0.310,買進,沿用上次資料（2026-08-21）,合庫 MoneyDJ 公開網頁（爬蟲）,2026-08-21\n2,金融,歐義銳榮環球智慧股票基金R,SAN21,,XLF,否,0.85,2.78,15.56,13.71,1.85,8.20,0.420,-6.30,13.0,0.309,買進,沿用上次資料（2026-08-20）,合庫 MoneyDJ 公開網頁（爬蟲）,2026-08-20\n3,金融,富達基金-全球金融服務基金(Y股累計歐元),FTZD9,,XLF,否,0.16,10.86,11.95,14.98,-3.03,11.65,0.230,-11.99,56.0,0.192,觀察,沿用上次資料（2026-08-21）,合庫 MoneyDJ 公開網頁（爬蟲）,2026-08-21\n",
+          "format": "table",
+          "parser": "backend"
+        }
+      ],
+      "transformations": [
+        {
+          "id": "organize",
+          "options": {
+            "indexByName": {
+              "rank": 0,
+              "name": 1,
+              "return_1y": 2,
+              "benchmark": 3,
+              "excess_return_1y": 4,
+              "momentum_6m": 5,
+              "sharpe": 6,
+              "max_drawdown": 7,
+              "recovery_days": 8,
+              "score": 9,
+              "signal": 10,
+              "status": 11
+            },
+            "excludeByName": {
+              "category_name": true,
+              "moneydj_id": true,
+              "twelve_data_symbol": true,
+              "benchmark_return_1y": true
+            },
+            "renameByName": {
+              "rank": "排名",
+              "name": "基金",
+              "return_1y": "一年報酬%",
+              "benchmark": "Benchmark",
+              "excess_return_1y": "超額報酬%",
+              "momentum_6m": "六個月動能%",
+              "sharpe": "夏普",
+              "max_drawdown": "最大回撤%",
+              "recovery_days": "恢復天數",
+              "score": "綜合評分",
+              "signal": "訊號",
+              "status": "資料狀態"
+            }
+          }
+        }
+      ],
+      "fieldConfig": {
+        "defaults": {
+          "custom": {
+            "align": "auto",
+            "cellOptions": {
+              "type": "auto"
+            }
+          }
+        },
+        "overrides": [
+          {
+            "matcher": {
+              "id": "byName",
+              "options": "signal"
+            },
+            "properties": [
+              {
+                "id": "custom.cellOptions",
+                "value": {
+                  "type": "color-text"
+                }
+              },
+              {
+                "id": "mappings",
+                "value": [
+                  {
+                    "type": "value",
+                    "options": {
+                      "買進": {
+                        "color": "green",
+                        "text": "買進"
+                      },
+                      "觀察": {
+                        "color": "yellow",
+                        "text": "觀察"
+                      },
+                      "賣出": {
+                        "color": "red",
+                        "text": "賣出"
+                      },
+                      "待資料": {
+                        "color": "gray",
+                        "text": "待資料"
+                      }
+                    }
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "matcher": {
+              "id": "byName",
+              "options": "status"
+            },
+            "properties": [
+              {
+                "id": "custom.width",
+                "value": 150
+              }
+            ]
+          },
+          {
+            "matcher": {
+              "id": "byName",
+              "options": "name"
+            },
+            "properties": [
+              {
+                "id": "custom.width",
+                "value": 260
+              }
+            ]
+          }
+        ]
+      },
+      "options": {
+        "showHeader": true,
+        "cellHeight": "sm",
+        "footer": {
+          "show": false
+        }
+      }
+    },
+    {
+      "id": 21,
+      "title": "醫療｜基金 Top 10",
+      "type": "table",
+      "gridPos": {
+        "x": 12,
+        "y": 86,
+        "w": 12,
+        "h": 9
+      },
+      "datasource": {
+        "type": "yesoreyeram-infinity-datasource",
+        "uid": "${datasource}"
+      },
+      "targets": [
+        {
+          "refId": "A",
+          "type": "csv",
+          "source": "inline",
+          "data": "rank,category_name,name,moneydj_id,twelve_data_symbol,benchmark,distribution,return_1m,return_3m,return_1y,benchmark_return_1y,excess_return_1y,momentum_6m,sharpe,max_drawdown,recovery_days,score,signal,status,data_source,data_date\n1,醫療,百達-生物科技-I美元,PIC90,,XLV,否,5.51,19.96,73.19,54.46,18.73,22.66,0.930,-10.15,12.0,1.281,買進,沿用上次資料（2026-08-21）,合庫 MoneyDJ 公開網頁（爬蟲）,2026-08-21\n2,醫療,富蘭克林坦伯頓全球投資系列生技領航基金美元A(acc),FLZ81,,XLV,否,6.53,18.53,73.72,54.46,19.26,23.48,0.770,-9.17,14.0,1.273,買進,沿用上次資料（2026-08-21）,合庫 MoneyDJ 公開網頁（爬蟲）,2026-08-21\n3,醫療,富蘭克林華美全球醫療保健基金(台幣),ACFT73-9209,,XLV,,2.18,11.73,37.75,17.64,20.11,16.01,0.500,-9.85,58.0,0.789,買進,沿用上次資料（2026-08-21）,合庫 MoneyDJ 公開網頁（爬蟲）,2026-08-21\n",
+          "format": "table",
+          "parser": "backend"
+        }
+      ],
+      "transformations": [
+        {
+          "id": "organize",
+          "options": {
+            "indexByName": {
+              "rank": 0,
+              "name": 1,
+              "return_1y": 2,
+              "benchmark": 3,
+              "excess_return_1y": 4,
+              "momentum_6m": 5,
+              "sharpe": 6,
+              "max_drawdown": 7,
+              "recovery_days": 8,
+              "score": 9,
+              "signal": 10,
+              "status": 11
+            },
+            "excludeByName": {
+              "category_name": true,
+              "moneydj_id": true,
+              "twelve_data_symbol": true,
+              "benchmark_return_1y": true
+            },
+            "renameByName": {
+              "rank": "排名",
+              "name": "基金",
+              "return_1y": "一年報酬%",
+              "benchmark": "Benchmark",
+              "excess_return_1y": "超額報酬%",
+              "momentum_6m": "六個月動能%",
+              "sharpe": "夏普",
+              "max_drawdown": "最大回撤%",
+              "recovery_days": "恢復天數",
+              "score": "綜合評分",
+              "signal": "訊號",
+              "status": "資料狀態"
+            }
+          }
+        }
+      ],
+      "fieldConfig": {
+        "defaults": {
+          "custom": {
+            "align": "auto",
+            "cellOptions": {
+              "type": "auto"
+            }
+          }
+        },
+        "overrides": [
+          {
+            "matcher": {
+              "id": "byName",
+              "options": "signal"
+            },
+            "properties": [
+              {
+                "id": "custom.cellOptions",
+                "value": {
+                  "type": "color-text"
+                }
+              },
+              {
+                "id": "mappings",
+                "value": [
+                  {
+                    "type": "value",
+                    "options": {
+                      "買進": {
+                        "color": "green",
+                        "text": "買進"
+                      },
+                      "觀察": {
+                        "color": "yellow",
+                        "text": "觀察"
+                      },
+                      "賣出": {
+                        "color": "red",
+                        "text": "賣出"
+                      },
+                      "待資料": {
+                        "color": "gray",
+                        "text": "待資料"
+                      }
+                    }
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "matcher": {
+              "id": "byName",
+              "options": "status"
+            },
+            "properties": [
+              {
+                "id": "custom.width",
+                "value": 150
+              }
+            ]
+          },
+          {
+            "matcher": {
+              "id": "byName",
+              "options": "name"
+            },
+            "properties": [
+              {
+                "id": "custom.width",
+                "value": 260
+              }
+            ]
+          }
+        ]
+      },
+      "options": {
+        "showHeader": true,
+        "cellHeight": "sm",
+        "footer": {
+          "show": false
+        }
+      }
+    },
+    {
+      "id": 22,
+      "title": "能源｜基金 Top 10",
+      "type": "table",
+      "gridPos": {
+        "x": 0,
+        "y": 95,
+        "w": 12,
+        "h": 9
+      },
+      "datasource": {
+        "type": "yesoreyeram-infinity-datasource",
+        "uid": "${datasource}"
+      },
+      "targets": [
+        {
+          "refId": "A",
+          "type": "csv",
+          "source": "inline",
+          "data": "rank,category_name,name,moneydj_id,twelve_data_symbol,benchmark,distribution,return_1m,return_3m,return_1y,benchmark_return_1y,excess_return_1y,momentum_6m,sharpe,max_drawdown,recovery_days,score,signal,status,data_source,data_date\n1,能源,統一新亞洲科技能源基金,ACPS26-5816,,XLE,否,-4.87,-5.72,146.81,58.31,88.50,54.30,0.650,-36.61,,2.843,買進,沿用上次資料（2026-08-21）,合庫 MoneyDJ 公開網頁（爬蟲）,2026-08-21\n2,能源,中國信託臺灣綠能及電動車ETF基金(本基金非屬環境、社會及治理相關主題基金),ACDS101,,XLE,否,1.51,5.15,78.17,36.06,42.11,30.68,0.670,-21.24,,1.537,買進,沿用上次資料（2026-08-24）,合庫 MoneyDJ 公開網頁（爬蟲）,2026-08-24\n3,能源,德銀遠東DWS全球原物料能源基金,ACFE06-8704,,XLE,否,11.66,8.72,43.71,20.68,23.03,3.99,0.550,-11.56,38.0,0.760,買進,沿用上次資料（2026-08-21）,合庫 MoneyDJ 公開網頁（爬蟲）,2026-08-21\n4,能源,安聯全球綠能趨勢基金-A累積型(台幣),ACDD15-8608,,XLE,否,-0.50,1.78,32.64,12.80,19.84,5.73,0.530,-10.11,9.0,0.638,買進,沿用上次資料（2026-08-21）,合庫 MoneyDJ 公開網頁（爬蟲）,2026-08-21\n",
+          "format": "table",
+          "parser": "backend"
+        }
+      ],
+      "transformations": [
+        {
+          "id": "organize",
+          "options": {
+            "indexByName": {
+              "rank": 0,
+              "name": 1,
+              "return_1y": 2,
+              "benchmark": 3,
+              "excess_return_1y": 4,
+              "momentum_6m": 5,
+              "sharpe": 6,
+              "max_drawdown": 7,
+              "recovery_days": 8,
+              "score": 9,
+              "signal": 10,
+              "status": 11
+            },
+            "excludeByName": {
+              "category_name": true,
+              "moneydj_id": true,
+              "twelve_data_symbol": true,
+              "benchmark_return_1y": true
+            },
+            "renameByName": {
+              "rank": "排名",
+              "name": "基金",
+              "return_1y": "一年報酬%",
+              "benchmark": "Benchmark",
+              "excess_return_1y": "超額報酬%",
+              "momentum_6m": "六個月動能%",
+              "sharpe": "夏普",
+              "max_drawdown": "最大回撤%",
+              "recovery_days": "恢復天數",
+              "score": "綜合評分",
+              "signal": "訊號",
+              "status": "資料狀態"
+            }
+          }
+        }
+      ],
+      "fieldConfig": {
+        "defaults": {
+          "custom": {
+            "align": "auto",
+            "cellOptions": {
+              "type": "auto"
+            }
+          }
+        },
+        "overrides": [
+          {
+            "matcher": {
+              "id": "byName",
+              "options": "signal"
+            },
+            "properties": [
+              {
+                "id": "custom.cellOptions",
+                "value": {
+                  "type": "color-text"
+                }
+              },
+              {
+                "id": "mappings",
+                "value": [
+                  {
+                    "type": "value",
+                    "options": {
+                      "買進": {
+                        "color": "green",
+                        "text": "買進"
+                      },
+                      "觀察": {
+                        "color": "yellow",
+                        "text": "觀察"
+                      },
+                      "賣出": {
+                        "color": "red",
+                        "text": "賣出"
+                      },
+                      "待資料": {
+                        "color": "gray",
+                        "text": "待資料"
+                      }
+                    }
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "matcher": {
+              "id": "byName",
+              "options": "status"
+            },
+            "properties": [
+              {
+                "id": "custom.width",
+                "value": 150
+              }
+            ]
+          },
+          {
+            "matcher": {
+              "id": "byName",
+              "options": "name"
+            },
+            "properties": [
+              {
+                "id": "custom.width",
+                "value": 260
+              }
+            ]
+          }
+        ]
+      },
+      "options": {
+        "showHeader": true,
+        "cellHeight": "sm",
+        "footer": {
+          "show": false
+        }
+      }
+    },
+    {
+      "id": 23,
+      "title": "磷化銦｜基金 Top 10",
+      "type": "table",
+      "gridPos": {
+        "x": 12,
+        "y": 95,
+        "w": 12,
+        "h": 9
+      },
+      "datasource": {
+        "type": "yesoreyeram-infinity-datasource",
+        "uid": "${datasource}"
+      },
+      "targets": [
+        {
+          "refId": "A",
+          "type": "csv",
+          "source": "inline",
+          "data": "rank,category_name,name,moneydj_id,twelve_data_symbol,benchmark,distribution,return_1m,return_3m,return_1y,benchmark_return_1y,excess_return_1y,momentum_6m,sharpe,max_drawdown,recovery_days,score,signal,status,data_source,data_date\n1,磷化銦,路博邁台灣5G股票基金N月配型（磷化銦供應鏈）,ACNB46,,SOXX,是,0.28,-11.66,145.91,52.84,93.07,38.85,0.620,-36.07,,2.722,買進,沿用上次資料（2026-08-24）,合庫 MoneyDJ 公開網頁（爬蟲）,2026-08-24\n2,磷化銦,富邦台灣心基金（磷化銦供應鏈）,ACCT01,,SOXX,否,8.61,-10.32,101.39,45.29,56.10,38.24,0.530,-34.58,,1.890,買進,沿用上次資料（2026-08-24）,合庫 MoneyDJ 公開網頁（爬蟲）,2026-08-24\n3,磷化銦,群益店頭市場基金（磷化銦供應鏈）,AC0028,,SOXX,否,6.82,-11.76,90.78,38.32,52.46,31.15,0.450,-34.81,,1.660,買進,沿用上次資料（2026-08-24）,合庫 MoneyDJ 公開網頁（爬蟲）,2026-08-24\n",
           "format": "table",
           "parser": "backend"
         }
