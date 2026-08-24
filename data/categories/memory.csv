@@ -1,0 +1,4 @@
+﻿rank,category_name,name,moneydj_id,twelve_data_symbol,benchmark,distribution,return_1m,return_3m,return_1y,benchmark_return_1y,excess_return_1y,momentum_6m,sharpe,max_drawdown,recovery_days,score,signal,status,data_source,data_date
+1,記憶體,First Trust Nasdaq Semiconductor ETF（記憶體供應鏈代理）,,FTXL,SOXX,是,-5.80,-6.28,132.10,114.36,17.74,42.47,2.016,-41.57,112,2.118,買進,已更新（Yahoo Finance）,Yahoo Finance,2026-08-24
+2,記憶體,iShares Semiconductor ETF（記憶體供應鏈代理）,,SOXX,SOXX,是,-5.66,-0.84,114.36,114.36,-0.00,44.85,1.901,-41.36,112,1.765,觀察,已更新（Yahoo Finance）,Yahoo Finance,2026-08-24
+3,記憶體,VanEck Semiconductor ETF（記憶體供應鏈代理）,,SMH,SOXX,是,-3.40,-1.31,94.55,114.36,-19.81,35.03,1.884,-35.74,58,1.296,觀察,已更新（Yahoo Finance）,Yahoo Finance,2026-08-24

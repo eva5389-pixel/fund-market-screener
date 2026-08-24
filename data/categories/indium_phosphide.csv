@@ -1,0 +1,4 @@
+﻿rank,category_name,name,moneydj_id,twelve_data_symbol,benchmark,distribution,return_1m,return_3m,return_1y,benchmark_return_1y,excess_return_1y,momentum_6m,sharpe,max_drawdown,recovery_days,score,signal,status,data_source,data_date
+1,磷化銦,iShares Semiconductor ETF（磷化銦供應鏈代理）,,SOXX,SOXX,是,-5.66,-0.84,114.36,114.36,-0.00,44.85,1.901,-41.36,112,1.765,觀察,已更新（Yahoo Finance）,Yahoo Finance,2026-08-24
+2,磷化銦,VanEck Semiconductor ETF（磷化銦供應鏈代理）,,SMH,SOXX,是,-3.40,-1.31,94.55,114.36,-19.81,35.03,1.884,-35.74,58,1.296,觀察,已更新（Yahoo Finance）,Yahoo Finance,2026-08-24
+3,磷化銦,SPDR S&P Semiconductor ETF（磷化銦供應鏈代理）,,XSD,SOXX,是,-4.80,-13.55,82.28,114.36,-32.08,39.70,1.495,-41.25,86,0.992,觀察,已更新（Yahoo Finance）,Yahoo Finance,2026-08-24

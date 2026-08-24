@@ -13,12 +13,22 @@
     {"id": "hong_kong", "name": "香港", "benchmark_symbol": "EWH"},
     {"id": "china", "name": "中國", "benchmark_symbol": "MCHI"},
     {"id": "usa", "name": "美國", "benchmark_symbol": "SPY"},
+    {"id": "india", "name": "印度", "benchmark_symbol": "INDA"},
+    {"id": "asean", "name": "東協", "benchmark_symbol": "ASEA"},
+    {"id": "europe", "name": "歐洲", "benchmark_symbol": "VGK"},
+    {"id": "brazil", "name": "巴西", "benchmark_symbol": "EWZ"},
+    {"id": "bond", "name": "債券型", "benchmark_symbol": "BND"},
+    {"id": "gold", "name": "黃金", "benchmark_symbol": "GLD"},
+    {"id": "mining", "name": "礦業", "benchmark_symbol": "PICK"},
     {"id": "semiconductor", "name": "半導體", "benchmark_symbol": "SOXX"},
+    {"id": "memory", "name": "記憶體", "benchmark_symbol": "SOXX"},
     {"id": "optical", "name": "光通訊", "benchmark_symbol": "IYZ"},
     {"id": "quantum", "name": "量子電腦", "benchmark_symbol": "QTUM"},
     {"id": "robotics", "name": "機器人", "benchmark_symbol": "BOTZ"},
     {"id": "finance", "name": "金融", "benchmark_symbol": "XLF"},
-    {"id": "healthcare", "name": "醫療", "benchmark_symbol": "XLV"}
+    {"id": "healthcare", "name": "醫療", "benchmark_symbol": "XLV"},
+    {"id": "energy", "name": "能源", "benchmark_symbol": "XLE"},
+    {"id": "indium_phosphide", "name": "磷化銦", "benchmark_symbol": "SOXX"}
   ],
   "funds": [
     {"category": "japan", "moneydj_id": "IOFA8-2824", "name": "瀚亞投資-日本動力股票基金", "twelve_data_symbol": "", "seed_return_1y": 0.6358},
@@ -35,6 +45,10 @@
     ,{"category": "taiwan", "moneydj_id": "AC0001", "name": "野村鴻運基金", "twelve_data_symbol": ""}
     ,{"category": "china", "moneydj_id": "ACJF132-8434", "name": "摩根中國雙息平衡基金-月配型(台幣)", "twelve_data_symbol": ""}
     ,{"category": "healthcare", "moneydj_id": "ACFT73-9209", "name": "富蘭克林華美全球醫療保健基金(台幣)", "twelve_data_symbol": ""}
+    ,{"category": "energy", "moneydj_id": "ACPS26-5816", "name": "統一新亞洲科技能源基金", "distribution": "否", "twelve_data_symbol": ""}
+    ,{"category": "energy", "moneydj_id": "ACDS101", "name": "中國信託臺灣綠能及電動車ETF基金(本基金非屬環境、社會及治理相關主題基金)", "distribution": "否", "twelve_data_symbol": ""}
+    ,{"category": "energy", "moneydj_id": "ACDD15-8608", "name": "安聯全球綠能趨勢基金-A累積型(台幣)", "distribution": "否", "twelve_data_symbol": ""}
+    ,{"category": "energy", "moneydj_id": "ACFE06-8704", "name": "德銀遠東DWS全球原物料能源基金", "distribution": "否", "twelve_data_symbol": ""}
     ,{"category": "quantum", "moneydj_id": "ACDD04-8602", "name": "安聯台灣科技基金", "distribution": "否", "twelve_data_symbol": ""}
     ,{"category": "quantum", "moneydj_id": "ACTR37", "name": "國泰臺韓科技基金", "distribution": "是（半年配）", "twelve_data_symbol": ""}
     ,{"category": "quantum", "moneydj_id": "AC0052", "name": "富邦台灣科技指數基金(本基金之配息來源可能為收益平準金)", "distribution": "是", "twelve_data_symbol": ""}
@@ -46,5 +60,52 @@
     ,{"category": "robotics", "moneydj_id": "ACTT63", "name": "台新SG全球AI機器人精選ETF基金", "distribution": "否", "twelve_data_symbol": ""}
     ,{"category": "robotics", "moneydj_id": "ACTR36", "name": "國泰納斯達克全球人工智慧及機器人基金", "distribution": "否", "twelve_data_symbol": ""}
     ,{"category": "robotics", "moneydj_id": "ACNC89", "name": "第一金全球AI機器人及自動化產業基金N類型(美元)", "distribution": "否", "twelve_data_symbol": ""}
+    ,{"category": "taiwan", "moneydj_id": "", "name": "iShares MSCI Taiwan ETF", "distribution": "是", "twelve_data_symbol": "EWT"}
+    ,{"category": "korea", "moneydj_id": "", "name": "iShares MSCI South Korea ETF", "distribution": "是", "twelve_data_symbol": "EWY"}
+    ,{"category": "korea", "moneydj_id": "", "name": "Franklin FTSE South Korea ETF", "distribution": "是", "twelve_data_symbol": "FLKR"}
+    ,{"category": "korea", "moneydj_id": "", "name": "TIGER 200 ETF", "distribution": "是", "twelve_data_symbol": "102110.KS"}
+    ,{"category": "hong_kong", "moneydj_id": "", "name": "iShares MSCI Hong Kong ETF", "distribution": "是", "twelve_data_symbol": "EWH"}
+    ,{"category": "hong_kong", "moneydj_id": "", "name": "Franklin FTSE Hong Kong ETF", "distribution": "是", "twelve_data_symbol": "FLHK"}
+    ,{"category": "hong_kong", "moneydj_id": "", "name": "Tracker Fund of Hong Kong", "distribution": "是", "twelve_data_symbol": "2800.HK"}
+    ,{"category": "china", "moneydj_id": "", "name": "iShares MSCI China ETF", "distribution": "是", "twelve_data_symbol": "MCHI"}
+    ,{"category": "china", "moneydj_id": "", "name": "KraneShares CSI China Internet ETF", "distribution": "是", "twelve_data_symbol": "KWEB"}
+    ,{"category": "usa", "moneydj_id": "", "name": "SPDR S&P 500 ETF Trust", "distribution": "是", "twelve_data_symbol": "SPY"}
+    ,{"category": "usa", "moneydj_id": "", "name": "Vanguard Total Stock Market ETF", "distribution": "是", "twelve_data_symbol": "VTI"}
+    ,{"category": "usa", "moneydj_id": "", "name": "Invesco QQQ Trust", "distribution": "是", "twelve_data_symbol": "QQQ"}
+    ,{"category": "india", "moneydj_id": "", "name": "iShares MSCI India ETF", "distribution": "是", "twelve_data_symbol": "INDA"}
+    ,{"category": "india", "moneydj_id": "", "name": "WisdomTree India Earnings Fund", "distribution": "是", "twelve_data_symbol": "EPI"}
+    ,{"category": "india", "moneydj_id": "", "name": "Franklin FTSE India ETF", "distribution": "是", "twelve_data_symbol": "FLIN"}
+    ,{"category": "asean", "moneydj_id": "", "name": "Global X FTSE Southeast Asia ETF", "distribution": "是", "twelve_data_symbol": "ASEA"}
+    ,{"category": "asean", "moneydj_id": "", "name": "iShares MSCI Indonesia ETF", "distribution": "是", "twelve_data_symbol": "EIDO"}
+    ,{"category": "asean", "moneydj_id": "", "name": "VanEck Vietnam ETF", "distribution": "是", "twelve_data_symbol": "VNM"}
+    ,{"category": "europe", "moneydj_id": "", "name": "Vanguard FTSE Europe ETF", "distribution": "是", "twelve_data_symbol": "VGK"}
+    ,{"category": "europe", "moneydj_id": "", "name": "iShares MSCI Eurozone ETF", "distribution": "是", "twelve_data_symbol": "EZU"}
+    ,{"category": "europe", "moneydj_id": "", "name": "SPDR EURO STOXX 50 ETF", "distribution": "是", "twelve_data_symbol": "FEZ"}
+    ,{"category": "brazil", "moneydj_id": "", "name": "iShares MSCI Brazil ETF", "distribution": "是", "twelve_data_symbol": "EWZ"}
+    ,{"category": "brazil", "moneydj_id": "", "name": "Franklin FTSE Brazil ETF", "distribution": "是", "twelve_data_symbol": "FLBR"}
+    ,{"category": "brazil", "moneydj_id": "", "name": "VanEck Brazil Small-Cap ETF", "distribution": "是", "twelve_data_symbol": "BRF"}
+    ,{"category": "bond", "moneydj_id": "", "name": "Vanguard Total Bond Market ETF", "distribution": "是", "twelve_data_symbol": "BND"}
+    ,{"category": "bond", "moneydj_id": "", "name": "iShares Core U.S. Aggregate Bond ETF", "distribution": "是", "twelve_data_symbol": "AGG"}
+    ,{"category": "bond", "moneydj_id": "", "name": "iShares Core Total USD Bond Market ETF", "distribution": "是", "twelve_data_symbol": "IUSB"}
+    ,{"category": "gold", "moneydj_id": "", "name": "SPDR Gold Shares", "distribution": "否", "twelve_data_symbol": "GLD"}
+    ,{"category": "gold", "moneydj_id": "", "name": "iShares Gold Trust", "distribution": "否", "twelve_data_symbol": "IAU"}
+    ,{"category": "gold", "moneydj_id": "", "name": "abrdn Physical Gold Shares ETF", "distribution": "否", "twelve_data_symbol": "SGOL"}
+    ,{"category": "mining", "moneydj_id": "", "name": "iShares MSCI Global Metals & Mining Producers ETF", "distribution": "是", "twelve_data_symbol": "PICK"}
+    ,{"category": "mining", "moneydj_id": "", "name": "SPDR S&P Metals and Mining ETF", "distribution": "是", "twelve_data_symbol": "XME"}
+    ,{"category": "mining", "moneydj_id": "", "name": "Global X Copper Miners ETF", "distribution": "是", "twelve_data_symbol": "COPX"}
+    ,{"category": "semiconductor", "moneydj_id": "", "name": "VanEck Semiconductor ETF", "distribution": "是", "twelve_data_symbol": "SMH"}
+    ,{"category": "semiconductor", "moneydj_id": "", "name": "iShares Semiconductor ETF", "distribution": "是", "twelve_data_symbol": "SOXX"}
+    ,{"category": "semiconductor", "moneydj_id": "", "name": "SPDR S&P Semiconductor ETF", "distribution": "是", "twelve_data_symbol": "XSD"}
+    ,{"category": "memory", "moneydj_id": "", "name": "First Trust Nasdaq Semiconductor ETF（記憶體供應鏈代理）", "distribution": "是", "twelve_data_symbol": "FTXL"}
+    ,{"category": "memory", "moneydj_id": "", "name": "VanEck Semiconductor ETF（記憶體供應鏈代理）", "distribution": "是", "twelve_data_symbol": "SMH"}
+    ,{"category": "memory", "moneydj_id": "", "name": "iShares Semiconductor ETF（記憶體供應鏈代理）", "distribution": "是", "twelve_data_symbol": "SOXX"}
+    ,{"category": "finance", "moneydj_id": "", "name": "Financial Select Sector SPDR Fund", "distribution": "是", "twelve_data_symbol": "XLF"}
+    ,{"category": "finance", "moneydj_id": "", "name": "Vanguard Financials ETF", "distribution": "是", "twelve_data_symbol": "VFH"}
+    ,{"category": "finance", "moneydj_id": "", "name": "iShares U.S. Financials ETF", "distribution": "是", "twelve_data_symbol": "IYF"}
+    ,{"category": "healthcare", "moneydj_id": "", "name": "Health Care Select Sector SPDR Fund", "distribution": "是", "twelve_data_symbol": "XLV"}
+    ,{"category": "healthcare", "moneydj_id": "", "name": "Vanguard Health Care ETF", "distribution": "是", "twelve_data_symbol": "VHT"}
+    ,{"category": "indium_phosphide", "moneydj_id": "", "name": "VanEck Semiconductor ETF（磷化銦供應鏈代理）", "distribution": "是", "twelve_data_symbol": "SMH"}
+    ,{"category": "indium_phosphide", "moneydj_id": "", "name": "iShares Semiconductor ETF（磷化銦供應鏈代理）", "distribution": "是", "twelve_data_symbol": "SOXX"}
+    ,{"category": "indium_phosphide", "moneydj_id": "", "name": "SPDR S&P Semiconductor ETF（磷化銦供應鏈代理）", "distribution": "是", "twelve_data_symbol": "XSD"}
   ]
 }

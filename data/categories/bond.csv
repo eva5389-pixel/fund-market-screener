@@ -1,0 +1,4 @@
+﻿rank,category_name,name,moneydj_id,twelve_data_symbol,benchmark,distribution,return_1m,return_3m,return_1y,benchmark_return_1y,excess_return_1y,momentum_6m,sharpe,max_drawdown,recovery_days,score,signal,status,data_source,data_date
+1,債券型,iShares Core Total USD Bond Market ETF,,IUSB,BND,是,0.40,0.20,2.56,2.17,0.39,-1.29,0.376,-4.39,111,0.070,觀察,已更新（Yahoo Finance）,Yahoo Finance,2026-08-24
+2,債券型,iShares Core U.S. Aggregate Bond ETF,,AGG,BND,是,0.36,0.01,2.23,2.17,0.06,-1.57,0.269,-4.82,115,0.037,觀察,已更新（Yahoo Finance）,Yahoo Finance,2026-08-24
+3,債券型,Vanguard Total Bond Market ETF,,BND,BND,是,0.32,0.05,2.17,2.17,-0.00,-1.51,0.262,-4.74,115,0.035,賣出,已更新（Yahoo Finance）,Yahoo Finance,2026-08-24

@@ -1,2 +1,4 @@
 ﻿rank,category_name,name,moneydj_id,twelve_data_symbol,benchmark,distribution,return_1m,return_3m,return_1y,benchmark_return_1y,excess_return_1y,momentum_6m,sharpe,max_drawdown,recovery_days,score,signal,status,data_source,data_date
-1,金融,基金清單建置中,,,XLF,,,,,,,,,,,,待資料,待建立基金清單,尚無可用來源,2026-08-21
+1,金融,iShares U.S. Financials ETF,,IYF,XLF,是,2.50,10.67,12.17,10.41,1.77,9.49,0.784,-16.60,52,0.308,買進,已更新（Yahoo Finance）,Yahoo Finance,2026-08-24
+2,金融,Vanguard Financials ETF,,VFH,XLF,是,3.02,11.51,11.01,10.41,0.61,10.49,0.700,-17.30,56,0.274,買進,已更新（Yahoo Finance）,Yahoo Finance,2026-08-24
+3,金融,Financial Select Sector SPDR Fund,,XLF,XLF,是,2.96,11.50,10.41,10.41,-0.00,10.46,0.673,-15.54,55,0.265,觀察,已更新（Yahoo Finance）,Yahoo Finance,2026-08-24

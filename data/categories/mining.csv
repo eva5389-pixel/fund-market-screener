@@ -1,0 +1,4 @@
+﻿rank,category_name,name,moneydj_id,twelve_data_symbol,benchmark,distribution,return_1m,return_3m,return_1y,benchmark_return_1y,excess_return_1y,momentum_6m,sharpe,max_drawdown,recovery_days,score,signal,status,data_source,data_date
+1,礦業,Global X Copper Miners ETF,,COPX,PICK,是,20.70,14.32,109.93,69.35,40.58,6.53,1.783,-34.80,94,1.753,買進,已更新（Yahoo Finance）,Yahoo Finance,2026-08-24
+2,礦業,iShares MSCI Global Metals & Mining Producers ETF,,PICK,PICK,是,13.20,4.35,69.35,69.35,0.00,7.83,1.781,-29.64,107,0.980,觀察,已更新（Yahoo Finance）,Yahoo Finance,2026-08-24
+3,礦業,SPDR S&P Metals and Mining ETF,,XME,PICK,是,15.67,3.50,55.35,69.35,-14.00,1.73,1.304,-30.47,60,0.539,觀察,已更新（Yahoo Finance）,Yahoo Finance,2026-08-24

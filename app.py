@@ -103,8 +103,6 @@ def load_rankings(file_mtime: float) -> pd.DataFrame:
             section = "wr" if value.upper().startswith("AC") else "wb"
             return f"https://tcbbankfund.moneydj.com/w/{section}/{section}902.djhtm?a={value}"
         frame["tcb_url"] = frame["moneydj_id"].map(build_tcb_url)
-        # Backfill the new short-term returns immediately from the already
-        # downloaded MoneyDJ NAV history; the daily updater persists them later.
         for index, row in frame.iterrows():
             identifier = str(row.get("moneydj_id") or "").strip()
             if not identifier or identifier.lower() == "nan":
@@ -139,9 +137,69 @@ def file_mtime(path: Path) -> float:
 
 
 def yahoo_stock_url(name: object) -> str:
-    """Use Yahoo Taiwan search so holdings without a ticker still resolve safely."""
     value = re.sub(r",.*$", "", str(name or "")).strip()
     return f"https://tw.stock.yahoo.com/search?q={quote(value)}" if value else ""
+
+
+def yahoo_performance_url(symbol: object) -> str:
+    value = str(symbol or "").strip()
+    return f"https://finance.yahoo.com/quote/{quote(value, safe='')}/chart/" if value else ""
+
+
+ENERGY_EXPOSURE_RULES = {
+    "油氣開採／生產公司": ["exxon", "chevron", "conocophillips", "eog resources", "occidental", "petrobras", "petrochina", "cnooc", "suncor", "canadian natural", "devon energy", "marathon oil", "diamondback", "inpex", "台塑石化"],
+    "綜合油氣公司": ["shell", "bp plc", "totalenergies", "eni spa", "equinor", "repsol", "sinopec", "中國石油化工", "中國石油天然氣"],
+    "油服／煉油／運輸": ["schlumberger", "slb ", "halliburton", "baker hughes", "valero", "marathon petroleum", "phillips 66", "enbridge", "williams cos", "kinder morgan", "oneok"],
+    "電力／公用事業": ["nextera energy", "iberdrola", "enel", "duke energy", "southern co", "dominion energy", "constellation energy", "vistra", "exelon", "rwe", "national grid", "e.on", "engie", "edison international", "sempra", "台汽電", "森崴能源", "雲豹能源", "泓德能源", "高力"],
+    "油價直接連動工具": ["wti", "brent", "crude oil", "oil futures", "原油期貨", "石油期貨", "united states oil fund", "wisdomtree crude oil"],
+}
+
+
+def classify_energy_holding(name: object) -> str:
+    normalized = re.sub(r"[^a-z0-9\u4e00-\u9fff ]", " ", str(name or "").lower())
+    for exposure, keywords in ENERGY_EXPOSURE_RULES.items():
+        if any(keyword in normalized for keyword in keywords):
+            return exposure
+    return "其他能源轉型／設備／材料"
+
+
+def classify_energy_industry(name: object) -> str:
+    value = str(name or "").lower()
+    if any(key in value for key in ["綜合性石油", "integrated oil"]):
+        return "綜合油氣公司"
+    if any(key in value for key in ["石油與天然氣開採", "oil & gas exploration", "oil and gas exploration"]):
+        return "油氣開採／生產公司"
+    if any(key in value for key in ["石油與天然氣煉製", "石油與天然氣設備", "oil & gas refining", "oil & gas equipment"]):
+        return "油服／煉油／運輸"
+    if any(key in value for key in ["公用事業", "電力", "electric utilit", "utilities"]):
+        return "電力／公用事業"
+    if any(key in value for key in ["原油期貨", "石油期貨", "wti", "brent", "crude oil"]):
+        return "油價直接連動工具"
+    return "其他能源轉型／設備／材料"
+
+
+def build_energy_exposure(industries: pd.DataFrame, holdings: pd.DataFrame) -> tuple[pd.DataFrame, pd.DataFrame, str]:
+    if holdings.empty:
+        return pd.DataFrame(), pd.DataFrame(), "無公開持股"
+    detail = holdings[["name", "weight", "data_date"]].copy()
+    detail["能源屬性"] = detail["name"].map(classify_energy_holding)
+    detail["價格敏感度"] = detail["能源屬性"].map({
+        "油價直接連動工具": "直接跟隨原油期貨／指數（仍可能有轉倉差）",
+        "油氣開採／生產公司": "主要透過產量、成本與油價影響獲利，非一比一跟隨油價",
+        "綜合油氣公司": "受油價影響，但煉油、化工與天然氣業務可分散波動",
+        "油服／煉油／運輸": "間接受油氣資本支出、煉油利差或運量影響",
+        "電力／公用事業": "主要受電價、利率、燃料成本與監管影響",
+        "其他能源轉型／設備／材料": "偏設備、材料或能源轉型供應鏈",
+    })
+    if not industries.empty:
+        allocation = industries[["name", "weight"]].copy()
+        allocation["能源屬性"] = allocation["name"].map(classify_energy_industry)
+        summary = allocation.groupby("能源屬性", as_index=False)["weight"].sum().sort_values("weight", ascending=False)
+        basis = "完整產業配置"
+    else:
+        summary = detail.groupby("能源屬性", as_index=False)["weight"].sum().sort_values("weight", ascending=False)
+        basis = "公開主要持股估算"
+    return summary, detail.sort_values("weight", ascending=False), basis
 
 
 def last_update_time() -> datetime | None:
@@ -159,7 +217,6 @@ def last_update_time() -> datetime | None:
 
 
 def update_data(force: bool = False) -> tuple[bool, str]:
-    """Run the provider pipeline; failed providers retain last successful values."""
     if not UPDATE_SCRIPT.exists():
         return False, "找不到資料更新程式"
     previous = last_update_time()
@@ -211,7 +268,6 @@ def _match_column(columns, aliases: list[str]):
 
 @st.cache_data(show_spinner=False)
 def parse_backtest_upload(file_bytes: bytes, filename: str) -> tuple[pd.DataFrame, pd.DataFrame, list[str]]:
-    """Accept long/wide NAV data plus an optional industry-allocation sheet."""
     errors: list[str] = []
     raw_sheets: dict[str, pd.DataFrame] = {}
     try:
@@ -358,13 +414,36 @@ def load_portfolio_details(funds: pd.DataFrame) -> pd.DataFrame:
 
 
 def load_grafana_templates() -> dict[str, list[str]]:
-    if not GRAFANA_TEMPLATES_FILE.exists():
-        return {}
-    try:
-        payload = json.loads(GRAFANA_TEMPLATES_FILE.read_text(encoding="utf-8"))
-        return {item["category"]: item.get("funds", []) for item in payload.get("categories", [])}
-    except (OSError, json.JSONDecodeError, KeyError):
-        return {}
+    templates = {}
+    if GRAFANA_TEMPLATES_FILE.exists():
+        try:
+            payload = json.loads(GRAFANA_TEMPLATES_FILE.read_text(encoding="utf-8"))
+            templates = {item["category"]: item.get("funds", []) for item in payload.get("categories", [])}
+        except (OSError, json.JSONDecodeError, KeyError):
+            pass
+
+    # 確保量子電腦模板存在
+    quantum_key = "量子電腦"
+    if quantum_key not in templates:
+        templates[quantum_key] = [
+            "Defiance 2X Daily Long Pure Quantum ETF (QPUX)",
+            "Defiance Daily Target 2X Long RGTI ETF (RGTX)",
+            "2X Long QBTS Daily ETF (QBTX)",
+            "Defiance Daily Target 2X Long INFQ ETF (INFH)",
+            "IBM (IBM)",
+            "格羅方德 (GFS)"
+        ]
+
+    # 確保能源（傳統與綠能/轉型）模板存在
+    energy_key = "能源"
+    if energy_key not in templates:
+        templates[energy_key] = [
+            "貝萊德世界能源基金",
+            "施羅德環球能源基金",
+            "新能源與傳統能源相關標的"
+        ]
+
+    return templates
 
 
 def load_etf_flows() -> pd.DataFrame:
@@ -377,7 +456,6 @@ def load_etf_flows() -> pd.DataFrame:
 
 
 def build_flow_recommendations(flows: pd.DataFrame, eligible_funds: pd.DataFrame) -> pd.DataFrame:
-    """Match positive ETF flows with funds that passed the active MoneyDJ screen."""
     if flows.empty or eligible_funds.empty:
         return pd.DataFrame()
     positive = flows[flows["net_flow_eur_m"].gt(0) & flows["template_category"].ne("其他")]
@@ -385,6 +463,7 @@ def build_flow_recommendations(flows: pd.DataFrame, eligible_funds: pd.DataFrame
     category_expansion = {
         "科技主題": ["半導體", "記憶體", "機器人", "光通訊", "量子電腦"],
         "新興市場": ["印度", "東協", "中國", "巴西"],
+        "能源": ["能源", "天然資源", "綠能", "傳統能源"],
     }
     required_metrics = ["return_1y", "momentum_6m", "sharpe", "max_drawdown", "score"]
     moneydj = eligible_funds.copy()
@@ -395,7 +474,7 @@ def build_flow_recommendations(flows: pd.DataFrame, eligible_funds: pd.DataFrame
         flow_group = str(flow["template_category"])
         categories = category_expansion.get(flow_group, [flow_group])
         for category in categories:
-            matched = moneydj[moneydj["category_name"].eq(category)]
+            matched = moneydj[moneydj["category_name"].str.contains(category, case=False, na=False)]
             for _, fund in matched.iterrows():
                 candidates.append({
                     "基金": fund["name"],
@@ -427,9 +506,9 @@ def apply_filters(data: pd.DataFrame) -> tuple[pd.DataFrame, str]:
             "市場／主題",
             categories,
             default=categories,
-            help="可同時選擇台灣、日本、金融、醫療等多個分類。",
+            help="可同時選擇台灣、日本、金融、醫療、能源、量子電腦等多個分類。",
         )
-        keyword = st.text_input("基金名稱關鍵字", placeholder="例如：台灣、科技、生技")
+        keyword = st.text_input("基金名稱關鍵字", placeholder="例如：台灣、科技、量子、能源")
 
         signals = [value for value in ["買進", "觀察", "賣出", "待資料"] if value in set(data["signal"])]
         selected_signals = st.multiselect("訊號", signals, default=signals)
@@ -619,7 +698,7 @@ st.caption(f"最後資料更新：{updated_at}｜目前排序：{active_sort}｜
 if placeholder_count:
     st.info(f"已隱藏 {placeholder_count} 列「基金清單建置中」占位資料；它們不是基金，只代表 Grafana 分類尚未設定基金名單。")
 
-tab_table, tab_cards, tab_portfolio, tab_flows, tab_backtest, tab_rules, tab_status = st.tabs([
+tab_table, tab_cards, tab_portfolio, tab_flows, tab_backtest, tab_rules, tab_status, tab_quantum = st.tabs([
     "📋 篩選排名表",
     "🗂️ 基金卡片",
     "🏭 產業與持股",
@@ -627,6 +706,7 @@ tab_table, tab_cards, tab_portfolio, tab_flows, tab_backtest, tab_rules, tab_sta
     "📈 Excel 回測",
     "🧮 排名規則",
     "🛰️ 資料狀態",
+    "⚛️ 美國量子入股",
 ])
 
 with tab_table:
@@ -651,8 +731,6 @@ with tab_portfolio:
     portfolio_category = st.selectbox("市場／主題分類", configured_categories, key="portfolio_category")
     template_fund_names = grafana_templates.get(portfolio_category, [])
     category_funds = rankings[rankings["category_name"].eq(portfolio_category)]
-    # A fund may belong to a broad market in MoneyDJ and several thematic
-    # templates in Grafana. Include those matches in every applicable template.
     if template_fund_names:
         template_matches = rankings[rankings["name"].isin(template_fund_names)]
         category_funds = pd.concat([category_funds, template_matches]).drop_duplicates("name")
@@ -677,6 +755,7 @@ with tab_portfolio:
             summary_rows.append({
                 "基金": fund_row["name"],
                 "是否配息": fund_row.get("distribution") or "待確認",
+                "績效走勢": yahoo_performance_url(fund_row.get("twelve_data_symbol")),
                 "供應鏈家數": len(fund_holdings),
                 "相關持股%": fund_holdings["weight"].sum() if not fund_holdings.empty else np.nan,
                 "實際持股": "、".join(names[:4]) if names else "待抓取",
@@ -688,7 +767,10 @@ with tab_portfolio:
                 pd.DataFrame(summary_rows).head(10),
                 use_container_width=True,
                 hide_index=True,
-                column_config={"相關持股%": st.column_config.NumberColumn(format="%.2f")},
+                column_config={
+                    "相關持股%": st.column_config.NumberColumn(format="%.2f"),
+                    "績效走勢": st.column_config.LinkColumn("績效走勢", display_text="查看績效圖 ↗"),
+                },
             )
             st.caption("下方展開各基金後，每一檔實際持股都有 Yahoo 股票技術線連結。")
         available_industries = sorted(
@@ -715,6 +797,9 @@ with tab_portfolio:
                 fund_link = category_funds.loc[category_funds["name"].eq(fund_name), "tcb_url"]
                 if not fund_link.empty and fund_link.iloc[0]:
                     st.link_button("🔗 開啟合庫基金頁", fund_link.iloc[0])
+                fund_symbol = category_funds.loc[category_funds["name"].eq(fund_name), "twelve_data_symbol"]
+                if not fund_symbol.empty and str(fund_symbol.iloc[0]).strip():
+                    st.link_button("📈 查看基金績效走勢", yahoo_performance_url(fund_symbol.iloc[0]))
                 left, right = st.columns(2)
                 with left:
                     st.markdown("**產業比重**")
@@ -749,6 +834,36 @@ with tab_portfolio:
                                 ),
                             },
                         )
+                if portfolio_category == "能源":
+                    st.markdown("**能源曝險拆解（依已公開持股）**")
+                    energy_summary, energy_detail, energy_basis = build_energy_exposure(industries, holdings)
+                    if energy_summary.empty:
+                        st.caption("公開來源尚未揭露可分類的持股；下次資料更新會重新爬取。")
+                    else:
+                        oil_company_weight = energy_summary.loc[energy_summary["能源屬性"].isin(["油氣開採／生產公司", "綜合油氣公司"]), "weight"].sum()
+                        direct_oil_weight = energy_summary.loc[energy_summary["能源屬性"].eq("油價直接連動工具"), "weight"].sum()
+                        power_weight = energy_summary.loc[energy_summary["能源屬性"].eq("電力／公用事業"), "weight"].sum()
+                        # 有些來源只公布「潔淨能源」等廣義產業名稱，卻在主要持股中明確
+                        # 揭露電力公司；此時用已揭露持股提供可核對的曝險下限，避免顯示 0%。
+                        if not energy_detail.empty:
+                            holding_oil = energy_detail.loc[energy_detail["能源屬性"].isin(["油氣開採／生產公司", "綜合油氣公司"]), "weight"].sum()
+                            holding_direct_oil = energy_detail.loc[energy_detail["能源屬性"].eq("油價直接連動工具"), "weight"].sum()
+                            holding_power = energy_detail.loc[energy_detail["能源屬性"].eq("電力／公用事業"), "weight"].sum()
+                            oil_company_weight = max(oil_company_weight, holding_oil)
+                            direct_oil_weight = max(direct_oil_weight, holding_direct_oil)
+                            power_weight = max(power_weight, holding_power)
+                        e1, e2, e3 = st.columns(3)
+                        e1.metric("油氣公司占比", fmt_number(oil_company_weight, suffix="%"))
+                        e2.metric("油價直接連動", fmt_number(direct_oil_weight, suffix="%"))
+                        e3.metric("電力／公用事業", fmt_number(power_weight, suffix="%"))
+                        st.dataframe(energy_summary.rename(columns={"weight": "已揭露持股占比%"}), use_container_width=True, hide_index=True, column_config={"已揭露持股占比%": st.column_config.NumberColumn(format="%.2f")})
+                        energy_detail_display = energy_detail.rename(columns={"name": "持股", "weight": "比重%", "data_date": "資料日期"})
+                        st.dataframe(energy_detail_display[["持股", "比重%", "能源屬性", "價格敏感度", "資料日期"]], use_container_width=True, hide_index=True, column_config={"比重%": st.column_config.NumberColumn(format="%.2f")})
+                        disclosed_weight = float(holdings["weight"].sum())
+                        if energy_basis == "完整產業配置":
+                            st.caption("油氣與電力占比採公開來源的完整產業配置；個別持股屬性表則使用目前揭露的主要持股。油氣公司股票會受油價影響，但不等於直接追蹤油價。")
+                        else:
+                            st.caption(f"來源未公布完整產業配置，上述占比由公開主要持股估算（已揭露合計 {disclosed_weight:.2f}%），可能低估整體曝險；油氣公司股票不等於直接追蹤油價。")
 
 with tab_flows:
     etf_flows = load_etf_flows()
@@ -936,10 +1051,64 @@ with tab_status:
             hide_index=True,
         )
 
+with tab_quantum:
+    st.subheader("⚛️ 美國量子電腦入股公司與對應策略標的")
+    st.markdown("""
+    美國政府透過《晶片暨科學法案》（CHIPS Act）與研發計畫提供擬議獎勵或補助；這不等於政府已直接入股所有公司。以下只列出可由發行商持股表或官方公告確認的 ETF 曝險與資金狀態：
+    """)
+
+    quantum_etf_data = [
+        {"標的／基金名稱": "Defiance Quantum ETF", "代號": "QTUM", "可確認持股": "Rigetti 1.07%、D-Wave 1.01%、Infleqtion 1.05%、IBM 0.95%、Honeywell 0.63%", "風險／用途": "分散型量子與機器學習ETF；不是純量子基金"},
+        {"標的／基金名稱": "WisdomTree Quantum Computing UCITS ETF", "代號": "WQTM", "可確認持股": "Rigetti 5.63%、D-Wave 4.34%、Infleqtion 2.86%、IBM 2.75%（2026/4/13）", "風險／用途": "純量子權重較高；須確認所在地是否可交易"},
+        {"標的／基金名稱": "VanEck Quantum Computing UCITS ETF", "代號": "QNTM", "可確認持股": "D-Wave、Rigetti、IonQ、IBM、Alphabet、Honeywell", "風險／用途": "30檔量子領導者；UCITS產品"},
+        {"標的／基金名稱": "Defiance 2X Daily Long Pure Quantum ETF", "代號": "QPUX", "可確認持股": "D-Wave掉期約26.00%、Rigetti掉期約23.79%", "風險／用途": "每日2倍槓桿，只適合短期交易"},
+        {"標的／基金名稱": "Defiance Daily Target 2X Long RGTI ETF", "代號": "RGTX", "可確認持股": "單一Rigetti每日2倍曝險", "風險／用途": "單一公司＋每日槓桿，風險極高"},
+        {"標的／基金名稱": "Defiance Daily Target 2X Long QBTS ETF", "代號": "QBTX", "可確認持股": "單一D-Wave每日2倍曝險", "風險／用途": "單一公司＋每日槓桿，風險極高"},
+        {"標的／基金名稱": "Defiance Daily Target 2X Long INFQ ETF", "代號": "INFH", "可確認持股": "單一Infleqtion每日2倍曝險", "風險／用途": "單一公司＋每日槓桿，風險極高"},
+    ]
+    st.markdown("#### 1. 量子運算相關美股 ETF 標的")
+    st.dataframe(pd.DataFrame(quantum_etf_data), use_container_width=True, hide_index=True)
+
+    st.markdown("#### 2. 美國政府量子入股／資助企業總覽 (CHIPS Act 資金與技術路線)")
+    quantum_companies_data = [
+        {"企業": "IBM／Anderon", "公開資金狀態": "擬議最高10億美元CHIPS獎勵（LOI，非已撥款）", "上市／ETF取得方式": "IBM；QTUM 0.95%、WQTM 2.75%，QNTM亦持有", "技術路線與重點": "Albany, NY的300mm量子晶圓代工；IBM另承諾投資10億美元"},
+        {"企業": "GlobalFoundries（格芯）", "公開資金狀態": "尚未找到可驗證的『量子專案3.75億美元』官方文件", "上市／ETF取得方式": "GFS；未在目前查得的量子ETF主要持股中確認", "技術路線與重點": "半導體代工；不得把一般CHIPS補助直接視為量子持股"},
+        {"企業": "D-Wave Quantum", "公開資金狀態": "約1億美元說法待官方文件確認", "上市／ETF取得方式": "QBTS；QTUM 1.01%、WQTM 4.34%、QNTM，另有QPUX/QBTX", "技術路線與重點": "量子退火"},
+        {"企業": "Rigetti Computing", "公開資金狀態": "約1億美元說法待官方文件確認", "上市／ETF取得方式": "RGTI；QTUM 1.07%、WQTM 5.63%、QNTM，另有QPUX/RGTX", "技術路線與重點": "超導量子計算"},
+        {"企業": "Infleqtion", "公開資金狀態": "約1億美元說法待官方文件確認", "上市／ETF取得方式": "INFQ；QTUM 1.05%、WQTM 2.86%，另有INFH", "技術路線與重點": "中性原子"},
+        {"企業": "Quantinuum", "公開資金狀態": "約1億美元說法待官方文件確認", "上市／ETF取得方式": "未獨立上市；可透過母公司Honeywell間接曝險", "技術路線與重點": "離子阱"},
+        {"企業": "PsiQuantum", "公開資金狀態": "約1億美元說法待官方文件確認", "上市／ETF取得方式": "未上市；目前無可確認的直接ETF持股", "技術路線與重點": "光子量子電腦"},
+        {"企業": "Atom Computing", "公開資金狀態": "約1億美元說法待官方文件確認", "上市／ETF取得方式": "未上市；目前無可確認的直接ETF持股", "技術路線與重點": "中性原子"},
+        {"企業": "Diraq", "公開資金狀態": "3,800萬美元說法待官方文件確認", "上市／ETF取得方式": "未上市；目前無可確認的直接ETF持股", "技術路線與重點": "矽自旋量子位元"},
+    ]
+    st.dataframe(pd.DataFrame(quantum_companies_data), use_container_width=True, hide_index=True)
+    st.caption("ETF持股會變動；占比以發行商最新可取得公開資料為準。私人公司無法因新聞中的補助或合作關係就算成基金直接持股。")
+    st.markdown("**資料來源**：[Defiance QTUM完整持股](https://www.defianceetfs.com/qtum-full-holdings/)｜[WisdomTree量子指數持股](https://www.wisdomtree.eu/da-dk/blog/2026-04-17/world-quantum-day-2026-key-takeaways-for-investors)｜[VanEck QNTM](https://www.vaneck.com/uk/en/investments/quantum-computing-etf/holdings/)｜[IBM Anderon公告](https://newsroom.ibm.com/ibm-and-u-s-department-of-commerce-announce-americas-first-purpose-built-quantum-foundry)")
+
+    st.markdown("#### 3. 基金績效走勢連結")
+    st.caption("一般量子主題 ETF 與每日槓桿 ETF 分開標示；點擊後可查看價格走勢、期間報酬及技術線。UCITS ETF 的交易所代號可能因掛牌市場不同而異。")
+    quantum_performance_links = pd.DataFrame([
+        {"類型": "一般量子主題ETF", "基金／ETF": "Defiance Quantum ETF", "代號": "QTUM", "績效走勢": "https://finance.yahoo.com/quote/QTUM/chart/"},
+        {"類型": "一般量子主題ETF", "基金／ETF": "WisdomTree Quantum Computing UCITS ETF", "代號": "WQTM", "績效走勢": "https://www.moneydj.com/ETF/X/Basic/Basic0009.xdjhtm?etfid=WQTM"},
+        {"類型": "一般量子主題ETF", "基金／ETF": "VanEck Quantum Computing UCITS ETF", "代號": "QNTM", "績效走勢": "https://www.vaneck.com/uk/en/investments/quantum-computing-etf/performance/"},
+        {"類型": "每日2倍槓桿", "基金／ETF": "Defiance 2X Daily Long Pure Quantum ETF", "代號": "QPUX", "績效走勢": "https://finance.yahoo.com/quote/QPUX/chart/"},
+        {"類型": "每日2倍槓桿", "基金／ETF": "Defiance Daily Target 2X Long RGTI ETF", "代號": "RGTX", "績效走勢": "https://finance.yahoo.com/quote/RGTX/chart/"},
+        {"類型": "每日2倍槓桿", "基金／ETF": "Defiance Daily Target 2X Long QBTS ETF", "代號": "QBTX", "績效走勢": "https://finance.yahoo.com/quote/QBTX/chart/"},
+        {"類型": "每日2倍槓桿", "基金／ETF": "Defiance Daily Target 2X Long INFQ ETF", "代號": "INFH", "績效走勢": "https://finance.yahoo.com/quote/INFH/chart/"},
+    ])
+    st.dataframe(
+        quantum_performance_links,
+        use_container_width=True,
+        hide_index=True,
+        column_config={
+            "績效走勢": st.column_config.LinkColumn("績效走勢", display_text="查看績效圖 ↗"),
+        },
+    )
+    st.warning("每日2倍產品以單日報酬為目標，長期績效會受每日重設與波動耗損影響，不宜直接與一般ETF的長期報酬比較。")
+
 
 @st.fragment(run_every="1h")
 def automatic_data_refresh() -> None:
-    """Refresh stale provider data, then reload the table when the file changes."""
     update_data(force=False)
     current_mtime = file_mtime(RANKINGS_FILE)
     previous_mtime = st.session_state.get("rankings_mtime", current_mtime)

@@ -1,0 +1,4 @@
+﻿rank,category_name,name,moneydj_id,twelve_data_symbol,benchmark,distribution,return_1m,return_3m,return_1y,benchmark_return_1y,excess_return_1y,momentum_6m,sharpe,max_drawdown,recovery_days,score,signal,status,data_source,data_date
+1,歐洲,Vanguard FTSE Europe ETF,,VGK,VGK,是,5.57,5.88,20.36,20.36,0.00,4.90,1.198,-14.31,17,0.421,觀察,已更新（Yahoo Finance）,Yahoo Finance,2026-08-24
+2,歐洲,SPDR EURO STOXX 50 ETF,,FEZ,VGK,是,6.80,8.04,20.98,20.36,0.62,6.30,1.098,-15.85,17,0.419,買進,已更新（Yahoo Finance）,Yahoo Finance,2026-08-24
+3,歐洲,iShares MSCI Eurozone ETF,,EZU,VGK,是,5.75,6.59,20.44,20.36,0.08,5.96,1.101,-15.02,17,0.410,買進,已更新（Yahoo Finance）,Yahoo Finance,2026-08-24

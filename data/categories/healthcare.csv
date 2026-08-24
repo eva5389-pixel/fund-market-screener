@@ -1,2 +1,4 @@
 ﻿rank,category_name,name,moneydj_id,twelve_data_symbol,benchmark,distribution,return_1m,return_3m,return_1y,benchmark_return_1y,excess_return_1y,momentum_6m,sharpe,max_drawdown,recovery_days,score,signal,status,data_source,data_date
-1,醫療,富蘭克林華美全球醫療保健基金(台幣),ACFT73-9209,,XLV,,2.71,14.53,37.58,17.64,19.94,15.56,1.677,-9.85,58,1.017,買進,已更新（合庫 MoneyDJ 網頁爬蟲）,合庫 MoneyDJ 公開網頁（爬蟲）,2026-08-20
+1,醫療,富蘭克林華美全球醫療保健基金(台幣),ACFT73-9209,,XLV,,2.08,12.83,37.75,17.64,20.11,16.01,1.765,-9.85,58,1.042,買進,已更新（合庫 MoneyDJ 網頁爬蟲）,合庫 MoneyDJ 公開網頁（爬蟲）,2026-08-21
+2,醫療,Vanguard Health Care ETF,,VHT,XLV,是,8.04,18.91,30.92,29.21,1.71,13.85,1.744,-16.91,126,0.729,買進,已更新（Yahoo Finance）,Yahoo Finance,2026-08-24
+3,醫療,Health Care Select Sector SPDR Fund,,XLV,XLV,是,8.16,18.39,29.21,29.21,0.00,12.30,1.613,-17.11,133,0.652,觀察,已更新（Yahoo Finance）,Yahoo Finance,2026-08-24

@@ -558,7 +558,9 @@ def main() -> int:
                 provider = "Morningstar/MStarpy"
             except Exception as exc:
                 row["status"] = f"Morningstar錯誤: {type(exc).__name__}"
-        if fund_values is None and symbol and (api_key or apify_token):
+        # Yahoo 的公開 chart endpoint 不需要金鑰；即使沒有 Twelve Data／Apify，
+        # 仍可爬取明確設定的 ETF 代號，避免分類只留下「待配對」占位資料。
+        if fund_values is None and symbol:
             try:
                 fund_values, provider = fetch_market_closes(symbol, api_key, apify_token)
             except Exception as exc:

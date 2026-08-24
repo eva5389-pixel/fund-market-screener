@@ -1,0 +1,4 @@
+﻿rank,category_name,name,moneydj_id,twelve_data_symbol,benchmark,distribution,return_1m,return_3m,return_1y,benchmark_return_1y,excess_return_1y,momentum_6m,sharpe,max_drawdown,recovery_days,score,signal,status,data_source,data_date
+1,印度,WisdomTree India Earnings Fund,,EPI,INDA,是,3.99,2.16,-5.54,-7.73,2.20,-6.95,-0.372,-21.89,,-0.287,賣出,已更新（Yahoo Finance）,Yahoo Finance,2026-08-24
+2,印度,Franklin FTSE India ETF,,FLIN,INDA,是,4.33,3.69,-7.46,-7.73,0.27,-6.30,-0.490,-22.85,,-0.347,賣出,已更新（Yahoo Finance）,Yahoo Finance,2026-08-24
+3,印度,iShares MSCI India ETF,,INDA,INDA,是,4.22,3.35,-7.73,-7.73,0.00,-7.08,-0.533,-22.72,,-0.368,賣出,已更新（Yahoo Finance）,Yahoo Finance,2026-08-24

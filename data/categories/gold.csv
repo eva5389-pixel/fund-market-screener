@@ -1,0 +1,4 @@
+﻿rank,category_name,name,moneydj_id,twelve_data_symbol,benchmark,distribution,return_1m,return_3m,return_1y,benchmark_return_1y,excess_return_1y,momentum_6m,sharpe,max_drawdown,recovery_days,score,signal,status,data_source,data_date
+1,黃金,abrdn Physical Gold Shares ETF,,SGOL,GLD,否,14.00,1.67,37.63,37.29,0.34,-9.49,1.227,-26.32,,0.399,觀察,已更新（Yahoo Finance）,Yahoo Finance,2026-08-24
+2,黃金,iShares Gold Trust,,IAU,GLD,否,13.97,1.59,37.48,37.29,0.18,-9.55,1.221,-26.36,,0.394,觀察,已更新（Yahoo Finance）,Yahoo Finance,2026-08-24
+3,黃金,SPDR Gold Shares,,GLD,GLD,否,13.95,1.53,37.29,37.29,0.00,-9.66,1.209,-26.40,,0.386,賣出,已更新（Yahoo Finance）,Yahoo Finance,2026-08-24

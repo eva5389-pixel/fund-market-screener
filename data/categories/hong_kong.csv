@@ -1,2 +1,4 @@
 ﻿rank,category_name,name,moneydj_id,twelve_data_symbol,benchmark,distribution,return_1m,return_3m,return_1y,benchmark_return_1y,excess_return_1y,momentum_6m,sharpe,max_drawdown,recovery_days,score,signal,status,data_source,data_date
-1,香港,基金清單建置中,,,EWH,,,,,,,,,,,,待資料,待建立基金清單,尚無可用來源,2026-08-21
+1,香港,Franklin FTSE Hong Kong ETF,,FLHK,EWH,是,0.21,9.68,22.63,15.79,6.84,12.92,0.880,-24.39,,0.478,買進,已更新（Yahoo Finance）,Yahoo Finance,2026-08-24
+2,香港,iShares MSCI Hong Kong ETF,,EWH,EWH,是,4.06,-0.43,15.79,15.79,0.00,-0.14,0.870,-23.77,44,0.212,賣出,已更新（Yahoo Finance）,Yahoo Finance,2026-08-24
+3,香港,Tracker Fund of Hong Kong,,2800.HK,EWH,是,2.20,0.70,4.85,15.79,-10.94,-2.27,0.143,-20.10,53,-0.155,賣出,已更新（Yahoo Finance）,Yahoo Finance,2026-08-24

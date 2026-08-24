@@ -1,2 +1,4 @@
 ﻿rank,category_name,name,moneydj_id,twelve_data_symbol,benchmark,distribution,return_1m,return_3m,return_1y,benchmark_return_1y,excess_return_1y,momentum_6m,sharpe,max_drawdown,recovery_days,score,signal,status,data_source,data_date
-1,韓國,基金清單建置中,,,EWY,,,,,,,,,,,,待資料,待建立基金清單,尚無可用來源,2026-08-21
+1,韓國,iShares MSCI South Korea ETF,,EWY,EWY,是,2.58,-4.33,155.53,155.53,0.00,25.70,1.949,-34.21,,2.031,觀察,已更新（Yahoo Finance）,Yahoo Finance,2026-08-24
+2,韓國,Franklin FTSE South Korea ETF,,FLKR,EWY,是,2.78,-2.39,151.99,155.53,-3.54,27.55,1.949,-34.17,,1.979,觀察,已更新（Yahoo Finance）,Yahoo Finance,2026-08-24
+3,韓國,TIGER 200 ETF,,102110.KS,EWY,是,-6.12,-13.59,147.16,155.53,-8.37,30.57,1.803,-40.63,,1.851,觀察,已更新（Yahoo Finance）,Yahoo Finance,2026-08-24

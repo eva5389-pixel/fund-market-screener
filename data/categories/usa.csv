@@ -1,2 +1,4 @@
 ﻿rank,category_name,name,moneydj_id,twelve_data_symbol,benchmark,distribution,return_1m,return_3m,return_1y,benchmark_return_1y,excess_return_1y,momentum_6m,sharpe,max_drawdown,recovery_days,score,signal,status,data_source,data_date
-1,美國,基金清單建置中,,,SPY,,,,,,,,,,,,待資料,待建立基金清單,尚無可用來源,2026-08-21
+1,美國,Invesco QQQ Trust,,QQQ,SPY,是,3.10,-0.04,26.68,21.33,5.35,17.46,1.257,-22.77,52,0.632,買進,已更新（Yahoo Finance）,Yahoo Finance,2026-08-24
+2,美國,Vanguard Total Stock Market ETF,,VTI,SPY,是,3.72,3.90,21.93,21.33,0.60,11.83,1.496,-19.30,55,0.546,買進,已更新（Yahoo Finance）,Yahoo Finance,2026-08-24
+3,美國,SPDR S&P 500 ETF Trust,,SPY,SPY,是,3.73,3.36,21.33,21.33,0.00,11.66,1.486,-18.76,54,0.533,觀察,已更新（Yahoo Finance）,Yahoo Finance,2026-08-24
