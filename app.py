@@ -1005,10 +1005,14 @@ with tab_backtest:
                 )
 
                 st.subheader("標準化淨值走勢（起點＝100）")
-                nav_chart = normalized_result.pivot(index="日期", columns="基金", values="標準化淨值")
+                nav_chart = normalized_result.pivot_table(
+                    index="日期", columns="基金", values="標準化淨值", aggfunc="last"
+                )
                 st.line_chart(nav_chart, use_container_width=True)
                 st.subheader("回撤走勢")
-                dd_chart = drawdown_result.pivot(index="日期", columns="基金", values="回撤%")
+                dd_chart = drawdown_result.pivot_table(
+                    index="日期", columns="基金", values="回撤%", aggfunc="last"
+                )
                 st.line_chart(dd_chart, use_container_width=True)
                 st.subheader("年化報酬排名")
                 st.bar_chart(
