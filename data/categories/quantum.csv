@@ -1,5 +1,5 @@
-﻿rank,category_name,name,moneydj_id,twelve_data_symbol,benchmark,distribution,return_1m,return_3m,return_1y,benchmark_return_1y,excess_return_1y,momentum_6m,sharpe,max_drawdown,recovery_days,score,signal,status,data_source,data_date
-1,量子電腦,安聯台灣科技基金,ACDD04-8602,,QTUM,否,0.37,-1.97,196.56,78.03,118.53,59.76,2.790,-32.10,,4.146,買進,已更新（合庫 MoneyDJ 網頁爬蟲）,合庫 MoneyDJ 公開網頁（爬蟲）,2026-08-21
-2,量子電腦,國泰臺韓科技基金,ACTR37,,QTUM,是（半年配）,3.38,6.77,190.87,80.46,110.41,63.84,2.498,-31.35,,3.994,買進,已更新（合庫 MoneyDJ 網頁爬蟲）,合庫 MoneyDJ 公開網頁（爬蟲）,2026-08-21
-3,量子電腦,富邦台灣科技指數基金(本基金之配息來源可能為收益平準金),AC0052,,QTUM,是,2.13,1.29,115.71,47.23,68.48,31.50,2.452,-17.13,,2.562,買進,已更新（合庫 MoneyDJ 網頁爬蟲）,合庫 MoneyDJ 公開網頁（爬蟲）,2026-08-24
-4,量子電腦,元大台灣電子科技基金,AC0053,,QTUM,否,2.86,-0.39,114.85,47.57,67.28,33.64,2.426,-18.95,,2.548,買進,已更新（合庫 MoneyDJ 網頁爬蟲）,合庫 MoneyDJ 公開網頁（爬蟲）,2026-08-24
+﻿rank,category_name,name,moneydj_id,twelve_data_symbol,benchmark,distribution,daily_change,return_1m,return_3m,momentum_6m,return_1y,momentum_acceleration,benchmark_return_1y,excess_return_1y,sharpe,max_drawdown,recovery_days,score,signal,status,data_source,data_date
+1,量子電腦,安聯台灣科技基金,ACDD04-8602,,QTUM,否,-1.40,4.25,-7.03,59.59,194.38,-179.98,73.82,120.56,2.747,-32.10,,4.134,買進,已更新（合庫 MoneyDJ 網頁爬蟲）,合庫 MoneyDJ 公開網頁（爬蟲）,2026-08-24
+2,量子電腦,國泰臺韓科技基金,ACTR37,,QTUM,是（半年配）,-2.19,-0.88,7.73,67.33,184.10,-145.29,74.12,109.98,2.439,-31.35,,3.945,買進,已更新（合庫 MoneyDJ 網頁爬蟲）,合庫 MoneyDJ 公開網頁（爬蟲）,2026-08-24
+3,量子電腦,元大台灣電子科技基金,AC0053,,QTUM,否,-0.93,2.86,-0.39,40.67,114.85,-99.41,47.57,67.28,2.426,-18.95,,2.618,買進,已更新（合庫 MoneyDJ 網頁爬蟲）,合庫 MoneyDJ 公開網頁（爬蟲）,2026-08-24
+4,量子電腦,富邦台灣科技指數基金(本基金之配息來源可能為收益平準金),AC0052,,QTUM,是,-1.11,2.13,1.29,34.17,115.71,-74.76,47.23,68.48,2.452,-17.13,,2.588,買進,已更新（合庫 MoneyDJ 網頁爬蟲）,合庫 MoneyDJ 公開網頁（爬蟲）,2026-08-24

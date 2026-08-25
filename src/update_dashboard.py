@@ -32,8 +32,8 @@ CATEGORY_DATA = DATA / "categories"
 NAV_HISTORY = DATA / "nav_history"
 PORTFOLIO_DATA = DATA / "portfolio"
 ETF_FLOW_FILE = DATA / "etf_flows.csv"
-METRIC_FIELDS = ("return_1m", "return_3m", "return_1y", "benchmark_return_1y", "excess_return_1y",
-                 "momentum_6m", "sharpe", "max_drawdown", "recovery_days")
+METRIC_FIELDS = ("daily_change", "return_1m", "return_3m", "return_1y", "benchmark_return_1y", "excess_return_1y",
+                 "momentum_6m", "momentum_acceleration", "sharpe", "max_drawdown", "recovery_days")
 
 
 def load_previous_rankings() -> tuple[dict[str, dict], str]:
@@ -67,7 +67,7 @@ def restore_previous_values(row: dict, previous: dict[str, dict], previous_date:
             try:
                 row[field] = float(old[field]) / 100 if field in {
                     "return_1m", "return_3m", "return_1y", "benchmark_return_1y", "excess_return_1y",
-                    "momentum_6m", "max_drawdown",
+                    "daily_change", "momentum_6m", "momentum_acceleration", "max_drawdown",
                 } else float(old[field])
                 restored = True
             except (TypeError, ValueError):
@@ -83,6 +83,21 @@ def pct_change(values: list[float], periods: int) -> float | None:
     if len(values) <= periods or values[-periods - 1] == 0:
         return None
     return values[-1] / values[-periods - 1] - 1
+
+
+def annualized_momentum(value: float | None, months: int) -> float | None:
+    """Annualize a holding-period return for comparable 3M/6M momentum."""
+    if value is None or value <= -1:
+        return None
+    return (1 + value) ** (12 / months) - 1
+
+
+def momentum_acceleration(return_3m: float | None, return_6m: float | None) -> float | None:
+    annualized_3m = annualized_momentum(return_3m, 3)
+    annualized_6m = annualized_momentum(return_6m, 6)
+    if annualized_3m is None or annualized_6m is None:
+        return None
+    return annualized_3m - annualized_6m
 
 
 def daily_returns(values: list[float]) -> list[float]:
@@ -583,6 +598,9 @@ def main() -> int:
                 row["recovery_days"] = recovery_days(nav_values)
                 row["return_1m"] = pct_change(nav_values, min(21, len(nav_values) - 1))
                 row["return_3m"] = pct_change(nav_values, min(63, len(nav_values) - 1))
+                row["momentum_6m"] = pct_change(nav_values, min(126, len(nav_values) - 1))
+                row["daily_change"] = pct_change(nav_values, 1)
+                row["momentum_acceleration"] = momentum_acceleration(row["return_3m"], row["momentum_6m"])
                 row["data_date"] = datetime.strptime(nav_dates[-1], "%Y%m%d").date().isoformat()
                 row["status"] = "已更新（合庫 MoneyDJ 網頁爬蟲）"
             except Exception as exc:
@@ -597,6 +615,7 @@ def main() -> int:
                 fund_values, benchmark_values = fund_values[-length:], benchmark_values[-length:]
                 risk_metrics = quantstats_metrics(fund_values[-252:], config["risk_free_rate"])
                 row.update({
+                    "daily_change": pct_change(fund_values, 1),
                     "return_1m": pct_change(fund_values, min(21, length - 1)),
                     "return_3m": pct_change(fund_values, min(63, length - 1)),
                     "return_1y": pct_change(fund_values, min(252, length - 1)),
@@ -609,6 +628,7 @@ def main() -> int:
                     "data_source": provider,
                     "data_date": date.today().isoformat(),
                 })
+                row["momentum_acceleration"] = momentum_acceleration(row["return_3m"], row["momentum_6m"])
                 if row["return_1y"] is not None and row["benchmark_return_1y"] is not None:
                     row["excess_return_1y"] = row["return_1y"] - row["benchmark_return_1y"]
             except Exception as exc:  # keep one bad instrument from blocking every category
@@ -665,7 +685,7 @@ def main() -> int:
 
     DATA.mkdir(exist_ok=True)
     CATEGORY_DATA.mkdir(parents=True, exist_ok=True)
-    fields = ["rank", "category_name", "name", "moneydj_id", "twelve_data_symbol", "benchmark", "distribution", "return_1m", "return_3m", "return_1y", "benchmark_return_1y", "excess_return_1y", "momentum_6m", "sharpe", "max_drawdown", "recovery_days", "score", "signal", "status", "data_source", "data_date"]
+    fields = ["rank", "category_name", "name", "moneydj_id", "twelve_data_symbol", "benchmark", "distribution", "daily_change", "return_1m", "return_3m", "momentum_6m", "return_1y", "momentum_acceleration", "benchmark_return_1y", "excess_return_1y", "sharpe", "max_drawdown", "recovery_days", "score", "signal", "status", "data_source", "data_date"]
 
     def write_csv(path: Path, selected: list[dict]) -> None:
         with path.open("w", newline="", encoding="utf-8-sig") as handle:
@@ -673,7 +693,7 @@ def main() -> int:
             writer.writeheader()
             for item in selected:
                 output = {key: item.get(key, "") for key in fields}
-                for key in ("return_1m", "return_3m", "return_1y", "benchmark_return_1y", "excess_return_1y", "momentum_6m", "max_drawdown"):
+                for key in ("daily_change", "return_1m", "return_3m", "return_1y", "benchmark_return_1y", "excess_return_1y", "momentum_6m", "momentum_acceleration", "max_drawdown"):
                     output[key] = fmt(item.get(key), percent=True)
                 output["sharpe"] = fmt(item.get("sharpe"))
                 output["score"] = fmt(item.get("score"))

@@ -33,12 +33,14 @@ UPDATE_SCRIPT = BASE_DIR / "src" / "update_dashboard.py"
 AUTO_UPDATE_INTERVAL = timedelta(hours=24)
 
 METRIC_COLUMNS = [
+    "daily_change",
     "return_1m",
     "return_3m",
+    "momentum_6m",
     "return_1y",
+    "momentum_acceleration",
     "benchmark_return_1y",
     "excess_return_1y",
-    "momentum_6m",
     "sharpe",
     "max_drawdown",
     "recovery_days",
@@ -53,12 +55,14 @@ DISPLAY_COLUMNS = {
     "moneydj_id": "MoneyDJ ID",
     "tcb_url": "合庫連結",
     "benchmark": "Benchmark",
+    "nav_change_display": "淨值日變動",
     "return_1m": "一個月報酬%",
     "return_3m": "三個月報酬%",
+    "momentum_6m": "六個月動能%",
     "return_1y": "一年報酬%",
+    "momentum_acceleration": "近期動能加速度%",
     "benchmark_return_1y": "Benchmark一年報酬%",
     "excess_return_1y": "超額報酬%",
-    "momentum_6m": "六個月動能%",
     "sharpe": "夏普",
     "max_drawdown": "最大回撤%",
     "recovery_days": "恢復天數",
@@ -76,7 +80,7 @@ def load_rankings(file_mtime: float) -> pd.DataFrame:
     if not RANKINGS_FILE.exists():
         return pd.DataFrame()
     frame = pd.read_csv(RANKINGS_FILE)
-    for column in ("return_1m", "return_3m"):
+    for column in ("daily_change", "return_1m", "return_3m", "momentum_6m", "momentum_acceleration"):
         if column not in frame.columns:
             frame[column] = np.nan
     for column in METRIC_COLUMNS:
@@ -113,11 +117,20 @@ def load_rankings(file_mtime: float) -> pd.DataFrame:
             try:
                 history = pd.read_csv(path)
                 values = pd.to_numeric(history["nav"], errors="coerce").dropna()
-                for column, periods in (("return_1m", 21), ("return_3m", 63)):
+                for column, periods in (("daily_change", 1), ("return_1m", 21), ("return_3m", 63), ("momentum_6m", 126)):
                     if len(values) > periods and pd.isna(frame.at[index, column]):
                         frame.at[index, column] = (values.iloc[-1] / values.iloc[-periods - 1] - 1) * 100
             except (OSError, KeyError, ValueError):
                 continue
+    valid_acceleration = frame["return_3m"].notna() & frame["momentum_6m"].notna()
+    calculated_acceleration = (
+        (1 + frame.loc[valid_acceleration, "return_3m"] / 100) ** 4 - 1
+        - ((1 + frame.loc[valid_acceleration, "momentum_6m"] / 100) ** 2 - 1)
+    ) * 100
+    frame.loc[valid_acceleration & frame["momentum_acceleration"].isna(), "momentum_acceleration"] = calculated_acceleration
+    frame["nav_change_display"] = frame["daily_change"].map(
+        lambda value: "—" if pd.isna(value) else f"{'↑' if value > 0 else '↓' if value < 0 else '→'} {value:+.2f}%"
+    )
     return frame
 
 
@@ -160,6 +173,19 @@ ENERGY_EXPOSURE_RULES = {
     "油服／煉油／運輸": ["schlumberger", "slb ", "halliburton", "baker hughes", "valero", "marathon petroleum", "phillips 66", "enbridge", "williams cos", "kinder morgan", "oneok"],
     "電力／公用事業": ["nextera energy", "iberdrola", "enel", "duke energy", "southern co", "dominion energy", "constellation energy", "vistra", "exelon", "rwe", "national grid", "e.on", "engie", "edison international", "sempra", "台汽電", "森崴能源", "雲豹能源", "泓德能源", "高力"],
     "油價直接連動工具": ["wti", "brent", "crude oil", "oil futures", "原油期貨", "石油期貨", "united states oil fund", "wisdomtree crude oil"],
+}
+
+DIRECT_COMMODITY_PRODUCTS = {
+    "黃金": [
+        {"產品": "SPDR Gold Shares", "代號": "GLD", "直接掛鉤": "LBMA Gold Price PM／實體黃金", "主要持有資產": "倫敦合格交割實體金條；少量現金，無金礦公司股票", "產品類型": "實體黃金信託", "官方資料": "https://www.ssga.com/us/en/intermediary/etfs/spdr-gold-shares-gld"},
+        {"產品": "iShares Gold Trust", "代號": "IAU", "直接掛鉤": "LBMA Gold Price／實體黃金", "主要持有資產": "託管實體黃金；少量現金，無金礦公司股票", "產品類型": "實體黃金信託", "官方資料": "https://www.ishares.com/us/products/239561/ishares-gold-trust"},
+        {"產品": "abrdn Physical Gold Shares ETF", "代號": "SGOL", "直接掛鉤": "實體黃金價格", "主要持有資產": "配置式倫敦合格交割實體金條；存放於倫敦核准金庫", "產品類型": "實體黃金信託", "官方資料": "https://www.abrdn.com/docs?editionId=609cef3b-2b69-4887-b672-3d8fa93b28bd"},
+    ],
+    "能源": [
+        {"產品": "United States Oil Fund", "代號": "USO", "直接掛鉤": "NYMEX WTI近月期貨", "主要持有資產": "WTI原油期貨／掉期；美國國債、現金與貨幣市場工具作為擔保", "產品類型": "原油期貨商品池", "官方資料": "https://www.uscfinvestments.com/uso"},
+        {"產品": "United States Brent Oil Fund", "代號": "BNO", "直接掛鉤": "ICE Brent近月期貨", "主要持有資產": "Brent原油期貨；美國國債、現金與貨幣市場工具作為擔保", "產品類型": "原油期貨商品池", "官方資料": "https://www.uscfinvestments.com/bno"},
+        {"產品": "Invesco DB Oil Fund", "代號": "DBO", "直接掛鉤": "DBIQ Optimum Yield Crude Oil Index", "主要持有資產": "依最佳展期規則選取的WTI原油期貨；美國國債與現金擔保", "產品類型": "原油期貨商品池", "官方資料": "https://www.invesco.com/us/financial-products/etfs/product-detail?productId=ETF-DBO"},
+    ],
 }
 
 
@@ -536,6 +562,11 @@ def apply_filters(data: pd.DataFrame) -> tuple[pd.DataFrame, str]:
         min_return_3m = st.number_input("最低三個月報酬（%）", value=0.0, step=0.5, disabled=not use_return_3m)
         use_momentum = st.checkbox("啟用最低六個月動能")
         min_momentum = st.number_input("最低六個月動能（%）", value=0.0, step=1.0, disabled=not use_momentum)
+        use_acceleration = st.checkbox("啟用最低近期動能加速度")
+        min_acceleration = st.number_input(
+            "最低近期動能加速度（百分點）", value=0.0, step=1.0, disabled=not use_acceleration,
+            help="3M年化動能－6M年化動能；正值代表近期漲勢相對加速，負值代表動能放緩。",
+        )
         use_sharpe = st.checkbox("啟用最低夏普")
         min_sharpe = st.number_input("最低夏普", value=0.0, step=0.1, disabled=not use_sharpe)
         use_drawdown = st.checkbox("限制最大回撤")
@@ -553,6 +584,7 @@ def apply_filters(data: pd.DataFrame) -> tuple[pd.DataFrame, str]:
             "三個月報酬（高至低）": "return_3m",
             "一年報酬（高至低）": "return_1y",
             "六個月動能（高至低）": "momentum_6m",
+            "近期動能加速度（高至低）": "momentum_acceleration",
             "夏普（高至低）": "sharpe",
             "最大回撤（較小優先）": "max_drawdown",
             "原分類排名": "rank",
@@ -580,7 +612,7 @@ def apply_filters(data: pd.DataFrame) -> tuple[pd.DataFrame, str]:
     else:
         filtered = filtered.iloc[0:0]
 
-    core_columns = ["return_1y", "excess_return_1y", "momentum_6m", "sharpe", "max_drawdown"]
+    core_columns = ["return_1y", "excess_return_1y", "momentum_6m", "momentum_acceleration", "sharpe", "max_drawdown"]
     complete_mask = filtered[core_columns].notna().all(axis=1)
     if completeness == "核心指標完整":
         filtered = filtered[complete_mask]
@@ -595,6 +627,8 @@ def apply_filters(data: pd.DataFrame) -> tuple[pd.DataFrame, str]:
         filtered = filtered[filtered["return_3m"].ge(min_return_3m)]
     if use_momentum:
         filtered = filtered[filtered["momentum_6m"].ge(min_momentum)]
+    if use_acceleration:
+        filtered = filtered[filtered["momentum_acceleration"].ge(min_acceleration)]
     if use_sharpe:
         filtered = filtered[filtered["sharpe"].ge(min_sharpe)]
     if use_drawdown:
@@ -616,10 +650,11 @@ def render_table(filtered: pd.DataFrame) -> None:
     numeric_formats = {
         "一個月報酬%": "%.2f",
         "三個月報酬%": "%.2f",
+        "六個月動能%": "%.2f",
         "一年報酬%": "%.2f",
+        "近期動能加速度%": "%.2f",
         "Benchmark一年報酬%": "%.2f",
         "超額報酬%": "%.2f",
-        "六個月動能%": "%.2f",
         "夏普": "%.3f",
         "最大回撤%": "%.2f",
         "恢復天數": "%.0f",
@@ -656,11 +691,14 @@ def render_cards(filtered: pd.DataFrame) -> None:
                     with st.container(border=True):
                         st.markdown(f"#### {int(row['screen_rank'])}. {row['name']}")
                         st.caption(f"{category}｜Benchmark：{row.get('benchmark') or '—'}")
+                        st.markdown(f"**淨值日變動：{row.get('nav_change_display') or '—'}**")
                         m1, m2, m3, m4 = st.columns(4)
-                        m1.metric("一個月", fmt_number(row.get("return_1m"), suffix="%"))
-                        m2.metric("三個月", fmt_number(row.get("return_3m"), suffix="%"))
-                        m3.metric("一年", fmt_number(row.get("return_1y"), suffix="%"))
-                        m4.metric("夏普", fmt_number(row.get("sharpe"), 3))
+                        m1.metric("1M", fmt_number(row.get("return_1m"), suffix="%"))
+                        m2.metric("3M", fmt_number(row.get("return_3m"), suffix="%"))
+                        m3.metric("6M", fmt_number(row.get("momentum_6m"), suffix="%"))
+                        m4.metric("1Y", fmt_number(row.get("return_1y"), suffix="%"))
+                        trend_arrow = "↗️" if pd.notna(row.get("momentum_acceleration")) and row.get("momentum_acceleration") > 0 else "↘️" if pd.notna(row.get("momentum_acceleration")) and row.get("momentum_acceleration") < 0 else "→"
+                        st.markdown(f"**動能趨勢：{trend_arrow} {fmt_number(row.get('momentum_acceleration'), suffix=' 個百分點')}｜夏普 {fmt_number(row.get('sharpe'), 3)}**")
                         st.markdown(f"**訊號：{status_badge(row.get('signal', '待資料'))}**")
                         st.caption(str(row.get("status") or "尚無資料狀態說明"))
                         st.caption(f"資料日期：{row.get('data_date') or '—'}｜來源：{row.get('data_source') or '—'}")
@@ -752,12 +790,14 @@ with tab_portfolio:
         country_performance["基金身分"] = country_performance["moneydj_id"].map(fund_registration_type)
         country_performance = country_performance.rename(columns={
             "name": "基金",
+            "nav_change_display": "淨值日變動",
             "return_1m": "一個月報酬%",
             "return_3m": "三個月報酬%",
+            "momentum_6m": "六個月動能%",
             "return_1y": "一年報酬%",
+            "momentum_acceleration": "近期動能加速度%",
             "benchmark_return_1y": "Benchmark一年報酬%",
             "excess_return_1y": "超額報酬%",
-            "momentum_6m": "六個月動能%",
             "sharpe": "夏普",
             "max_drawdown": "最大回撤%",
             "signal": "訊號",
@@ -765,8 +805,8 @@ with tab_portfolio:
             "data_date": "資料日期",
         })
         country_columns = [
-            "基金", "基金身分", "一個月報酬%", "三個月報酬%", "一年報酬%",
-            "Benchmark一年報酬%", "超額報酬%", "六個月動能%", "夏普",
+            "基金", "基金身分", "淨值日變動", "一個月報酬%", "三個月報酬%", "六個月動能%", "一年報酬%",
+            "近期動能加速度%", "Benchmark一年報酬%", "超額報酬%", "夏普",
             "最大回撤%", "訊號", "績效連結", "資料日期",
         ]
         st.dataframe(
@@ -775,8 +815,8 @@ with tab_portfolio:
             hide_index=True,
             column_config={
                 **{column: st.column_config.NumberColumn(format="%.2f") for column in [
-                    "一個月報酬%", "三個月報酬%", "一年報酬%", "Benchmark一年報酬%",
-                    "超額報酬%", "六個月動能%", "最大回撤%",
+                    "一個月報酬%", "三個月報酬%", "六個月動能%", "一年報酬%", "近期動能加速度%",
+                    "Benchmark一年報酬%", "超額報酬%", "最大回撤%",
                 ]},
                 "夏普": st.column_config.NumberColumn(format="%.3f"),
                 "績效連結": st.column_config.LinkColumn("績效連結", display_text="查看績效 ↗"),
@@ -800,7 +840,13 @@ with tab_portfolio:
                 "基金": fund_row["name"],
                 "基金身分": fund_registration_type(fund_row.get("moneydj_id")),
                 "是否配息": fund_row.get("distribution") or "待確認",
-                "績效走勢": yahoo_performance_url(fund_row.get("twelve_data_symbol")),
+                "淨值日變動": fund_row.get("nav_change_display") or "—",
+                "1M%": fund_row.get("return_1m"),
+                "3M%": fund_row.get("return_3m"),
+                "6M%": fund_row.get("momentum_6m"),
+                "1Y%": fund_row.get("return_1y"),
+                "動能加速度%": fund_row.get("momentum_acceleration"),
+                "績效走勢": fund_row.get("tcb_url") or yahoo_performance_url(fund_row.get("twelve_data_symbol")),
                 "供應鏈家數": len(fund_holdings),
                 "相關持股%": fund_holdings["weight"].sum() if not fund_holdings.empty else np.nan,
                 "實際持股": "、".join(names[:4]) if names else "待抓取",
@@ -814,10 +860,27 @@ with tab_portfolio:
                 hide_index=True,
                 column_config={
                     "相關持股%": st.column_config.NumberColumn(format="%.2f"),
+                    **{column: st.column_config.NumberColumn(format="%.2f") for column in ["1M%", "3M%", "6M%", "1Y%", "動能加速度%"]},
                     "績效走勢": st.column_config.LinkColumn("績效走勢", display_text="查看績效圖 ↗"),
                 },
             )
             st.caption("下方展開各基金後，每一檔實際持股都有 Yahoo 股票技術線連結。")
+        if portfolio_category in DIRECT_COMMODITY_PRODUCTS:
+            commodity_label = "純黃金直接掛鉤產品" if portfolio_category == "黃金" else "純石油直接掛鉤產品"
+            st.markdown(f"**{commodity_label}｜3 檔**")
+            st.caption("此區為海外交易所掛牌商品，僅用來區分直接商品價格曝險；不取代上方至少 3 檔台灣境內／核備境外共同基金。")
+            commodity_frame = pd.DataFrame(DIRECT_COMMODITY_PRODUCTS[portfolio_category])
+            commodity_frame["績效走勢"] = commodity_frame["代號"].map(yahoo_performance_url)
+            st.dataframe(
+                commodity_frame,
+                use_container_width=True,
+                hide_index=True,
+                column_config={
+                    "官方資料": st.column_config.LinkColumn("官方持有資產", display_text="查看官方資料 ↗"),
+                    "績效走勢": st.column_config.LinkColumn("績效走勢", display_text="查看走勢 ↗"),
+                },
+            )
+            st.warning("原油期貨產品會受到期貨升水／逆價差、展期與擔保收益影響，長期報酬可能明顯偏離原油現貨；黃金信託亦會因費用而略低於金價。")
         available_industries = sorted(
             category_portfolio.loc[category_portfolio["kind"].eq("industry"), "name"].dropna().unique().tolist()
         )
@@ -1078,6 +1141,7 @@ with tab_rules:
         ### 排名及訊號規則
 
         - 一般基金先依市場／主題分類，同基金不同幣別或級別可在資料更新階段去重。
+        - 動能趨勢依序比較 **1M｜3M｜6M｜1Y**；近期動能加速度＝3M年化動能－6M年化動能。正值代表近期相對加速，負值代表動能放緩。
         - 綜合評分使用：一年報酬、Benchmark 超額報酬、六個月動能、夏普及最大回撤。
         - 超額報酬、六個月動能、夏普三項皆為正：**買進**。
         - 上述三項有兩項為正：**觀察**；其餘為**賣出**。

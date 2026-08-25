@@ -1,4 +1,4 @@
-﻿rank,category_name,name,moneydj_id,twelve_data_symbol,benchmark,distribution,return_1m,return_3m,return_1y,benchmark_return_1y,excess_return_1y,momentum_6m,sharpe,max_drawdown,recovery_days,score,signal,status,data_source,data_date
-1,巴西,元大巴西指數基金,ACKY35,,EWZ,否,-4.68,-4.07,35.02,6.96,28.06,-9.26,1.238,-19.44,,0.689,觀察,已更新（合庫 MoneyDJ 網頁爬蟲）,合庫 MoneyDJ 公開網頁（爬蟲）,2026-08-21
-2,巴西,野村巴西基金,ACIC29,,EWZ,否,-6.57,-6.93,32.91,4.78,28.13,-11.39,1.081,-21.10,,0.607,觀察,已更新（合庫 MoneyDJ 網頁爬蟲）,合庫 MoneyDJ 公開網頁（爬蟲）,2026-08-21
-3,巴西,瀚亞巴西基金,ACCP32,,EWZ,否,-5.45,-7.13,25.10,0.04,25.06,-15.64,0.975,-20.78,,0.436,觀察,已更新（合庫 MoneyDJ 網頁爬蟲）,合庫 MoneyDJ 公開網頁（爬蟲）,2026-08-21
+﻿rank,category_name,name,moneydj_id,twelve_data_symbol,benchmark,distribution,daily_change,return_1m,return_3m,momentum_6m,return_1y,momentum_acceleration,benchmark_return_1y,excess_return_1y,sharpe,max_drawdown,recovery_days,score,signal,status,data_source,data_date
+1,巴西,元大巴西指數基金,ACKY35,,EWZ,否,2.51,-4.68,-4.07,-4.40,35.02,-6.73,6.96,28.06,1.238,-19.44,,0.737,觀察,已更新（合庫 MoneyDJ 網頁爬蟲）,合庫 MoneyDJ 公開網頁（爬蟲）,2026-08-21
+2,巴西,野村巴西基金,ACIC29,,EWZ,否,2.64,-6.57,-6.93,-6.81,32.91,-11.80,4.78,28.13,1.081,-21.10,,0.653,觀察,已更新（合庫 MoneyDJ 網頁爬蟲）,合庫 MoneyDJ 公開網頁（爬蟲）,2026-08-21
+3,巴西,瀚亞巴西基金,ACCP32,,EWZ,否,2.89,-5.45,-7.13,-9.01,28.46,-8.42,2.61,25.85,0.975,-20.78,,0.544,觀察,已更新（合庫 MoneyDJ 網頁爬蟲）,合庫 MoneyDJ 公開網頁（爬蟲）,2026-08-21

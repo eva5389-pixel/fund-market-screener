@@ -1,4 +1,4 @@
-﻿rank,category_name,name,moneydj_id,twelve_data_symbol,benchmark,distribution,return_1m,return_3m,return_1y,benchmark_return_1y,excess_return_1y,momentum_6m,sharpe,max_drawdown,recovery_days,score,signal,status,data_source,data_date
-1,中國,利安資金中國增長基金(美元),LIC33,,MCHI,否,3.19,-1.35,33.87,7.72,26.15,7.65,1.169,-16.60,,0.827,買進,已更新（合庫 MoneyDJ 網頁爬蟲）,合庫 MoneyDJ 公開網頁（爬蟲）,2026-08-21
-2,中國,景順大中華基金C股美元,CTH03,,MCHI,否,3.80,0.89,31.72,7.72,24.00,8.94,1.089,-13.94,19,0.795,買進,已更新（合庫 MoneyDJ 網頁爬蟲）,合庫 MoneyDJ 公開網頁（爬蟲）,2026-08-21
-3,中國,摩根中國雙息平衡基金-月配型(台幣),ACJF132-8434,,MCHI,,-1.17,-2.17,10.12,1.71,8.41,-2.26,0.285,-8.20,,0.179,觀察,已更新（合庫 MoneyDJ 網頁爬蟲）,合庫 MoneyDJ 公開網頁（爬蟲）,2026-08-21
+﻿rank,category_name,name,moneydj_id,twelve_data_symbol,benchmark,distribution,daily_change,return_1m,return_3m,momentum_6m,return_1y,momentum_acceleration,benchmark_return_1y,excess_return_1y,sharpe,max_drawdown,recovery_days,score,signal,status,data_source,data_date
+1,中國,利安資金中國增長基金(美元),LIC33,,MCHI,否,0.59,3.19,-1.35,9.92,33.87,-26.14,7.72,26.15,1.169,-16.60,,0.850,買進,已更新（合庫 MoneyDJ 網頁爬蟲）,合庫 MoneyDJ 公開網頁（爬蟲）,2026-08-21
+2,中國,景順大中華基金C股美元,CTH03,,MCHI,否,-2.31,3.56,-4.43,5.57,27.41,-28.03,4.23,23.18,0.985,-13.94,19,0.689,買進,已更新（合庫 MoneyDJ 網頁爬蟲）,合庫 MoneyDJ 公開網頁（爬蟲）,2026-08-24
+3,中國,摩根中國雙息平衡基金-月配型(台幣),ACJF132-8434,,MCHI,,0.24,-1.17,-2.17,-3.66,10.12,-1.23,1.71,8.41,0.285,-8.20,,0.165,觀察,已更新（合庫 MoneyDJ 網頁爬蟲）,合庫 MoneyDJ 公開網頁（爬蟲）,2026-08-21
