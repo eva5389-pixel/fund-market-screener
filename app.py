@@ -119,9 +119,11 @@ def load_rankings(file_mtime: float) -> pd.DataFrame:
             try:
                 history = pd.read_csv(path)
                 values = pd.to_numeric(history["nav"], errors="coerce").dropna()
-                for column, periods in (("daily_change", 1), ("return_1m", 21), ("return_3m", 63), ("momentum_6m", 126)):
-                    if len(values) > periods and pd.isna(frame.at[index, column]):
-                        frame.at[index, column] = (values.iloc[-1] / values.iloc[-periods - 1] - 1) * 100
+                if len(values) > 1 and pd.isna(frame.at[index, "daily_change"]):
+                    frame.at[index, "daily_change"] = (values.iloc[-1] / values.iloc[-2] - 1) * 100
+                for column, months in (("return_1m", 1), ("return_3m", 3), ("momentum_6m", 6)):
+                    if pd.isna(frame.at[index, column]):
+                        frame.at[index, column] = calendar_history_return(history, months)
             except (OSError, KeyError, ValueError):
                 continue
     valid_acceleration = frame["return_3m"].notna() & frame["momentum_6m"].notna()
@@ -159,6 +161,22 @@ def yahoo_stock_url(name: object) -> str:
 def yahoo_performance_url(symbol: object) -> str:
     value = str(symbol or "").strip()
     return f"https://finance.yahoo.com/quote/{quote(value, safe='')}/chart/" if value else ""
+
+
+def calendar_history_return(history: pd.DataFrame, months: int) -> float | None:
+    if not {"date", "nav"}.issubset(history.columns):
+        return None
+    dates = pd.to_datetime(history["date"].astype(str), format="%Y%m%d", errors="coerce")
+    values = pd.to_numeric(history["nav"], errors="coerce")
+    valid = pd.DataFrame({"date": dates, "nav": values}).dropna().sort_values("date")
+    if len(valid) < 2:
+        return None
+    latest = valid.iloc[-1]
+    target = latest["date"] - pd.DateOffset(months=months)
+    prior = valid[valid["date"].le(target)]
+    if prior.empty or prior.iloc[-1]["nav"] == 0:
+        return None
+    return (latest["nav"] / prior.iloc[-1]["nav"] - 1) * 100
 
 
 def fund_registration_type(identifier: object) -> str:
@@ -1172,6 +1190,8 @@ with tab_rules:
         ### 排名及訊號規則
 
         - 一般基金先依市場／主題分類，同基金不同幣別或級別可在資料更新階段去重。
+        - 1M／3M／6M／1Y採**曆月／曆年回推法**：由最新淨值日期回推指定月份，若該日無報價，取該日以前最近一個有效淨值；不再用21／63／126／252筆交易日近似。
+        - 共同基金夏普優先採用同一基金級別之公開來源公布值，以維持與基金公司、彭博及理財平台口徑一致；來源未提供時，才以每日報酬扣除年化無風險利率後按252日年化計算。
         - 動能趨勢依序比較 **1M｜3M｜6M｜1Y**；近期動能加速度＝3M年化動能－6M年化動能。正值代表近期相對加速，負值代表動能放緩。
         - 綜合評分使用：一年報酬、Benchmark 超額報酬、六個月動能、夏普及最大回撤。
         - 超額報酬、六個月動能、夏普三項皆為正：**買進**。

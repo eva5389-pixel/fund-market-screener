@@ -8,6 +8,7 @@ remain visible as pending rows so the dashboard never substitutes invented data.
 from __future__ import annotations
 
 import csv
+import calendar
 import importlib
 import json
 import math
@@ -85,6 +86,34 @@ def pct_change(values: list[float], periods: int) -> float | None:
     return values[-1] / values[-periods - 1] - 1
 
 
+def shift_months(value: date, months: int) -> date:
+    """Move a date back by whole calendar months, clamping month-end dates."""
+    month_index = value.year * 12 + value.month - 1 - months
+    year, zero_based_month = divmod(month_index, 12)
+    month = zero_based_month + 1
+    return date(year, month, min(value.day, calendar.monthrange(year, month)[1]))
+
+
+def calendar_period_return(dates: list[str], values: list[float], months: int) -> float | None:
+    """Industry-standard trailing return: calendar target, then latest NAV on/before it."""
+    observations = []
+    for raw_date, raw_value in zip(dates, values):
+        try:
+            parsed = datetime.strptime(str(raw_date), "%Y%m%d").date()
+            observations.append((parsed, float(raw_value)))
+        except (TypeError, ValueError):
+            continue
+    if len(observations) < 2:
+        return None
+    observations.sort(key=lambda item: item[0])
+    latest_date, latest_value = observations[-1]
+    target = shift_months(latest_date, months)
+    prior = next(((item_date, item_value) for item_date, item_value in reversed(observations) if item_date <= target), None)
+    if prior is None or prior[1] == 0:
+        return None
+    return latest_value / prior[1] - 1
+
+
 def annualized_momentum(value: float | None, months: int) -> float | None:
     """Annualize a holding-period return for comparable 3M/6M momentum."""
     if value is None or value <= -1:
@@ -111,7 +140,9 @@ def sharpe(values: list[float], risk_free_rate: float) -> float | None:
     volatility = statistics.stdev(returns)
     if volatility == 0:
         return None
-    return (statistics.mean(returns) * 252 - risk_free_rate) / (volatility * math.sqrt(252))
+    daily_risk_free = (1 + risk_free_rate) ** (1 / 252) - 1
+    excess_returns = [value - daily_risk_free for value in returns]
+    return statistics.mean(excess_returns) / volatility * math.sqrt(252)
 
 
 def max_drawdown(values: list[float]) -> float | None:
@@ -592,13 +623,18 @@ def main() -> int:
                 save_nav_history(moneydj_id, nav_dates, nav_values)
                 industries, holdings = fetch_moneydj_portfolio(moneydj_id)
                 save_portfolio(moneydj_id, industries, holdings)
+                # Published MoneyDJ performance and Sharpe use the same fund/share-class
+                # conventions as bank and Bloomberg terminals.  Preserve them when present;
+                # historical NAV calculations are only a documented fallback.
                 risk_metrics = quantstats_metrics(nav_values, config["risk_free_rate"])
-                row["sharpe"] = risk_metrics.get("sharpe", sharpe(nav_values, config["risk_free_rate"]))
+                if row.get("sharpe") is None:
+                    row["sharpe"] = risk_metrics.get("sharpe", sharpe(nav_values, config["risk_free_rate"]))
                 row["max_drawdown"] = risk_metrics.get("max_drawdown", max_drawdown(nav_values))
                 row["recovery_days"] = recovery_days(nav_values)
-                row["return_1m"] = pct_change(nav_values, min(21, len(nav_values) - 1))
-                row["return_3m"] = pct_change(nav_values, min(63, len(nav_values) - 1))
-                row["momentum_6m"] = pct_change(nav_values, min(126, len(nav_values) - 1))
+                row.setdefault("return_1m", calendar_period_return(nav_dates, nav_values, 1))
+                row.setdefault("return_3m", calendar_period_return(nav_dates, nav_values, 3))
+                row.setdefault("momentum_6m", calendar_period_return(nav_dates, nav_values, 6))
+                row.setdefault("return_1y", calendar_period_return(nav_dates, nav_values, 12))
                 row["daily_change"] = pct_change(nav_values, 1)
                 row["momentum_acceleration"] = momentum_acceleration(row["return_3m"], row["momentum_6m"])
                 row["data_date"] = datetime.strptime(nav_dates[-1], "%Y%m%d").date().isoformat()
