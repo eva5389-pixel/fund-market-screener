@@ -13,6 +13,8 @@ import numpy as np
 import pandas as pd
 import streamlit as st
 
+from src.word_report import build_category_report
+
 
 st.set_page_config(
     page_title="全球共同基金篩選器",
@@ -783,6 +785,35 @@ with tab_portfolio:
     if template_fund_names:
         template_matches = filtered[filtered["name"].isin(template_fund_names)]
         category_funds = pd.concat([category_funds, template_matches]).drop_duplicates("name")
+
+    category_portfolio_for_report = (
+        portfolio_data[portfolio_data["fund"].isin(category_funds["name"])]
+        if not portfolio_data.empty and not category_funds.empty else pd.DataFrame()
+    )
+    if not category_funds.empty:
+        try:
+            report_bytes = build_category_report(
+                category=portfolio_category,
+                funds=category_funds,
+                portfolio=category_portfolio_for_report,
+                updated_at=str(updated_at),
+                sort_label=active_sort,
+                country_categories=country_categories,
+                registration_type=fund_registration_type,
+                stock_url=yahoo_stock_url,
+                direct_products=DIRECT_COMMODITY_PRODUCTS.get(portfolio_category),
+            )
+            safe_category = re.sub(r"[^A-Za-z0-9\u4e00-\u9fff_-]", "_", portfolio_category)
+            st.download_button(
+                "📄 下載此基金種類 Word 報告",
+                data=report_bytes,
+                file_name=f"{safe_category}_基金研究報告_{datetime.now():%Y%m%d}.docx",
+                mime="application/vnd.openxmlformats-officedocument.wordprocessingml.document",
+                use_container_width=True,
+                help="報告沿用目前左側篩選規則與排序，包含網頁上的績效、動能、產業配置、主要持股與相關連結。",
+            )
+        except Exception as exc:
+            st.warning(f"Word 報告暫時無法產生：{exc}")
     if portfolio_category in country_categories and not category_funds.empty:
         st.markdown(f"**{portfolio_category}｜境內／境外基金績效比較**")
         st.caption("國家與區域分類以基金績效、Benchmark及風險指標比較，不顯示個股持股；報酬率均為原幣計算。")
