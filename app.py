@@ -158,15 +158,63 @@ supply_chains = {
 }
 
 
+CATEGORY_PROFILES = {
+    "低軌衛星": ("中游", "衛星通訊零組件、地面設備與系統整合"),
+    "軍工/國防": ("下游", "國防裝備、航太系統與軍用解決方案"),
+    "被動元件/MLCC": ("上游", "MLCC、電容、電感及被動電子元件"),
+    "光通訊/電網線材": ("中游", "光通訊元件、模組、光纖與電網線材"),
+    "量子電腦": ("下游", "量子運算硬體、雲端平台與系統服務"),
+    "半導體": ("中游", "晶片設計、晶圓製造或半導體設備"),
+    "記憶體": ("中游", "DRAM、NAND及特殊型記憶體製造"),
+    "金融": ("下游", "銀行、保險、投資與資產管理服務"),
+    "功率元件": ("中游", "功率半導體、類比晶片與分離式元件"),
+    "矽晶圓": ("上游", "半導體級矽晶圓與材料供應"),
+    "電網/重電": ("中游", "變壓器、配電、儲能與電網設備"),
+    "封裝測試": ("下游", "半導體封裝、測試與先進封裝服務"),
+    "機器人": ("下游", "工業／人形機器人、控制系統與自動化整合"),
+    "PCB版": ("中游", "PCB、載板與高階電路板製造"),
+    "航運": ("下游", "貨櫃航運、物流及全球運輸服務"),
+    "中國科技與AI平台": ("下游", "AI模型、網路平台、電商與消費科技服務"),
+}
+
+UPSTREAM_KEYWORDS = ("思佳訊", "升達科", "耀登", "駐龍", "寶一", "Lumentum", "Coherent", "聯亞", "艾司摩爾", "東京威力", "艾德萬", "NVIDIA")
+MIDSTREAM_KEYWORDS = ("漢翔", "帕蘭提爾", "華星光", "中際旭創", "廣達", "鴻海", "台積電", "中芯", "發那科", "安川", "所羅門")
+BUSINESS_OVERRIDES = {
+    "SpaceX (概念/特斯拉)": "低軌衛星發射、星鏈網路與終端服務概念",
+    "Viasat (美)": "衛星寬頻、地面網路與國防通訊服務",
+    "帕蘭提爾 (美)": "國防資料分析、AI決策與軟體平台",
+    "台積電 (台)": "先進製程晶圓代工與先進封裝",
+    "NVIDIA (美)": "GPU、AI加速晶片與運算平台設計",
+    "艾司摩爾 (美)": "EUV／DUV半導體微影設備",
+    "廣達 (台)": "伺服器、量子／AI運算系統整合",
+    "鴻海 (台)": "電子製造、伺服器與運算系統整合",
+}
+
+
+def company_profile(category, name):
+  default_position, default_business = CATEGORY_PROFILES.get(category, ("跨供應鏈", "多元產品與平台服務"))
+  if any(keyword in name for keyword in UPSTREAM_KEYWORDS):
+    position = "上游"
+  elif any(keyword in name for keyword in MIDSTREAM_KEYWORDS):
+    position = "中游"
+  else:
+    position = default_position
+  return position, BUSINESS_OVERRIDES.get(name, default_business)
+
+
 @st.cache_data(ttl=600)
 def fetch_stock_data(cache_version):
+
   results = []
   for category, stocks in supply_chains.items():
     for name, ticker in stocks.items():
+      position, business = company_profile(category, name)
       if ticker == "MOONSHOT_PRIVATE":
         results.append({
             "產業板塊": category,
             "股票名稱": name,
+            "供應鏈位置": position,
+            "承作業務": business,
             "代碼": "未上市",
             "最新收盤價": "籌備上市中",
             "漲跌金額": 0.0,
@@ -201,6 +249,8 @@ def fetch_stock_data(cache_version):
         results.append({
             "產業板塊": category,
             "股票名稱": name,
+            "供應鏈位置": position,
+            "承作業務": business,
             "代碼": ticker,
             "最新收盤價": round(close_price, 2),
             "漲跌金額": round(change, 2),
@@ -210,6 +260,8 @@ def fetch_stock_data(cache_version):
         results.append({
             "產業板塊": category,
             "股票名稱": name,
+            "供應鏈位置": position,
+            "承作業務": business,
             "代碼": ticker,
             "最新收盤價": 0.0,
             "漲跌金額": 0.0,
@@ -228,7 +280,7 @@ selected_category = st.sidebar.selectbox(
 )
 
 with st.spinner("正在從 Yahoo Finance 抓取最新跨國股價數據，請稍候..."):
-  df_stocks = fetch_stock_data("20260825-red-up-green-down-v2")
+  df_stocks = fetch_stock_data("20260825-supply-chain-role-v3")
 
 if selected_category != "全部顯示":
   df_filtered = df_stocks[df_stocks["產業板塊"] == selected_category]
