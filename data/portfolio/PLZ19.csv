@@ -1,20 +1,20 @@
 ﻿kind,name,weight,data_date
-industry,資訊科技,48.1,2026/06/30
-industry,工業,29.3,2026/06/30
-industry,金融,9.8,2026/06/30
-industry,非必需消費,4.9,2026/06/30
-industry,必需消費,4.4,2026/06/30
-industry,原物料,1.4,2026/06/30
-industry,通訊服務,0.9,2026/06/30
-industry,現金及約當現金,0.8,2026/06/30
-industry,醫療保健,0.5,2026/06/30
-holding,SAMSUNG ELECTRO MECHANICS,9.4,2026/06/30
-holding,SAMSUNG ELECTRONICS,9.1,2026/06/30
-holding,SK HYNIX,9.0,2026/06/30
-holding,SK SQUARE,8.6,2026/06/30
-holding,SK INC,4.3,2026/06/30
-holding,SAMSUNG C&T,4.0,2026/06/30
-holding,LG INNOTEK,3.6,2026/06/30
-holding,SAMSUNG LIFE INSURANCE,3.6,2026/06/30
-holding,DAEDUCK ELECTRONICS,2.8,2026/06/30
-holding,ISC CO LTD,2.7,2026/06/30
+industry,資訊科技,42.7,2026/07/31
+industry,工業,28.3,2026/07/31
+industry,金融,13.7,2026/07/31
+industry,必需消費,5.8,2026/07/31
+industry,非必需消費,5.5,2026/07/31
+industry,原物料,1.5,2026/07/31
+industry,通訊服務,1.2,2026/07/31
+industry,醫療保健,0.7,2026/07/31
+industry,現金和約當現金,0.5,2026/07/31
+holding,SAMSUNG ELECTRONICS CO LTD,10.1,2026/07/31
+holding,SK HYNIX INC,8.6,2026/07/31
+holding,SK SQUARE CO LTD,7.4,2026/07/31
+holding,SAMSUNG ELECTRO MECHANICS CO LTD,6.9,2026/07/31
+holding,SAMSUNG C&T CORP,4.2,2026/07/31
+holding,SK INC,4.1,2026/07/31
+holding,SAMSUNG LIFE INSURANCE CO LTD,3.9,2026/07/31
+holding,KB FINANCIAL GROUP INC,3.9,2026/07/31
+holding,APR CO LTD,3.1,2026/07/31
+holding,ISC CO LTD,2.7,2026/07/31
