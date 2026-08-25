@@ -804,15 +804,47 @@ with tab_portfolio:
         template_matches = filtered[filtered["name"].isin(template_fund_names)]
         category_funds = pd.concat([category_funds, template_matches]).drop_duplicates("name")
 
-    category_portfolio_for_report = (
-        portfolio_data[portfolio_data["fund"].isin(category_funds["name"])]
-        if not portfolio_data.empty and not category_funds.empty else pd.DataFrame()
-    )
     if not category_funds.empty:
+        st.markdown("**選擇要納入 Word 報告的基金**")
+        st.caption("最左欄取消勾選後，基金仍會保留在網頁中，但不會出現在下載的 Word 報告。")
+        report_selector = pd.DataFrame({
+            "納入報告": True,
+            "基金": category_funds["name"].tolist(),
+            "基金身分": category_funds["moneydj_id"].map(fund_registration_type).tolist(),
+            "淨值日變動": category_funds["nav_change_display"].tolist(),
+            "1Y%": category_funds["return_1y"].tolist(),
+            "夏普": category_funds["sharpe"].tolist(),
+        })
+        edited_report_selector = st.data_editor(
+            report_selector,
+            key=f"word_report_selector_{portfolio_category}",
+            use_container_width=True,
+            hide_index=True,
+            disabled=["基金", "基金身分", "淨值日變動", "1Y%", "夏普"],
+            column_config={
+                "納入報告": st.column_config.CheckboxColumn("納入報告", default=True),
+                "1Y%": st.column_config.NumberColumn("1Y%", format="%.2f"),
+                "夏普": st.column_config.NumberColumn("夏普", format="%.3f"),
+            },
+        )
+        selected_report_names = edited_report_selector.loc[
+            edited_report_selector["納入報告"].fillna(False), "基金"
+        ].tolist()
+        report_funds = category_funds[category_funds["name"].isin(selected_report_names)].copy()
+        category_portfolio_for_report = (
+            portfolio_data[portfolio_data["fund"].isin(selected_report_names)]
+            if not portfolio_data.empty and selected_report_names else pd.DataFrame()
+        )
+        st.caption(f"目前選取 {len(report_funds)}／{len(category_funds)} 檔基金納入報告。")
+    else:
+        report_funds = pd.DataFrame()
+        category_portfolio_for_report = pd.DataFrame()
+
+    if not report_funds.empty:
         try:
             report_bytes = build_category_report(
                 category=portfolio_category,
-                funds=category_funds,
+                funds=report_funds,
                 portfolio=category_portfolio_for_report,
                 updated_at=str(updated_at),
                 sort_label=active_sort,
@@ -832,6 +864,8 @@ with tab_portfolio:
             )
         except Exception as exc:
             st.warning(f"Word 報告暫時無法產生：{exc}")
+    elif not category_funds.empty:
+        st.info("請至少勾選一檔基金，才能下載 Word 報告。")
     if portfolio_category in country_categories and not category_funds.empty:
         st.markdown(f"**{portfolio_category}｜境內／境外基金績效比較**")
         st.caption("國家與區域分類以基金績效、Benchmark及風險指標比較，不顯示個股持股；報酬率均為原幣計算。")
