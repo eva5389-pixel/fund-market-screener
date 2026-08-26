@@ -714,9 +714,10 @@ def main() -> int:
                 "data_date": previous_date or date.today().isoformat(),
                 "score": None,
             })
-    for category_rows in grouped.values():
+    for category_id, category_rows in grouped.items():
         category_rows.sort(key=ranking_score, reverse=True)
-        for rank, row in enumerate(category_rows[:10], 1):
+        display_limit = 20 if category_id == "quantum" else 10
+        for rank, row in enumerate(category_rows[:display_limit], 1):
             row["rank"] = rank
 
     DATA.mkdir(exist_ok=True)
@@ -735,10 +736,15 @@ def main() -> int:
                 output["score"] = fmt(item.get("score"))
                 writer.writerow(output)
 
-    ranked = [row for key in categories for row in grouped.get(key, [])[:10]]
+    ranked = [
+        row
+        for key in categories
+        for row in grouped.get(key, [])[:20 if key == "quantum" else 10]
+    ]
     write_csv(DATA / "rankings.csv", ranked)
     for category_id in categories:
-        write_csv(CATEGORY_DATA / f"{category_id}.csv", grouped.get(category_id, [])[:10])
+        display_limit = 20 if category_id == "quantum" else 10
+        write_csv(CATEGORY_DATA / f"{category_id}.csv", grouped.get(category_id, [])[:display_limit])
 
     try:
         etf_flow_rows = update_etf_flows()

@@ -1,0 +1,21 @@
+﻿kind,name,weight,data_date
+industry,半導體與半導體設備,38.04,2026/07/31
+industry,科技硬體與設備,17.85,2026/07/31
+industry,軟體與服務,13.76,2026/07/31
+industry,媒體與娛樂,10.24,2026/07/31
+industry,資本財,7.85,2026/07/31
+industry,非必需消費品分銷,5.81,2026/07/31
+industry,汽車與零組件,2.09,2026/07/31
+industry,金融服務,1.31,2026/07/31
+industry,醫療設備與服務,0.45,2026/07/31
+industry,電信服務,0.28,2026/07/31
+holding,NVIDIA CORP,9.06,2026/07/31
+holding,APPLE INC COM NPV,8.64,2026/07/31
+holding,MICROSOFT CORP,6.69,2026/07/31
+holding,ALPHABET INC,6.59,2026/07/31
+holding,AMAZON COM INC COM USD0.01,4.38,2026/07/31
+holding,台積電,3.73,2026/07/31
+holding,BROADCOM INC,3.65,2026/07/31
+holding,ADVANCED MICRO DEVICES INC,2.34,2026/07/31
+holding,LAM RESEARCH CORP,2.12,2026/07/31
+holding,TESLA INC,2.09,2026/07/31

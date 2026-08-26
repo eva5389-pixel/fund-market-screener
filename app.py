@@ -938,7 +938,7 @@ with tab_portfolio:
         if summary_rows:
             st.markdown(f"**{portfolio_category}｜基金 Top 10 與相關持股**")
             st.dataframe(
-                pd.DataFrame(summary_rows).head(10),
+                pd.DataFrame(summary_rows).head(20 if portfolio_category == "量子電腦" else 10),
                 use_container_width=True,
                 hide_index=True,
                 column_config={
@@ -1257,8 +1257,10 @@ with tab_quantum:
 
     quantum_etf_data = [
         {"標的／基金名稱": "Defiance Quantum ETF", "代號": "QTUM", "可確認持股": "Rigetti 1.07%、D-Wave 1.01%、Infleqtion 1.05%、IBM 0.95%、Honeywell 0.63%", "風險／用途": "分散型量子與機器學習ETF；不是純量子基金"},
-        {"標的／基金名稱": "WisdomTree Quantum Computing UCITS ETF", "代號": "WQTM", "可確認持股": "Rigetti 5.63%、D-Wave 4.34%、Infleqtion 2.86%、IBM 2.75%（2026/4/13）", "風險／用途": "純量子權重較高；須確認所在地是否可交易"},
-        {"標的／基金名稱": "VanEck Quantum Computing UCITS ETF", "代號": "QNTM", "可確認持股": "D-Wave、Rigetti、IonQ、IBM、Alphabet、Honeywell", "風險／用途": "30檔量子領導者；UCITS產品"},
+        {"標的／基金名稱": "Defiance Pure Quantum Computing ETF", "代號": "QTUP", "可確認持股": "IonQ、D-Wave、Rigetti、Quantinuum、Infleqtion", "風險／用途": "純量子公司集中度高；波動與單一產業風險較高"},
+        {"標的／基金名稱": "WisdomTree Quantum Computing UCITS ETF", "代號": "WQTM.L", "可確認持股": "Rigetti、D-Wave、IonQ、IBM", "風險／用途": "倫敦掛牌UCITS；純量子權重較高"},
+        {"標的／基金名稱": "VanEck Quantum ETF", "代號": "QNTM.AX", "可確認持股": "D-Wave、Rigetti、IonQ、IBM、Alphabet", "風險／用途": "澳洲掛牌；分散布局量子領導者"},
+        {"標的／基金名稱": "iShares Quantum Computing UCITS ETF", "代號": "QANT.L", "可確認持股": "IBM、D-Wave、Rigetti、Alphabet", "風險／用途": "倫敦掛牌UCITS；30檔左右量子相關企業"},
         {"標的／基金名稱": "Defiance 2X Daily Long Pure Quantum ETF", "代號": "QPUX", "可確認持股": "D-Wave掉期約26.00%、Rigetti掉期約23.79%", "風險／用途": "每日2倍槓桿，只適合短期交易"},
         {"標的／基金名稱": "Defiance Daily Target 2X Long RGTI ETF", "代號": "RGTX", "可確認持股": "單一Rigetti每日2倍曝險", "風險／用途": "單一公司＋每日槓桿，風險極高"},
         {"標的／基金名稱": "Defiance Daily Target 2X Long QBTS ETF", "代號": "QBTX", "可確認持股": "單一D-Wave每日2倍曝險", "風險／用途": "單一公司＋每日槓桿，風險極高"},
@@ -1266,6 +1268,18 @@ with tab_quantum:
     ]
     st.markdown("#### 1. 量子運算相關美股 ETF 標的")
     st.dataframe(pd.DataFrame(quantum_etf_data), use_container_width=True, hide_index=True)
+
+    st.markdown("#### 境內／境外共同基金（量子基礎設施與供應鏈）")
+    quantum_mutual_funds = [
+        {"基金身分": "境內基金", "基金名稱": "摩根台灣增長基金", "對應持股": "台積電、鴻海、日月光投控、廣達"},
+        {"基金身分": "境內基金", "基金名稱": "統一奔騰基金", "對應持股": "台積電及先進運算供應鏈"},
+        {"基金身分": "境內基金", "基金名稱": "景順全球科技基金-累積型(台幣)", "對應持股": "Alphabet、台積電"},
+        {"基金身分": "境外基金", "基金名稱": "聯博-國際科技基金I級別美元", "對應持股": "Alphabet、台積電"},
+        {"基金身分": "境外基金", "基金名稱": "貝萊德世界科技基金A2美元", "對應持股": "Alphabet、台積電"},
+        {"基金身分": "境外基金", "基金名稱": "富蘭克林坦伯頓科技基金美元A(acc)", "對應持股": "Alphabet、台積電"},
+    ]
+    st.dataframe(pd.DataFrame(quantum_mutual_funds), use_container_width=True, hide_index=True)
+    st.caption("共同基金屬量子運算基礎設施／供應鏈曝險，不等同純量子基金；持股與比重會隨基金經理人調整。")
 
     st.markdown("#### 2. 美國政府量子入股／資助企業總覽 (CHIPS Act 資金與技術路線)")
     quantum_companies_data = [
@@ -1287,8 +1301,10 @@ with tab_quantum:
     st.caption("一般量子主題 ETF 與每日槓桿 ETF 分開標示；點擊後可查看價格走勢、期間報酬及技術線。UCITS ETF 的交易所代號可能因掛牌市場不同而異。")
     quantum_performance_links = pd.DataFrame([
         {"類型": "一般量子主題ETF", "基金／ETF": "Defiance Quantum ETF", "代號": "QTUM", "績效走勢": "https://finance.yahoo.com/quote/QTUM/chart/"},
-        {"類型": "一般量子主題ETF", "基金／ETF": "WisdomTree Quantum Computing UCITS ETF", "代號": "WQTM", "績效走勢": "https://www.moneydj.com/ETF/X/Basic/Basic0009.xdjhtm?etfid=WQTM"},
-        {"類型": "一般量子主題ETF", "基金／ETF": "VanEck Quantum Computing UCITS ETF", "代號": "QNTM", "績效走勢": "https://www.vaneck.com/uk/en/investments/quantum-computing-etf/performance/"},
+        {"類型": "一般量子主題ETF", "基金／ETF": "Defiance Pure Quantum Computing ETF", "代號": "QTUP", "績效走勢": "https://finance.yahoo.com/quote/QTUP/chart/"},
+        {"類型": "一般量子主題ETF", "基金／ETF": "WisdomTree Quantum Computing UCITS ETF", "代號": "WQTM.L", "績效走勢": "https://finance.yahoo.com/quote/WQTM.L/chart/"},
+        {"類型": "一般量子主題ETF", "基金／ETF": "VanEck Quantum ETF", "代號": "QNTM.AX", "績效走勢": "https://finance.yahoo.com/quote/QNTM.AX/chart/"},
+        {"類型": "一般量子主題ETF", "基金／ETF": "iShares Quantum Computing UCITS ETF", "代號": "QANT.L", "績效走勢": "https://finance.yahoo.com/quote/QANT.L/chart/"},
         {"類型": "每日2倍槓桿", "基金／ETF": "Defiance 2X Daily Long Pure Quantum ETF", "代號": "QPUX", "績效走勢": "https://finance.yahoo.com/quote/QPUX/chart/"},
         {"類型": "每日2倍槓桿", "基金／ETF": "Defiance Daily Target 2X Long RGTI ETF", "代號": "RGTX", "績效走勢": "https://finance.yahoo.com/quote/RGTX/chart/"},
         {"類型": "每日2倍槓桿", "基金／ETF": "Defiance Daily Target 2X Long QBTS ETF", "代號": "QBTX", "績效走勢": "https://finance.yahoo.com/quote/QBTX/chart/"},

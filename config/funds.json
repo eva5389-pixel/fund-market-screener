@@ -53,6 +53,17 @@
     ,{"category": "quantum", "moneydj_id": "ACTR37", "name": "國泰臺韓科技基金", "distribution": "是（半年配）", "twelve_data_symbol": ""}
     ,{"category": "quantum", "moneydj_id": "AC0052", "name": "富邦台灣科技指數基金(本基金之配息來源可能為收益平準金)", "distribution": "是", "twelve_data_symbol": ""}
     ,{"category": "quantum", "moneydj_id": "AC0053", "name": "元大台灣電子科技基金", "distribution": "否", "twelve_data_symbol": ""}
+    ,{"category": "quantum", "moneydj_id": "", "name": "Defiance Quantum ETF", "distribution": "否", "twelve_data_symbol": "QTUM"}
+    ,{"category": "quantum", "moneydj_id": "", "name": "Defiance Pure Quantum Computing ETF", "distribution": "否", "twelve_data_symbol": "QTUP"}
+    ,{"category": "quantum", "moneydj_id": "", "name": "WisdomTree Quantum Computing UCITS ETF", "distribution": "否", "twelve_data_symbol": "WQTM.L"}
+    ,{"category": "quantum", "moneydj_id": "", "name": "VanEck Quantum ETF", "distribution": "否", "twelve_data_symbol": "QNTM.AX"}
+    ,{"category": "quantum", "moneydj_id": "", "name": "iShares Quantum Computing UCITS ETF", "distribution": "否", "twelve_data_symbol": "QANT.L"}
+    ,{"category": "quantum", "moneydj_id": "ACJF51", "name": "摩根台灣增長基金", "distribution": "否", "twelve_data_symbol": ""}
+    ,{"category": "quantum", "moneydj_id": "ACPS10", "name": "統一奔騰基金", "distribution": "否", "twelve_data_symbol": ""}
+    ,{"category": "quantum", "moneydj_id": "ACCS131", "name": "景順全球科技基金-累積型(台幣)", "distribution": "否", "twelve_data_symbol": ""}
+    ,{"category": "quantum", "moneydj_id": "ALZM9", "name": "聯博-國際科技基金I級別美元", "distribution": "否", "twelve_data_symbol": ""}
+    ,{"category": "quantum", "moneydj_id": "SHZ71", "name": "貝萊德世界科技基金A2美元", "distribution": "否", "twelve_data_symbol": ""}
+    ,{"category": "quantum", "moneydj_id": "FLZ80", "name": "富蘭克林坦伯頓科技基金美元A(acc)", "distribution": "否", "twelve_data_symbol": ""}
     ,{"category": "optical", "moneydj_id": "ACCH03-9002", "name": "街口中小型基金", "distribution": "否", "twelve_data_symbol": ""}
     ,{"category": "optical", "moneydj_id": "AC0017-6206", "name": "元大二○○一基金", "distribution": "否", "twelve_data_symbol": ""}
     ,{"category": "optical", "moneydj_id": "ACNC16-7905", "name": "第一金電子基金", "distribution": "否", "twelve_data_symbol": ""}
@@ -61,6 +72,7 @@
     ,{"category": "robotics", "moneydj_id": "ACTR36", "name": "國泰納斯達克全球人工智慧及機器人基金", "distribution": "否", "twelve_data_symbol": ""}
     ,{"category": "robotics", "moneydj_id": "ACNC89", "name": "第一金全球AI機器人及自動化產業基金N類型(美元)", "distribution": "否", "twelve_data_symbol": ""}
     ,{"category": "taiwan", "moneydj_id": "ACES10", "name": "施羅德台灣樂活中小基金-A類型", "distribution": "否", "twelve_data_symbol": ""}
+    ,{"category": "taiwan", "moneydj_id": "ACTC01-7201", "name": "台新台灣中小基金", "distribution": "否", "twelve_data_symbol": ""}
     ,{"category": "korea", "moneydj_id": "LIC04", "name": "利安資金韓國基金(美元)", "distribution": "否", "twelve_data_symbol": ""}
     ,{"category": "korea", "moneydj_id": "JFZP9", "name": "摩根南韓基金數位級別(美元)(累計)", "distribution": "否", "twelve_data_symbol": ""}
     ,{"category": "korea", "moneydj_id": "PLZ19", "name": "霸菱韓國基金-A類美元累積型", "distribution": "否", "twelve_data_symbol": ""}
