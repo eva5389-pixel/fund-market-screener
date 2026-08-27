@@ -106,6 +106,10 @@ def load_rankings(file_mtime: float) -> pd.DataFrame:
             value = str(identifier or "").strip()
             if not value or value.lower() == "nan":
                 return ""
+            # 合庫 MoneyDJ 的統一奔騰頁面需帶上銀行上架代碼 5808，
+            # 只傳 ACPS10 會導向錯誤或不完整的基金頁面。
+            if value.upper() == "ACPS10":
+                return "https://tcbbankfund.moneydj.com/w/wr/wr902.djhtm?a=ACPS10-5808"
             section = "wr" if value.upper().startswith("AC") else "wb"
             return f"https://tcbbankfund.moneydj.com/w/{section}/{section}902.djhtm?a={value}"
         frame["tcb_url"] = frame["moneydj_id"].map(build_tcb_url)
