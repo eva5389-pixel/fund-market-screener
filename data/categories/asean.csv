@@ -1,4 +1,4 @@
 ﻿rank,category_name,name,moneydj_id,twelve_data_symbol,benchmark,distribution,daily_change,return_1m,return_3m,momentum_6m,return_1y,momentum_acceleration,benchmark_return_1y,excess_return_1y,sharpe,max_drawdown,recovery_days,score,signal,status,data_source,data_date
 1,東協,統一大東協高股息基金(台幣)(本基金並無保證收益及配息),ACPS53,,ASEA,是,0.69,0.23,-6.06,12.64,56.11,-49.00,22.88,33.23,0.610,-19.51,,1.044,買進,沿用上次資料（2026-08-25）,合庫 MoneyDJ 公開網頁（爬蟲）,2026-08-25
-2,東協,復華東協世紀基金,ACFH32,,ASEA,否,1.28,0.09,1.76,11.17,31.94,-16.36,16.43,15.51,0.550,-9.83,,0.647,買進,沿用上次資料（2026-08-25）,合庫 MoneyDJ 公開網頁（爬蟲）,2026-08-25
+2,東協,復華東協世紀基金,ACFH32,,ASEA,否,1.28,-0.05,1.52,11.53,32.00,-16.36,16.59,15.41,0.610,-9.83,,0.662,買進,沿用上次資料（2026-08-25）,合庫 MoneyDJ 公開網頁（爬蟲）,2026-08-25
 3,東協,野村泰國基金,ACKH12,,ASEA,否,-0.09,0.85,5.18,3.20,36.59,15.88,17.88,18.71,0.490,-9.53,64.0,0.635,買進,沿用上次資料（2026-08-25）,合庫 MoneyDJ 公開網頁（爬蟲）,2026-08-25
