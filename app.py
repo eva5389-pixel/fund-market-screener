@@ -113,6 +113,11 @@ def load_rankings(file_mtime: float) -> pd.DataFrame:
             section = "wr" if value.upper().startswith("AC") else "wb"
             return f"https://tcbbankfund.moneydj.com/w/{section}/{section}902.djhtm?a={value}"
         frame["tcb_url"] = frame["moneydj_id"].map(build_tcb_url)
+        # Defiance Quantum ETF 使用合庫 MoneyDJ 的海外 ETF 專屬頁面。
+        qtum_mask = frame.get("twelve_data_symbol", pd.Series("", index=frame.index)).fillna("").astype(str).str.upper().eq("QTUM")
+        frame.loc[qtum_mask & frame["name"].eq("Defiance Quantum ETF"), "tcb_url"] = (
+            "https://tcbbankfund.moneydj.com/main.html?sUrl=$ETFWEB$HTML$ET013001]DJHTM?|ETFID}QTUM~E162"
+        )
         for index, row in frame.iterrows():
             identifier = str(row.get("moneydj_id") or "").strip()
             if not identifier or identifier.lower() == "nan":
