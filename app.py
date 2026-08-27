@@ -29,6 +29,7 @@ RANKINGS_FILE = DATA_DIR / "rankings.csv"
 STATUS_FILE = DATA_DIR / "status.json"
 NAV_HISTORY_DIR = DATA_DIR / "nav_history"
 PORTFOLIO_DIR = DATA_DIR / "portfolio"
+LOCAL_DATA_ID_ALIASES = {"SHZ71-2456": "SHZ71"}
 GRAFANA_TEMPLATES_FILE = DATA_DIR / "grafana_fund_templates.json"
 ETF_FLOW_FILE = DATA_DIR / "etf_flows.csv"
 UPDATE_SCRIPT = BASE_DIR / "src" / "update_dashboard.py"
@@ -125,7 +126,8 @@ def load_rankings(file_mtime: float) -> pd.DataFrame:
             identifier = str(row.get("moneydj_id") or "").strip()
             if not identifier or identifier.lower() == "nan":
                 continue
-            path = NAV_HISTORY_DIR / f"{re.sub(r'[^A-Za-z0-9_-]', '_', identifier)}.csv"
+            local_identifier = LOCAL_DATA_ID_ALIASES.get(identifier, identifier)
+            path = NAV_HISTORY_DIR / f"{re.sub(r'[^A-Za-z0-9_-]', '_', local_identifier)}.csv"
             if not path.exists():
                 continue
             try:
@@ -443,7 +445,8 @@ def load_scraped_backtest_history(funds: pd.DataFrame) -> pd.DataFrame:
         identifier = str(fund_row.get("moneydj_id") or "").strip()
         if not identifier:
             continue
-        safe_name = re.sub(r"[^A-Za-z0-9_-]", "_", identifier)
+        local_identifier = LOCAL_DATA_ID_ALIASES.get(identifier, identifier)
+        safe_name = re.sub(r"[^A-Za-z0-9_-]", "_", local_identifier)
         path = NAV_HISTORY_DIR / f"{safe_name}.csv"
         if not path.exists():
             continue
@@ -465,7 +468,8 @@ def load_portfolio_details(funds: pd.DataFrame) -> pd.DataFrame:
         identifier = str(fund_row.get("moneydj_id") or "").strip()
         if not identifier:
             continue
-        safe_name = re.sub(r"[^A-Za-z0-9_-]", "_", identifier)
+        local_identifier = LOCAL_DATA_ID_ALIASES.get(identifier, identifier)
+        safe_name = re.sub(r"[^A-Za-z0-9_-]", "_", local_identifier)
         path = PORTFOLIO_DIR / f"{safe_name}.csv"
         if not path.exists():
             continue

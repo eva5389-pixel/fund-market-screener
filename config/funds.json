@@ -62,7 +62,7 @@
     ,{"category": "quantum", "moneydj_id": "ACPS10", "name": "統一奔騰基金", "distribution": "否", "twelve_data_symbol": ""}
     ,{"category": "quantum", "moneydj_id": "ACCS131", "name": "景順全球科技基金-累積型(台幣)", "distribution": "否", "twelve_data_symbol": ""}
     ,{"category": "quantum", "moneydj_id": "ALZM9", "name": "聯博-國際科技基金I級別美元", "distribution": "否", "twelve_data_symbol": ""}
-    ,{"category": "quantum", "moneydj_id": "SHZ71", "name": "貝萊德世界科技基金 A2 美元", "distribution": "否", "twelve_data_symbol": ""}
+    ,{"category": "quantum", "moneydj_id": "SHZ71-2456", "name": "貝萊德世界科技基金 A2 美元", "distribution": "否", "twelve_data_symbol": ""}
     ,{"category": "quantum", "moneydj_id": "FLZ80", "name": "富蘭克林坦伯頓科技基金美元A(acc)", "distribution": "否", "twelve_data_symbol": ""}
     ,{"category": "optical", "moneydj_id": "ACCH03-9002", "name": "街口中小型基金", "distribution": "否", "twelve_data_symbol": ""}
     ,{"category": "optical", "moneydj_id": "AC0017-6206", "name": "元大二○○一基金", "distribution": "否", "twelve_data_symbol": ""}
@@ -106,7 +106,7 @@
     ,{"category": "mining", "moneydj_id": "ACFH26", "name": "復華全球原物料基金", "distribution": "否", "twelve_data_symbol": ""}
     ,{"category": "mining", "moneydj_id": "GSFF7", "name": "晉達環球策略基金-環球天然資源基金A累積股份", "distribution": "否", "twelve_data_symbol": ""}
     ,{"category": "semiconductor", "moneydj_id": "ACTT209", "name": "台新美日台半導體基金-A不配息(台幣)", "distribution": "否", "twelve_data_symbol": ""}
-    ,{"category": "semiconductor", "moneydj_id": "SHZ71", "name": "貝萊德世界科技基金 A2 美元", "distribution": "否", "twelve_data_symbol": ""}
+    ,{"category": "semiconductor", "moneydj_id": "SHZ71-2456", "name": "貝萊德世界科技基金 A2 美元", "distribution": "否", "twelve_data_symbol": ""}
     ,{"category": "semiconductor", "moneydj_id": "ACNC16", "name": "第一金電子基金", "distribution": "否", "twelve_data_symbol": ""}
     ,{"category": "memory", "moneydj_id": "ACCH03", "name": "街口中小型基金（記憶體供應鏈）", "distribution": "否", "twelve_data_symbol": ""}
     ,{"category": "memory", "moneydj_id": "ACTR37", "name": "國泰臺韓科技基金（記憶體供應鏈）", "distribution": "是（半年配）", "twelve_data_symbol": ""}
