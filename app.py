@@ -118,6 +118,9 @@ def load_rankings(file_mtime: float) -> pd.DataFrame:
         frame.loc[qtum_mask & frame["name"].eq("Defiance Quantum ETF"), "tcb_url"] = (
             "https://tcbbankfund.moneydj.com/main.html?sUrl=$ETFWEB$HTML$ET013001]DJHTM?|ETFID}QTUM~E162"
         )
+        frame.loc[frame["name"].eq("貝萊德世界科技基金 A2 美元"), "tcb_url"] = (
+            "https://tcbbankfund.moneydj.com/main.html?sUrl=$W$WB$WB03]DJHTM{A}SH^71-2456"
+        )
         for index, row in frame.iterrows():
             identifier = str(row.get("moneydj_id") or "").strip()
             if not identifier or identifier.lower() == "nan":
