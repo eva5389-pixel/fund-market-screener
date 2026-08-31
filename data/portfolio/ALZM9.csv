@@ -1,21 +1,21 @@
 ﻿kind,name,weight,data_date
-industry,半導體及半導體設備,48.05,2026/06/30
-industry,其他,12.23,2026/06/30
-industry,電腦硬體及週邊設備,9.23,2026/06/30
-industry,軟體,8.32,2026/06/30
-industry,電子設備及零組件,6.64,2026/06/30
-industry,互動式媒體與服務,4.79,2026/06/30
-industry,資訊科技服務,4.18,2026/06/30
-industry,通訊設備,3.22,2026/06/30
-industry,多元電信服務,1.74,2026/06/30
-industry,多元化零售,1.6,2026/06/30
-holding,"Apple, Inc.,電腦硬體及週邊設備",3.38,2026/06/30
-holding,"NVIDIA Corp.,半導體及半導體設備",3.34,2026/06/30
-holding,"Alphabet, Inc.,互動式媒體與服務",3.2,2026/06/30
-holding,"Advanced Micro Devices,半導體及半導體設備",3.15,2026/06/30
-holding,"Microsoft Corp.,軟體",2.86,2026/06/30
-holding,"Taiwan Semiconductor Manufacturing,半導體及半導體設備",2.76,2026/06/30
-holding,"Micron Technology, Inc.,半導體及半導體設備",2.6,2026/06/30
-holding,"Lam Research Corp.,半導體及半導體設備",2.57,2026/06/30
-holding,"Intel Corp.,半導體及半導體設備",2.4,2026/06/30
-holding,"Applied Materials, Inc.,半導體及半導體設備",2.28,2026/06/30
+industry,半導體及半導體設備,44.9,2026/07/31
+industry,軟體,11.57,2026/07/31
+industry,其他,11.33,2026/07/31
+industry,電腦硬體及週邊設備,9.78,2026/07/31
+industry,電子設備及零組件,5.93,2026/07/31
+industry,通訊設備,4.52,2026/07/31
+industry,資訊科技服務,3.72,2026/07/31
+industry,互動式媒體與服務,3.49,2026/07/31
+industry,多元化零售,3.24,2026/07/31
+industry,電子設備,1.52,2026/07/31
+holding,"Microsoft Corp.,軟體",5.66,2026/07/31
+holding,"NVIDIA Corp.,半導體及半導體設備",4.48,2026/07/31
+holding,"Broadcom, Inc.,半導體及半導體設備",4.4,2026/07/31
+holding,"Apple, Inc.,電腦硬體及週邊設備",3.86,2026/07/31
+holding,"Advanced Micro Devices,半導體及半導體設備",3.63,2026/07/31
+holding,"Alphabet, Inc.,互動式媒體與服務",3.49,2026/07/31
+holding,"Taiwan Semiconductor Manufacturing,半導體及半導體設備",2.81,2026/07/31
+holding,"Amazon.com, Inc.,多元化零售",2.2,2026/07/31
+holding,"Applied Materials, Inc.,半導體及半導體設備",2.17,2026/07/31
+holding,"ASML Holding NV,半導體及半導體設備",2.11,2026/07/31
