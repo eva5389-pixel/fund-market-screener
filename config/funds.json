@@ -68,6 +68,12 @@
     ,{"category": "optical", "moneydj_id": "AC0017-6206", "name": "元大二○○一基金", "distribution": "否", "twelve_data_symbol": ""}
     ,{"category": "optical", "moneydj_id": "ACNC16-7905", "name": "第一金電子基金", "distribution": "否", "twelve_data_symbol": ""}
     ,{"category": "optical", "moneydj_id": "ACCT01-5905", "name": "富邦台灣心基金", "distribution": "否", "twelve_data_symbol": ""}
+    ,{"category": "optical", "moneydj_id": "ACDD04-8602", "name": "安聯台灣科技基金", "distribution": "否", "twelve_data_symbol": ""}
+    ,{"category": "optical", "moneydj_id": "AC0028", "name": "群益店頭市場基金", "distribution": "否", "twelve_data_symbol": ""}
+    ,{"category": "optical", "moneydj_id": "AC0001", "name": "野村鴻運基金", "distribution": "否", "twelve_data_symbol": ""}
+    ,{"category": "optical", "moneydj_id": "ACPS06-5806", "name": "統一中小基金", "distribution": "否", "twelve_data_symbol": ""}
+    ,{"category": "optical", "moneydj_id": "ACPS10", "name": "統一奔騰基金", "distribution": "否", "twelve_data_symbol": ""}
+    ,{"category": "optical", "moneydj_id": "ACCB01-9610", "name": "合庫台灣基金-A不配息(台幣)", "distribution": "否", "twelve_data_symbol": ""}
     ,{"category": "robotics", "moneydj_id": "ACTT63", "name": "台新SG全球AI機器人精選ETF基金", "distribution": "否", "twelve_data_symbol": ""}
     ,{"category": "robotics", "moneydj_id": "ACTR36", "name": "國泰納斯達克全球人工智慧及機器人基金", "distribution": "否", "twelve_data_symbol": ""}
     ,{"category": "robotics", "moneydj_id": "ACNC89", "name": "第一金全球AI機器人及自動化產業基金N類型(美元)", "distribution": "否", "twelve_data_symbol": ""}

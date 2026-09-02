@@ -35,6 +35,15 @@ ETF_FLOW_FILE = DATA_DIR / "etf_flows.csv"
 UPDATE_SCRIPT = BASE_DIR / "src" / "update_dashboard.py"
 AUTO_UPDATE_INTERVAL = timedelta(hours=24)
 
+# 光通訊分類只計入使用者提供的光_export.csv 成分；避免把一般電子股
+# 或同一持股的重複列加進「相關持股%」。
+OPTICAL_HOLDING_NAMES = {
+    "聯亞", "全新", "環宇-KY", "Lumentum", "Coherent", "源杰科技", "光庫科技",
+    "光環", "華星光", "上詮", "光聖", "波若威", "眾達-KY", "Applied Optoelectronics",
+    "Marvell", "Broadcom", "中際旭創", "新易盛", "天孚通信", "長飛光纖", "亨通光電",
+    "藤倉", "古河電工", "住友電工", "日月光投控", "訊芯-KY", "聯鈞", "旺矽",
+}
+
 METRIC_COLUMNS = [
     "daily_change",
     "return_1m",
@@ -927,6 +936,11 @@ with tab_portfolio:
         st.info("尚未建立持股資料，請按左側「立即更新資料」執行爬蟲。")
     else:
         category_portfolio = portfolio_data[portfolio_data["fund"].isin(category_funds["name"])]
+        if portfolio_category == "光通訊":
+            category_portfolio = category_portfolio[
+                category_portfolio["kind"].ne("holding")
+                | category_portfolio["name"].isin(OPTICAL_HOLDING_NAMES)
+            ].drop_duplicates(["fund", "kind", "name", "data_date"])
         summary_rows = []
         for _, fund_row in category_funds.iterrows():
             fund_holdings = category_portfolio[
