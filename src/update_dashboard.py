@@ -621,8 +621,6 @@ def main() -> int:
                 row.update(fetch_moneydj_metrics(moneydj_id))
                 nav_dates, nav_values = fetch_moneydj_nav_history(moneydj_id)
                 save_nav_history(moneydj_id, nav_dates, nav_values)
-                industries, holdings = fetch_moneydj_portfolio(moneydj_id)
-                save_portfolio(moneydj_id, industries, holdings)
                 # Published MoneyDJ performance and Sharpe use the same fund/share-class
                 # conventions as bank and Bloomberg terminals.  Preserve them when present;
                 # historical NAV calculations are only a documented fallback.
@@ -639,6 +637,13 @@ def main() -> int:
                 row["momentum_acceleration"] = momentum_acceleration(row["return_3m"], row["momentum_6m"])
                 row["data_date"] = datetime.strptime(nav_dates[-1], "%Y%m%d").date().isoformat()
                 row["status"] = "已更新（合庫 MoneyDJ 網頁爬蟲）"
+                # Portfolio markup occasionally changes independently of the NAV feed.
+                # A holdings-page failure must not discard valid drawdown/risk metrics.
+                try:
+                    industries, holdings = fetch_moneydj_portfolio(moneydj_id)
+                    save_portfolio(moneydj_id, industries, holdings)
+                except Exception as portfolio_exc:
+                    row["status"] = f"已更新淨值；持股暫無資料: {type(portfolio_exc).__name__}"
             except Exception as exc:
                 row["status"] = f"網頁爬蟲暫無資料: {type(exc).__name__}"
         if fund_values is not None:
