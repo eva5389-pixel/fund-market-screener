@@ -1,4 +1,4 @@
 ﻿rank,category_name,name,moneydj_id,twelve_data_symbol,benchmark,distribution,daily_change,return_1m,return_3m,momentum_6m,return_1y,momentum_acceleration,benchmark_return_1y,excess_return_1y,sharpe,max_drawdown,recovery_days,score,signal,status,data_source,data_date
-1,醫療,富蘭克林坦伯頓全球投資系列生技領航基金美元A(acc),FLZ81,,XLV,否,1.27,6.91,21.76,23.27,65.11,57.43,52.80,12.31,0.650,-9.17,14.0,1.091,買進,沿用上次資料（2026-08-25）,合庫 MoneyDJ 公開網頁（爬蟲）,2026-08-25
+1,醫療,富蘭克林坦伯頓全球投資系列生技領航基金美元A(acc),FLZ81,,XLV,否,1.27,3.81,18.42,20.61,64.17,57.43,52.06,12.11,0.730,-9.17,14.0,1.069,買進,沿用上次資料（2026-08-25）,合庫 MoneyDJ 公開網頁（爬蟲）,2026-08-25
 2,醫療,百達-生物科技-I美元,PIC90,,XLV,否,2.68,8.25,23.44,24.29,58.61,62.65,52.80,5.81,0.540,-10.15,12.0,0.944,買進,沿用上次資料（2026-08-25）,合庫 MoneyDJ 公開網頁（爬蟲）,2026-08-25
 3,醫療,富蘭克林華美全球醫療保健基金(台幣),ACFT73-9209,,XLV,,0.97,3.89,16.13,15.21,33.20,30.81,14.57,18.63,0.400,-9.85,58.0,0.701,買進,沿用上次資料（2026-08-25）,合庫 MoneyDJ 公開網頁（爬蟲）,2026-08-25
