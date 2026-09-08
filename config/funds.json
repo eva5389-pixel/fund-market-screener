@@ -23,6 +23,7 @@
     {"id": "semiconductor", "name": "半導體", "benchmark_symbol": "SOXX"},
     {"id": "memory", "name": "記憶體", "benchmark_symbol": "SOXX"},
     {"id": "optical", "name": "光通訊", "benchmark_symbol": "IYZ"},
+    {"id": "high_end_pcb", "name": "高階PCB", "benchmark_symbol": "SOXX"},
     {"id": "quantum", "name": "量子電腦", "benchmark_symbol": "QTUM"},
     {"id": "robotics", "name": "機器人", "benchmark_symbol": "BOTZ"},
     {"id": "finance", "name": "金融", "benchmark_symbol": "XLF"},
@@ -125,5 +126,15 @@
     ,{"category": "indium_phosphide", "moneydj_id": "ACNB46", "name": "路博邁台灣5G股票基金N月配型（磷化銦供應鏈）", "distribution": "是", "twelve_data_symbol": ""}
     ,{"category": "indium_phosphide", "moneydj_id": "AC0028", "name": "群益店頭市場基金（磷化銦供應鏈）", "distribution": "否", "twelve_data_symbol": ""}
     ,{"category": "indium_phosphide", "moneydj_id": "ACCT01", "name": "富邦台灣心基金（磷化銦供應鏈）", "distribution": "否", "twelve_data_symbol": ""}
+    ,{"category": "high_end_pcb", "moneydj_id": "ACES10", "name": "施羅德台灣樂活中小基金-A類型", "distribution": "否", "twelve_data_symbol": ""}
+    ,{"category": "high_end_pcb", "moneydj_id": "ACPS06-5806", "name": "統一中小基金", "distribution": "否", "twelve_data_symbol": ""}
+    ,{"category": "high_end_pcb", "moneydj_id": "ACNC16", "name": "第一金電子基金", "distribution": "否", "twelve_data_symbol": ""}
+    ,{"category": "high_end_pcb", "moneydj_id": "ACCH03-9002", "name": "街口中小型基金", "distribution": "否", "twelve_data_symbol": ""}
+    ,{"category": "high_end_pcb", "moneydj_id": "ACPS10", "name": "統一奔騰基金", "distribution": "否", "twelve_data_symbol": ""}
+    ,{"category": "high_end_pcb", "moneydj_id": "AC0001", "name": "野村鴻運基金", "distribution": "否", "twelve_data_symbol": ""}
+    ,{"category": "high_end_pcb", "moneydj_id": "ACDD04-8602", "name": "安聯台灣科技基金", "distribution": "否", "twelve_data_symbol": ""}
+    ,{"category": "high_end_pcb", "moneydj_id": "ACCH01", "name": "街口台灣基金", "distribution": "否", "twelve_data_symbol": ""}
+    ,{"category": "high_end_pcb", "moneydj_id": "AC0017-6206", "name": "元大二○○一基金", "distribution": "否", "twelve_data_symbol": ""}
+    ,{"category": "high_end_pcb", "moneydj_id": "ACCT01", "name": "富邦台灣心基金", "distribution": "否", "twelve_data_symbol": ""}
   ]
 }

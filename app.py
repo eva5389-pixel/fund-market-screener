@@ -44,6 +44,12 @@ OPTICAL_HOLDING_NAMES = {
     "藤倉", "古河電工", "住友電工", "日月光投控", "訊芯-KY", "聯鈞", "旺矽",
 }
 
+# 高階 PCB 基金依公開主要持股中實際出現的 PCB、CCL、銅箔與載板公司篩選。
+HIGH_END_PCB_HOLDING_NAMES = {
+    "金像電", "健鼎", "臻鼎-KY", "欣興", "華通", "瀚宇博", "博智", "高技",
+    "定穎投控", "台光電", "台燿", "聯茂", "金居", "南電", "景碩",
+}
+
 METRIC_COLUMNS = [
     "daily_change",
     "return_1m",
@@ -940,6 +946,11 @@ with tab_portfolio:
             category_portfolio = category_portfolio[
                 category_portfolio["kind"].ne("holding")
                 | category_portfolio["name"].isin(OPTICAL_HOLDING_NAMES)
+            ].drop_duplicates(["fund", "kind", "name", "data_date"])
+        elif portfolio_category == "高階PCB":
+            category_portfolio = category_portfolio[
+                category_portfolio["kind"].ne("holding")
+                | category_portfolio["name"].isin(HIGH_END_PCB_HOLDING_NAMES)
             ].drop_duplicates(["fund", "kind", "name", "data_date"])
         summary_rows = []
         for _, fund_row in category_funds.iterrows():
