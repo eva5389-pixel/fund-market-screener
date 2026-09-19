@@ -1,4 +1,4 @@
 ﻿rank,category_name,name,moneydj_id,twelve_data_symbol,benchmark,distribution,daily_change,return_1m,return_3m,momentum_6m,return_1y,momentum_acceleration,benchmark_return_1y,excess_return_1y,sharpe,max_drawdown,recovery_days,score,signal,status,data_source,data_date
-1,黃金,貝萊德世界黃金基金A2美元,SHZ18,,GLD,否,-0.59,4.11,7.05,0.78,45.20,126.19,41.71,3.49,0.290,-36.68,,0.369,買進,沿用上次資料（2026-08-25）,合庫 MoneyDJ 公開網頁（爬蟲）,2026-08-25
+1,黃金,貝萊德世界黃金基金A2美元,SHZ18,,GLD,否,-0.59,5.33,10.79,6.43,47.03,126.19,40.77,6.26,0.290,-36.68,,0.472,買進,沿用上次資料（2026-08-25）,合庫 MoneyDJ 公開網頁（爬蟲）,2026-08-25
 2,黃金,元大黃金期貨基金,ACKY38,,GLD,否,-0.10,-1.58,-1.96,-13.95,26.39,18.98,1.09,25.30,0.250,-24.34,,0.306,觀察,沿用上次資料（2026-08-25）,合庫 MoneyDJ 公開網頁（爬蟲）,2026-08-25
 3,黃金,元大標普高盛黃金ER指數期貨基金,ACYT63,,GLD,否,-0.06,-1.66,-1.08,-15.13,12.79,30.16,-3.47,16.26,0.160,-26.76,,0.037,觀察,沿用上次資料（2026-08-25）,合庫 MoneyDJ 公開網頁（爬蟲）,2026-08-25
