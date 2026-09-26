@@ -1,4 +1,4 @@
 ﻿rank,category_name,name,moneydj_id,twelve_data_symbol,benchmark,distribution,daily_change,return_1m,return_3m,momentum_6m,return_1y,momentum_acceleration,benchmark_return_1y,excess_return_1y,sharpe,max_drawdown,recovery_days,score,signal,status,data_source,data_date
-1,中國,景順大中華基金C股美元,CTH03,,MCHI,否,1.22,4.70,5.08,20.96,22.67,-10.71,-2.78,25.45,0.300,-13.94,19.0,0.681,買進,沿用上次資料（2026-08-25）,合庫 MoneyDJ 公開網頁（爬蟲）,2026-08-25
+1,中國,景順大中華基金C股美元,CTH03,,MCHI,否,1.22,3.68,4.95,18.55,23.02,-10.71,-3.36,26.38,0.330,-13.94,19.0,0.676,買進,沿用上次資料（2026-08-25）,合庫 MoneyDJ 公開網頁（爬蟲）,2026-08-25
 2,中國,利安資金中國增長基金(美元),LIC33,,MCHI,否,0.84,2.33,0.74,20.40,23.49,-20.47,-0.06,23.55,0.290,-16.60,,0.649,買進,沿用上次資料（2026-08-25）,合庫 MoneyDJ 公開網頁（爬蟲）,2026-08-25
 3,中國,摩根中國雙息平衡基金-月配型(台幣),ACJF132-8434,,MCHI,,0.24,-4.04,-1.71,-1.65,2.16,1.66,-3.10,5.26,0.040,-8.20,,0.025,觀察,沿用上次資料（2026-08-25）,合庫 MoneyDJ 公開網頁（爬蟲）,2026-08-25
