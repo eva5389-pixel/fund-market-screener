@@ -1,4 +1,4 @@
 ﻿rank,category_name,name,moneydj_id,twelve_data_symbol,benchmark,distribution,daily_change,return_1m,return_3m,momentum_6m,return_1y,momentum_acceleration,benchmark_return_1y,excess_return_1y,sharpe,max_drawdown,recovery_days,score,signal,status,data_source,data_date
 1,礦業,富蘭克林華美天然資源組合基金,ACFT10,,PICK,否,0.98,-8.37,-19.85,-20.68,-0.60,4.80,-15.13,14.53,0.020,-18.77,,-0.157,觀察,沿用上次資料（2026-08-25）,合庫 MoneyDJ 公開網頁（爬蟲）,2026-08-25
-2,礦業,晉達環球策略基金-環球天然資源基金A累積股份,GSFF7,,PICK,否,-0.37,-12.52,-16.10,-11.68,12.11,19.44,36.51,-24.40,0.140,-15.77,37.0,-0.291,賣出,沿用上次資料（2026-08-25）,合庫 MoneyDJ 公開網頁（爬蟲）,2026-08-25
+2,礦業,晉達環球策略基金-環球天然資源基金A累積股份,GSFF7,,PICK,否,-0.37,-11.78,-15.29,-10.85,11.22,19.44,35.47,-24.25,0.140,-15.77,37.0,-0.290,賣出,沿用上次資料（2026-08-25）,合庫 MoneyDJ 公開網頁（爬蟲）,2026-08-25
 3,礦業,復華全球原物料基金,ACFH26,,PICK,否,1.38,-20.91,-34.71,-46.88,-19.11,-35.18,-34.80,15.69,-0.040,-39.59,,-0.709,賣出,沿用上次資料（2026-08-25）,合庫 MoneyDJ 公開網頁（爬蟲）,2026-08-25
